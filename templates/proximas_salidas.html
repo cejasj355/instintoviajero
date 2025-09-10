@@ -1,0 +1,120 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16884791919"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'AW-16884791919');
+    </script>
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '637563278683166');
+        fbq('track', 'PageView');
+        </script>
+        <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=637563278683166&ev=PageView&noscript=1"
+        /></noscript>
+</head>
+{% extends 'base.html' %}
+
+{% block title %}Próximas Salidas{% endblock %}
+
+{% block content %}
+<main>
+    <div class="section-titles-subtitles">
+        <h2 class="section-title">ELEGI TU PRÓXIMA</h2>
+        <h3 class="section-subtitle">AVENTURA</h3>
+    </div>
+    <section class="trekking_cba">
+        <div class="trekking-cba-grid">
+            <div class="trekking_cba_carta">
+                <div class="trekking_cba_img">
+                    <img src="../static/img/Fotos Página/SALIDAS_CBA/Uritorco-Cuadradoo.webp" alt="Imagen del cerro uritorco">
+                </div>
+                <div class="trekking_cba_titulo">
+                    <h4>Ascenso Cerro Uritorco nocturno</h4>
+                </div>
+                <div class="trekking_cba_parrafo">
+                    <p>Nos vamos tras los misterios de la noche en el Cerro Uritorco. Desde la medianoche caminamos para vivir el amanecer desde la cumbre. ¿Te animas?</p>
+                </div>
+                <div>
+                    <a class="trekking_cba_boton botones" href="{{url_for("uritorco")}}">VER MÁS</a>
+                </div>
+            </div>
+            <div class="trekking_cba_carta">
+                <div class="trekking_cba_img">
+                    <img src="../static/img/Fotos Página/SALIDAS_CBA/Cajones-y-Gigantes-cuadradoo.webp" alt="Imagen de gigantes">
+                </div>
+                <div class="trekking_cba_titulo">
+                    <h4>Los Gigantes Full: noche en refugio</h4>
+                </div>
+                <div class="trekking_cba_parrafo">
+                    <p>Una vuelta sin desperdicio por el macizo. 3 días y 2 noches en refugio, atardecer en cumbre, noche en lo alto y Cajones de Achala. ¿Venís a vivir esta experiencia?</p>
+                </div>
+                <div>
+                    <a class="trekking_cba_boton botones" href="{{url_for("gigantes_full")}}">VER MÁS</a>
+                </div>
+            </div>
+            <div class="trekking_cba_carta">
+                <div class="trekking_cba_img">
+                    <img src="../static/img/Fotos Página/SALIDAS_CBA/Champaquí-ClásicoP-_1_.webp" alt="Imagen del cerro champaqui">
+                </div>
+                <div class="trekking_cba_titulo">
+                    <h4>Ascenso cerro Champaquí clásico</h4>
+                </div>
+                <div class="trekking_cba_parrafo">
+                    <p>La vuelta clásica del Cerro Champaquí desde Villa Alpina. Tres días de desafío por el techo de Córdoba. Desde $238.000. Reservá y congelá precios.</p>
+                </div>
+                <div>
+                    <a class="trekking_cba_boton botones" href="{{url_for("cerro_champaqui")}}">VER MÁS</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="expediciones-de-montaña">
+        <div class="section-titles-subtitles">
+            <h2 class="section-title">EXPEDICIONES DE MONTAÑA</h2>
+        </div>
+        <div class="trekking-cba-grid">
+            <div class="trekking_cba_carta">
+                <div class="trekking_cba_img">
+                    <img src="../static/img/Fotos Página/SALIDAS_CBA/Ascenso-PenitentesP.webp" alt="Imagen del ascenso al cerro penitentes">
+                </div>
+                <div class="trekking_cba_titulo">
+                    <h4>Expedición ascenso Cerro Penitentes – 4350 msnm</h4>
+                </div>
+                <div class="trekking_cba_parrafo">
+                    <p>Clásico desafío de montaña en la cordillera mendocina, a los pies del Cerro Aconcagua. Expedición de 4 días y 3 noches desde Penitentes. Incluye pensión completa en alojamiento de montaña (primera noche) y campamento de montaña (segunda y tercer noche).</p>
+                </div>
+                <div>
+                    <a class="trekking_cba_boton botones" href="{{url_for("cerro_penitentes")}}">VER MÁS</a>
+                </div>
+            </div>
+            <div class="trekking_cba_carta">
+                <div class="trekking_cba_img">
+                    <img src="../static/img/Fotos Página/SALIDAS_CBA/Expedición-Vallecitos-P.webp" alt="Imagen del cerro adolfo calle">
+                </div>
+                <div class="trekking_cba_titulo">
+                    <h4>Vallecitos, 2 x 4 mil – Cerros Adolfo Calle & Stepanek</h4>
+                </div>
+                <div class="trekking_cba_parrafo">
+                    <p>Gran desafío para iniciarse en altura. Nos vamos en busca de estos dos emblemáticos cuatro miles de Vallecitos. Expedición de 4 días y 3 noches. Incluye pensión completa en alojamiento de montaña (primera noche) y campamento de montaña (segunda y tercer noche).</p>
+                </div>
+                <div>
+                    <a class="trekking_cba_boton botones" href="{{url_for("vallecitos")}}">VER MÁS</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

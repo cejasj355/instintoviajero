@@ -1,0 +1,1143 @@
+*{
+    font-family: "Nunito", serif;
+    margin: 0;
+    padding: 0%;
+    text-decoration: none;
+    
+}
+
+
+
+// LOGO
+
+.logo{
+    display: flex;
+    background-image: url(../img/Logos/Instinto_viajero.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 100%;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+}
+
+.header .header-logo{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    
+}
+
+.header-logo .logo{ 
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    height: 15vh;
+    width: 25vw;
+}
+
+
+.nave ul li a{
+    
+    justify-content: space-around;
+    text-align: center;
+}
+.nave{
+    
+    width: 100%;
+    justify-content: space-around;
+    text-align: center;
+}
+
+
+@media (min-width:768px){
+    
+    .header-logo .logo{
+        margin-left: -50px;
+    }
+    .principal-salidas-titulo{
+        filter: drop-shadow(5px 5px 4px #000000);
+    }
+    
+    
+}
+// NAVEGADOR
+header{
+    background-color: #001240;
+    color: #ffffff;
+    padding-bottom: 25px;
+}
+.header .nave ul{
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+.nave ul li a{
+    color: #ffffff;
+}
+
+// Seccion principal de salidas
+
+.principal-salidas{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(/static/img/Fotos\ Página/salida.webp);
+    border: solid 3px #001240;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+    width: 90%;
+    height: 75vh;
+    margin: 5px auto;
+}
+.p-s-uno{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(/static/img/Fotos\ Página/frente.webp);
+}
+.p-s-dos{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(/static/img/Fotos\ Página/Pitu.webp);
+}
+.p-s-tres{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(/static/img/nieve.webp);
+
+}
+.portada{
+    border:none;
+    height: 50vh;
+    width: 100%;
+}
+.portada .botones{
+    margin-top:25vh;
+}
+
+.aventuras{
+    margin-top:40px; 
+}
+
+@media (min-width:768px){
+    .principal-salidas-titulo{
+        font-size: 50px;
+    }
+    .portada .botones{
+        margin-top:25%;
+        width: 30%;
+    }
+    
+    .principal-salidas{
+        height: 70vh;
+    }
+}
+.principal-salidas .principal-salidas-titulo,
+.principal-salidas .principal-salidas-subtitulo{
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin: auto auto;
+    background-color: transparent;
+    text-shadow: 
+        1px 1px 30px #000000;
+    color: #ffffff;
+    
+}
+.principal-salidas-titulo{
+    padding-top: 3vh;
+    font-family: "Oswald", serif;
+    
+    
+}
+.span_subtitulo{
+    font-family: "Oswald", serif;
+    font-size: 30px;
+}
+
+// BOTONES DE LAS PROXIMAS SALIDAS
+.botones{
+    display: flex;
+    margin: 8vh auto;
+    margin-top: 35vh;
+    width: 60%;
+    text-align: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+    background-color: transparent;
+    padding: 10px;
+    border:solid 2px white ;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-weight: 900;
+    color: #ffffff;
+}
+.botones:hover{
+    scale: 1.05;
+    transition: 0.1s;
+    box-shadow:0 0 15px #a4a5a5;
+}
+
+//
+// Diseño de titulo y subtitulos de las secciones
+//
+//
+.trekking_cba_titulo h3{
+    color:#000000;
+    font-family: "Oswald", serif;
+    text-align: center;
+    text-decoration: underline;
+}
+.section-titles-subtitles{
+    padding: 25px 0;
+    color: #ffffff;
+    background-color: #001240;
+    text-transform: uppercase;
+}
+.section-title{
+    display: flex;
+    justify-content: center;
+    
+    text-align: center;
+    color: #ffffff;
+}
+.section-subtitle{
+    display: flex;
+    justify-content: center;
+    color: #ffffff;
+}
+//
+//
+//  vacaciones en carlos paz
+//
+
+.blanco-desc{
+    padding-top: 25px;
+}
+.blanco-subtitulo{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: 30px;
+    background-color: transparent;
+}
+.blanco-descripcion{
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    background-color: transparent;
+    color: #000000;
+}
+.blanco-boton{
+    display: flex;
+    justify-content: center;
+   
+}
+
+
+.blanco-desc{
+    margin-top: 5rem;
+    background-color: transparent;
+}
+
+@media (min-width:768px) {
+    .blanco-boton{
+        margin-top: 60%;
+        
+    }
+    .principal-salidas{
+        height: 80vh;
+        width: auto;
+        
+        gap: 3px;
+    }
+    .prox-aventuras{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        
+    }
+    .prox-aventuras .principal-salidas{
+        background-position: center;
+    }
+    .prox-aventuras .principal-salidas .principal-salidas-titulo{
+        margin-top: -10px;
+        font-size: 50px;
+    }
+    .prox-aventuras .principal-salidas .principal-salidas-subtitulo{
+        font-size: 20px;
+    }
+    
+    .aventuras{
+        margin-top: 0;
+    }
+    
+}
+
+
+// expediciones en cordoba
+.span{
+    font-size: 50px;
+    font-weight: bold;
+    font-family: "Oswald", serif;
+}
+.principal-salidas-subtitulo .span{
+    font-size: 30px;
+}
+
+.trekking_cba_img img{
+    display: flex;
+    margin: 5px auto;
+    width: 90%;
+    height: auto;
+    border: solid 3px #001240;
+}
+.trekking_cba_titulo h4{
+    text-transform: uppercase;
+    font-weight: 900;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-size: 25px;
+    margin: 10px 20px;
+    color: #000000;
+    box-shadow: #001240;
+}
+.trekking_cba_parrafo p{
+    margin: auto 15px;
+    color: #000000;
+}
+.trekking_cba_boton{
+    text-align: center;
+    display:flex;
+    justify-content: center;
+    background-color: #001240;
+    background-image: none;
+    width: 40%;
+    margin: 25px auto;
+    padding: 20px;
+    border: solid 3px #000000;
+}
+@media(min-width:768px) {
+    .trekking-cba-grid{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+    }
+    .blanco{
+        display: flex;
+        justify-content: space-around;
+    }
+    .blanco .img{
+        height: 20vh;
+        width: 15vw;
+
+    }
+}
+//
+//
+//  MIEMBRO...IMAGEN
+//
+.miembro .blanco{
+    height: 20vh;
+    display: flex;
+    margin: auto;
+    align-items: center;
+    flex-direction: row;
+    width: 80%;
+    justify-content: space-around;
+}
+.blanco img{
+    height: 12vh;
+    width: 12vh;
+}
+
+@media(min-width:768px) {
+    .boton-portada{
+        margin-top: 700px;
+    }
+}
+//
+//
+//   Footer
+//
+//
+.footer{
+    text-align: center;
+}
+.redes{
+    color: #000000;
+    font-weight: 900;
+    
+}
+.footerp {
+    font-weight: 900;
+    margin-top: 25px;
+    color: #ffffff;
+    padding: 2.5vh 0 0 0;
+    height: 10vh;
+    background-color: #001240;
+}
+
+
+.footer_contact {
+    gap: 20px;
+    display: flex;
+    justify-content: center;
+    
+    
+}
+  
+.footer_contact svg {
+    height: 10vh;
+    display: flex;
+    text-align: center;
+    margin: 20px auto;
+    
+}
+  
+.footer_contact svg:hover {
+    scale: 1.3;
+    transition: 0.3s;
+}
+.boton-insta:hover{
+    scale: 1.05;
+    transition: .3s;
+}
+
+  
+.whatsapp {
+    position: fixed;
+    right: 0%;
+    bottom: 0%;
+    background-color: transparent;
+    filter: drop-shadow(5px 5px 4px grey);
+}
+
+.boton-insta{
+    height: 20vh;
+    width: 25vw;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;  
+}
+// seccion de nosotros
+
+.section-title-nosotros{
+    color:#000000;
+    height: 10vh;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    text-decoration: underline;
+}
+
+.section-parrafo{
+    background-color: #ffffff;
+    color: #000000;
+    width: 80%;
+    font-size: 23px;
+    margin: auto;
+    padding: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.section-parrafo-grid{
+    color: #000000;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 10px;
+
+}
+
+@media (min-width:768px){
+    .filosofia{
+        margin: 0 30px;
+    }
+    .nosotros-grid{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 25px;
+        margin: 25px ;
+        
+    }
+    
+}
+.nosotros-img{
+    background-image: url(/static/img/Fotos\ Página/nosotros.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 80vh;
+    width: 90%;
+    margin: 30px auto ;
+    background-position: center;
+}
+.nosotros-grid-descripcion-div-title{
+    color: #000000;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 900;
+    text-decoration: underline;
+    font-size: 30px;
+}
+.nosotros-grid-descripcion-div-subtitle{
+    color: #000000;
+    font-size: 23px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+}
+.nosotros-grid-descripcion-list-ul{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+.nosotros-grid-descripcion-list-ul-li{
+    color: #000000;
+    font-weight: 700;
+    text-decoration: solid;
+    margin: 10px 20px;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+.parrafo-img img{
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    margin: auto;
+    width: 100%;
+}
+@media (min-width:768px) {
+    .nosotros-grid-descripcion-list-ul{
+        margin: 25px;
+    }
+    .nosotros-grid-descripcion-list-ul-li{
+        margin: 20px;
+    }
+    .parrafo-img img{
+        display: flex;
+        margin: auto;
+        height: 60vh;
+        width: 65vw;
+    }
+}
+
+.uritorco-1{
+    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/uritorco/1.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 60vh;
+    width: auto;
+}
+.uritorco-2{
+    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/uritorco/2.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 60vh;
+    width: auto;
+}
+.uritorco-3{
+    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/uritorco/3.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 60vh;
+    width: auto;
+}
+
+
+.precio-subtitulo{
+    font-size: 30px;
+    text-align: center;
+    align-items: center;
+    font-family: "Oswald", serif;
+    font-weight: 900;
+}
+.info-grid h4{
+    font-size: 20px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+.info-1 div h4{
+    margin-top: 3rem;
+}
+.info-1 div ul li{
+    line-height: 30px;
+    font-size: 20px;
+}
+.info-1 h2{
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin: 2rem auto;
+    
+}
+.info-1 h3{
+    text-align: center;
+}
+.info-2{
+    margin: 2rem 0rem;
+    padding: 2rem;
+}
+.excursion-img div{
+    margin: 1rem;
+}
+.info h4{
+    text-align:center;
+}
+.info-1 ul{
+    margin: 1rem 2rem;
+}
+.info-2 li{
+    
+    margin: 1rem 0rem;
+}
+.descripcion{
+    font-size: larger;
+    margin: 1rem;
+}
+.precio-subtitulo{
+    padding: 1rem;
+    text-align: center;
+    align-items: center;
+}
+.precio ul{
+    margin: 2rem 3rem;
+}
+.precio-carta{
+    height: 70vh; //70vh
+    margin: 1rem 0;
+}
+.precio-1, .precio-2{
+    margin: 1rem 1rem;
+    background-color: #000000;
+    height: 100%; //65vh
+    color: #ffffff;
+    box-shadow: 5px 5px 5px #000000;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding-bottom: 5px;
+}
+@media(min-width:980px) {
+    
+    .excursion-img{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        margin: 2rem 2rem;
+    }
+    .info-2{
+        margin: 0 0 0 1rem;
+        padding: 0%;
+    }
+    .info-grid{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        
+    }
+    .descripcion{
+        text-align: center;
+        margin: 2rem;
+    }
+    .info ul{
+        margin: 1rem 6rem;
+    }
+    
+    .section-precio h3{
+        text-align: center;
+    }
+    .precio ul, .precio-subtitulo{
+        margin: 1rem 3rem;
+    }
+    
+    .precio-carta{
+        margin: 0;
+    }
+    .precio-1, .precio-2{
+        margin: 1rem 1rem;
+        background-color: #000000;
+        height: 90%;
+        box-shadow: 5px 5px 5px #000000;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+}
+@media(max-width:370px){
+    .precio-subtitulo p{
+        font-size:x-large;
+    }
+    .precio-1, .precio-2{
+        margin: 10px 10px;
+        background-color: #000000;
+        color: #ffffff;
+        height: 100%;
+        box-shadow: 5px 5px 5px #000000;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        padding-bottom: 5px;
+    }
+    .cartel-consulta{
+        font-size: small;
+    }
+}
+
+.equipamiento{
+    margin: 1rem 3rem;
+    font-size: larger;
+}
+.span-dia{
+    font-size: 25px;
+    text-transform: uppercase;
+    text-decoration: underline;
+    font-weight: 900;
+    margin-left: 0;
+    padding-left: 0%;
+}
+.cartel{
+    padding: 10px;
+    margin: 1.5rem;
+    height: 100%;
+    text-align: center;
+    background-color: #000000;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    color: #ffffff;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: #ff0000 4px solid;
+    box-shadow: #000000 10px 10px 5px;
+}
+.importante{
+    -webkit-text-stroke: 0.3px white;
+    text-align: center;
+    font-size: 35px;
+    font-weight: 900;
+    text-decoration: underline;
+    color: #ff0000;
+    height: 100%;
+    
+}
+.gigantes-full-1{
+    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/gigantes_full/ascenso-mogote.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    background-size: cover;
+    height: 60vh;
+    width: auto;
+}
+.gigantes-full-2{
+    object-fit: cover;
+    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/gigantes_full/casco.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 60vh;
+    width: auto;
+}
+.gigantes-full-3{
+    object-fit: cover;
+    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/gigantes_full/pag-3.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 60vh;
+    width: auto;
+}
+.gigantes-full-4{
+    object-fit: cover;
+    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/gigantes_full/pag-1.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 60vh;
+    width: auto;
+}
+.gigantes-full-5{
+    object-fit: cover;
+    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/gigantes_full/pag-6.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 60vh;
+    width: auto;
+}
+.gigantes-full-6{
+    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/gigantes_full/pagina-2.webp);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 60vh;
+    width: auto;
+}
+.preguntas ul li{
+    display: flex;
+    justify-content: center;
+    margin: 1rem 2rem ;
+    font-size: 20px;
+    font-weight: 900;
+}
+.preguntas p{
+    margin: 2rem;
+    
+}
+.champa-1{
+    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/champaqui_clasico/1.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 60vh;
+    width: auto;
+}
+.champa-2{
+    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/champaqui_clasico/2.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 60vh;
+    width: auto;
+}
+.champa-3{
+    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/champaqui_clasico/3.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 60vh;
+    width: auto;
+}
+.vallecitos-1{
+    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/vallecitos/1.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 60vh;
+    width: auto;
+}
+.vallecitos-2{
+    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/vallecitos/2.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 60vh;
+    width: auto;
+}
+.vallecitos-3{
+    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/vallecitos/3.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 60vh;
+    width: auto;
+}
+.center{
+    text-align: center;
+}
+.penitentes-1{
+    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/penitentes/peni1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 60vh;
+    width: auto;
+}
+.penitentes-2{
+    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/penitentes/2.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 60vh;
+    width: auto;
+}
+.penitentes-3{
+    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/penitentes/3.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 60vh;
+    width: auto;
+}
+.preguntas p{
+    text-align: center;
+}
+.descripcion p,
+.equipamiento li,
+.cartel p{
+    margin: 25px auto ;
+
+}
+
+.descripcion, .span-dia{
+    margin-left: 0%;
+    padding: 0%;
+}
+
+
+.cartel p{
+    font-size: larger;
+}
+.cartel-consulta{
+    font-size: x-large;
+    font-weight: 900;
+    text-align: center;
+    line-height: 50px;
+    margin: 35px;
+    font-family: "Oswald", serif;
+}
+.cartel-consulta h4{
+    font-size: xx-large;
+    font-weight: bold;
+}
+@media(max-width:370px){
+    .cartel-consulta{
+        margin:30px auto;
+    }
+    .cartel-consulta h4{
+        font-size:medium;
+        font-weight: bold;
+    }
+    .boton-wp{
+        height: 15vh;
+        width: 25vw;
+    }
+    .boton-insta{
+        height: 25vh;
+        width: 30vw;
+    }
+    .importante{
+        font-size: 25px;
+    }
+}
+
+.fechas{
+    font-size: 20px;
+    
+    line-height: 5rem;
+    
+}
+.titular-fondo{
+    background-image:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(../img/Fotos\ Página/SALIDAS_CBA/champaqui_clasico/fondo.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.titular-fondo-penitentes{
+    background-image:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(../img/Fotos\ Página/SALIDAS_CBA/penitentes/fondo.webp);
+    background-position: 0% 38%;
+    background-repeat: no-repeat;
+    background-size: 100% 400%;
+}
+.titular-fondo-gigantes{
+    background-image:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(../img/Fotos\ Página/SALIDAS_CBA/gigantes_full/pagina-2.webp);
+    background-position: 0% 70%;
+    background-repeat: no-repeat;
+    background-size: 100% 150%;
+}
+@media (max-width:450px) {
+    .titular-fondo-penitentes{
+        background-position: 0% 38%;
+        background-repeat: no-repeat;
+        background-size: 100% 150%;
+    }
+    
+}
+.titular-fondo, .titular, .titular-texto{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 70vh;
+    flex-direction: column;
+    color: #ffffff;
+}
+.titular-texto{
+    display: flex;
+    flex-direction: column;
+    
+}
+.titular-texto p, .titular p{
+    font-weight: bold;
+    font-size: 20px;
+    text-shadow: 
+        5px 5px 5px #000000;
+    }
+.boton-titular{
+        border:solid 3px;
+        margin: auto;
+        width: 20%;
+        height: 10vh;
+        display: flex;
+        color: #ffffff;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        backdrop-filter: blur(3px);
+    
+}
+.boton-titular:hover{
+    scale: 1.1;
+    transition: 0.1s;
+}
+
+.titular h1{
+    font-size: 50px;
+    text-shadow: 
+    5px 5px 5px #000000;
+}
+.titular-wpp{
+    height: 40px;
+    width: 40px;
+}
+.prox-fechas{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: solid 2px #000000;
+    box-shadow: #000000 10px 10px 5px;
+    margin: 0 1rem 25px 1rem;
+    background-color: #cacccc;
+    
+}
+
+.info-2 ul li{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+.ul li{
+    list-style:outside;
+    
+}
+.prox-fechas ul{
+    line-height: 50px;
+    font-weight: bold;
+    font-size: 15px;
+    text-transform: uppercase;
+    list-style: none;
+}
+@media(max-width:600px) {
+    .titular h1{
+        font-size: 30px;
+    }
+    .boton-titular{
+        width: 70%;
+    }
+}
+.br{
+    display: flex;
+    height: 0.5px;
+    width: 60%;
+    background-color: #ffffff;
+    margin: auto;
+}
+.boton-reserva{
+    background-color: #ff0000;
+    border: solid 2px #ffffff;
+}
+.prox-fechas-titulo{
+    font-family: "Archivo Black", sans-serif;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 10px auto;
+    font-weight: 800;
+}
+@media (max-width:768px) {
+    .info-2{
+        padding: 5px;
+    }
+    .boton-reserva{
+        width: 60%;
+    }
+    .precio-subtitulo .num{
+        font-size: 20px;
+        font-weight: 500;
+    }
+    .precio-ul{
+        text-align: center;
+    }
+    .prox-fechas{
+        padding: 40px;
+    }
+    .prox-fechas-titulo{
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        text-transform: uppercase;
+        margin: auto auto 30px auto;
+        font-weight: bold;
+    }
+    
+
+}
+.red{
+    color:red;
+}
+.invierno{
+    grid-template-columns: repeat(2,1fr);
+    width: 50%;
+    height: 70%;
+    margin: auto;
+}
+.invierno-btn{
+    background-color: rgb(87, 255, 45);
+    border-radius: 30px;
+}
+@media(max-width:768px) {
+    .invierno{
+    grid-template-columns: repeat(2,1fr);
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    }
+    .invierno-btn{
+        background-color: rgb(87, 255, 45);
+        justify-content: center;
+        width: 80%;
+        
+    }
+    
+}
+.login-circle{
+    top: 2rem;
+    right: 3rem;
+    display: flex;
+    position: absolute;
+}
+.mb-3{
+    background-color: #001240;
+    color: white;
+    width: 80%;
+    margin: auto;
+}
+.div-form{
+    background-color: #001240;
+}
+form .btn-primary{
+    display: flex;
+    margin: auto;
+}

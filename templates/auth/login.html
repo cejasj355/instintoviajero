@@ -1,0 +1,35 @@
+{%extends 'base.html'%}
+
+{% block title  %}Login{% endblock%}
+
+{% block content %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+<div class="div-form">
+    <form method="post">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Username</label>
+            <input name="username" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input name="password" type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <!-- <p style="display: flex; justify-content: center; height: 100%;">¿No tenes cuenta aun?<a href="{{url_for("index")}}">Registrate</a></p> -->
+        
+        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+    </form>
+    {% for massage in get_flashed_messages() %} <!--Utilizamos for porque flash nos devuelve una lista de msj, entonces la recorremos y recuperamos desde get_messages_flashed -->
+        <div class="mensaje">
+            <div class="">
+                <div class="">
+                    <div class="alert alert-danger">
+                        {{massage}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    {%endfor%} 
+</div>
+
+{%endblock%}
