@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Salidas{% endblock %}
+{% block content %}
+<div class="section-titles-subtitles">
+  <h2 class="mb-4 section-title">Salidas disponibles</h2>
+</div>
+
+{% for s in salidas %}
+<div class="card mb-3 shadow-sm">
+  <div class="card-salidas">
+    <p>{{s.titulo}}</p>
+    <h4><a href="{{ url_for('acciones.ver_salida', id=s.id) }}" class="text-decoration-none">{{ s.titulo }}</a></h4>
+    <p class="text-muted">{{ s.subtitulo }}</p>
+    <p>Dificultad: {{ s.dificultad }}</p>
+    <form action="{{ url_for('acciones.eliminar_salida', id=s.id) }}" method="POST" style="display:inline;"
+      onsubmit="return confirm('¿Seguro que querés eliminar esta salida?');">
+      <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+    </form>
+    <button>editar</button>
+  </div>
+</div>
+{% else %}
+<p>No hay salidas registradas aún.</p>
+{% endfor %}
+{% endblock %}

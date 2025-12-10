@@ -742,7 +742,7 @@ header{
 }
 .gigantes-full-2{
     object-fit: cover;
-    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/gigantes_full/casco.webp);
+    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/gigantes_full/fondo.webp);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -796,29 +796,18 @@ header{
     
 }
 .champa-1{
-    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/champaqui_clasico/1.webp);
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(../img/Fotos\ Página/SALIDAS_CBA/champaqui_clasico/1.webp);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 60vh;
+    color: #ffffff;
     width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.champa-2{
-    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/champaqui_clasico/2.webp);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 60vh;
-    width: auto;
-}
-.champa-3{
-    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/champaqui_clasico/3.webp);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 60vh;
-    width: auto;
-}
+
 .vallecitos-1{
     background-image: url(../img/Fotos\ Página/SALIDAS_CBA/vallecitos/1.webp);
     background-position: center;
@@ -847,7 +836,7 @@ header{
     text-align: center;
 }
 .penitentes-1{
-    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/penitentes/peni1.jpg);
+    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/penitentes/peni1.webp);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -855,7 +844,7 @@ header{
     width: auto;
 }
 .penitentes-2{
-    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/penitentes/2.webp);
+    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/penitentes/penitentes2.webp);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -863,7 +852,7 @@ header{
     width: auto;
 }
 .penitentes-3{
-    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/penitentes/3.webp);
+    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/penitentes/penitentes1.webp);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -929,7 +918,9 @@ header{
     
 }
 .titular-fondo{
-    background-image:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(../img/Fotos\ Página/SALIDAS_CBA/champaqui_clasico/fondo.webp);
+    background-image:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+    object-fit: cover;
+    object-position: center;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -959,7 +950,7 @@ header{
     justify-content: center;
     text-align: center;
     width: 100%;
-    height: 70vh;
+    height: 60vh;
     flex-direction: column;
     color: #ffffff;
 }
@@ -1096,6 +1087,9 @@ header{
 }
 .red{
     color:red;
+    margin: 0;
+    display: inline;
+    
 }
 .invierno{
     grid-template-columns: repeat(2,1fr);
@@ -1140,4 +1134,67 @@ header{
 form .btn-primary{
     display: flex;
     margin: auto;
+}
+
+.card-salidas{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    height: 3rem;
+}
+.dashboard{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+}
+.carga_imagenes{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+    background-color: #001240;
+    color: white;
+    padding: 2rem;
+}
+.trekking_cba_img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+.tipo-salida{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    color: white;
+    background-color: #001240;
+    padding: 2rem;
+}
+
+.carga-imagen-nueva{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    height: 80vh;
+    width: 80%;
+}
+@media(max-width:768px) {
+    .carga-imagen-nueva{
+        height: 50vh;
+        width: 100%;
+    }
+}
+.titular h2{
+    font-size: 40px;
+    text-transform: uppercase;
+    text-shadow: 5px 5px 5px #000000;
+}
+.formulario input{
+    margin: 1rem;
+    padding: 0.5rem;
+    width: 80%;
+    display: inline-block;
+    height: 1rem;
+    margin: auto;
+    text-align: center;
 }

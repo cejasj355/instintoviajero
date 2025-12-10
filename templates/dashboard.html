@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<section class="dashboard">
+    <div>
+        <a class="trekking_cba_boton botones" href="{{url_for("acciones.plantilla_salidas")}}">Crear
+            Salida
+        </a>
+    </div>
+    <div>
+        <a class="trekking_cba_boton botones" href="{{url_for("acciones.lista_salidas")}}">Listado de
+            salidas
+        </a>
+    </div>
+    <div>
+        <a href="#" class="trekking_cba_boton botones">Crear blog</a>
+    </div>
+</section>
+{% endblock %}

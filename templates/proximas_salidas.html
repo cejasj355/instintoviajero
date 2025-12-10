@@ -37,6 +37,29 @@
     </div>
     <section class="trekking_cba">
         <div class="trekking-cba-grid">
+            {% for s in salidas%}
+                {% if s.tipo_salida == 'trekking-cordoba'%}
+                    <div class="trekking_cba_carta">
+                        <div class="trekking_cba_img">
+                            <img src="{{ url_for('static', filename='uploads/'~s.foto_carta) }}" class="img-fluid">
+                        </div>
+                        <div class="trekking_cba_titulo">
+                            <h4>{{s.titulo}}</h4>
+                        </div>
+                        <div class="trekking_cba_parrafo">
+                            <p>{{s.descripcion|safe}}</p>
+                        </div>
+                        <div>
+                            <a class="trekking_cba_boton botones" href="{{url_for('acciones.ver_salida', id=s.id)}}">VER MÁS</a>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+    
+    <section class="trekking_cba">
+        <div class="trekking-cba-grid">
             <div class="trekking_cba_carta">
                 <div class="trekking_cba_img">
                     <img src="../static/img/Fotos Página/SALIDAS_CBA/Uritorco-Cuadradoo.webp" alt="Imagen del cerro uritorco">
@@ -48,7 +71,7 @@
                     <p>Nos vamos tras los misterios de la noche en el Cerro Uritorco. Desde la medianoche caminamos para vivir el amanecer desde la cumbre. ¿Te animas?</p>
                 </div>
                 <div>
-                    <a class="trekking_cba_boton botones" href="{{url_for("uritorco")}}">VER MÁS</a>
+                    <a class="trekking_cba_boton botones" href="{{url_for("acciones.uritorco")}}">VER MÁS</a>
                 </div>
             </div>
             <div class="trekking_cba_carta">
@@ -59,10 +82,10 @@
                     <h4>Los Gigantes Full: noche en refugio</h4>
                 </div>
                 <div class="trekking_cba_parrafo">
-                    <p>Una vuelta sin desperdicio por el macizo. 3 días y 2 noches en refugio, atardecer en cumbre, noche en lo alto y Cajones de Achala. ¿Venís a vivir esta experiencia?</p>
+                    <p>Una vuelta sin desperdicio por el macizo. 2 días y 1 noche en refugio, atardecer en cumbre, noche en lo alto y Cajones de Achala. ¿Venís a vivir esta experiencia?</p>
                 </div>
                 <div>
-                    <a class="trekking_cba_boton botones" href="{{url_for("gigantes_full")}}">VER MÁS</a>
+                    <a class="trekking_cba_boton botones" href="{{url_for("acciones.gigantes_full")}}">VER MÁS</a>
                 </div>
             </div>
             <div class="trekking_cba_carta">
@@ -76,7 +99,7 @@
                     <p>La vuelta clásica del Cerro Champaquí desde Villa Alpina. Tres días de desafío por el techo de Córdoba. Desde $238.000. Reservá y congelá precios.</p>
                 </div>
                 <div>
-                    <a class="trekking_cba_boton botones" href="{{url_for("cerro_champaqui")}}">VER MÁS</a>
+                    <a class="trekking_cba_boton botones" href="{{url_for("acciones.cerro_champaqui")}}">VER MÁS</a>
                 </div>
             </div>
         </div>
@@ -86,6 +109,24 @@
             <h2 class="section-title">EXPEDICIONES DE MONTAÑA</h2>
         </div>
         <div class="trekking-cba-grid">
+            {% for s in salidas %}
+                {%if s.tipo_salida == 'expedicion-de-montaña'%}
+                <div class="trekking_cba_carta">
+                    <div class="trekking_cba_img">
+                        <img src="{{ url_for('static', filename='uploads/'~s.foto_carta) }}" class="img-fluid">
+                    </div>
+                    <div class="trekking_cba_titulo">
+                        <h4>{{s.titulo}}</h4>
+                    </div>
+                    <div class="trekking_cba_parrafo">
+                        <p>{{s.descripcion|safe}}</p>
+                    </div>
+                    <div>
+                        <a class="trekking_cba_boton botones" href="{{url_for('acciones.ver_salida', id=s.id)}}">VER MÁS</a>
+                    </div>
+                </div>
+                {%endif%}
+            {%endfor%}
             <div class="trekking_cba_carta">
                 <div class="trekking_cba_img">
                     <img src="../static/img/Fotos Página/SALIDAS_CBA/Ascenso-PenitentesP.webp" alt="Imagen del ascenso al cerro penitentes">
@@ -97,7 +138,7 @@
                     <p>Clásico desafío de montaña en la cordillera mendocina, a los pies del Cerro Aconcagua. Expedición de 4 días y 3 noches desde Penitentes. Incluye pensión completa en alojamiento de montaña (primera noche) y campamento de montaña (segunda y tercer noche).</p>
                 </div>
                 <div>
-                    <a class="trekking_cba_boton botones" href="{{url_for("cerro_penitentes")}}">VER MÁS</a>
+                    <a class="trekking_cba_boton botones" href="{{url_for("acciones.cerro_penitentes")}}">VER MÁS</a>
                 </div>
             </div>
             <div class="trekking_cba_carta">
@@ -111,7 +152,7 @@
                     <p>Gran desafío para iniciarse en altura. Nos vamos en busca de estos dos emblemáticos cuatro miles de Vallecitos. Expedición de 4 días y 3 noches. Incluye pensión completa en alojamiento de montaña (primera noche) y campamento de montaña (segunda y tercer noche).</p>
                 </div>
                 <div>
-                    <a class="trekking_cba_boton botones" href="{{url_for("vallecitos")}}">VER MÁS</a>
+                    <a class="trekking_cba_boton botones" href="{{url_for("acciones.vallecitos")}}">VER MÁS</a>
                 </div>
             </div>
         </div>

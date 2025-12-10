@@ -3,77 +3,98 @@
 {% block title %}Sobre Nosotros{% endblock %}
 
 {% block content %}
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16884791919"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
         gtag('config', 'AW-16884791919');
     </script>
     <script>
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window, document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '637563278683166');
         fbq('track', 'PageView');
-        </script>
-        <noscript><img height="1" width="1" style="display:none"
-        src="https://www.facebook.com/tr?id=637563278683166&ev=PageView&noscript=1"
-        /></noscript>
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=637563278683166&ev=PageView&noscript=1" /></noscript>
 </head>
-    <main>
-        <div class="section-titles-subtitles">
-            <h1 class="section-title">SOBRE INSTINTO</h1>
+<main>
+    <div class="section-titles-subtitles">
+        <h1 class="section-title">SOBRE INSTINTO</h1>
+    </div>
+    <div class="parrafo-img">
+        <p class="section-parrafo">Somos una empresa fundada en el año 2019 por profesionales del Turismo de la
+            provincia de Córdoba, apasionados por los viajes y que durante muchos años hemos caminado y explorado cada
+            rincón de este magnifico país que es Argentina. Desde La Quiaca a Ushuaia nos hemos maravillado con
+            paisajes, personas, historias. Durante los años también vimos el crecimiento de la actividad y los impactos
+            tanto positivos como negativos que esta conlleva, por lo que hoy tenemos la tarea de desarrollar un turismo
+            responsable y sostenible. Deseamos que seas partícipe de nuestras experiencias y que puedas disfrutar de una
+            oferta turística responsable, de calidad e inolvidable. Muchas gracias.</p>
+        <img src="../static/img/Fotos Página/SALIDAS_CBA/champaqui_clasico/fondo.webp" alt="Imagen del cerro champaqui">
+    </div>
+    <div>
+        <div>
+            <h2 class="section-title section-title-nosotros">NUESTRA FILOSOFIA RESPONSABLE</h2>
+            <p class="section-parrafo-grid filosofia center">Nos apoyamos en 3 ejes fundamentales a la hora de hacer
+                turismo: en lo sociocultural, involucrando a comunidades locales, interactuando con ella, generando
+                beneficios; en lo económico, generando productos turísticos que generen ingresos a las comunidades donde
+                se desarrollan las actividades; y en lo ambiental, cuidando el entorno, generando conciencia, teniendo
+                en cuenta la capacidad de carga mediante grupos reducidos y desarrollando prácticas responsables con el
+                ambiente .</p>
         </div>
-        <div class="parrafo-img">
-            <p class="section-parrafo">Somos una empresa fundada en el año 2019 por profesionales del Turismo de la provincia de Córdoba, apasionados por los viajes y que durante muchos años hemos caminado y explorado cada rincón de este magnifico país que es Argentina. Desde La Quiaca a Ushuaia nos hemos maravillado con paisajes, personas, historias. Durante los años también vimos el crecimiento de la actividad y los impactos tanto positivos como negativos que esta conlleva, por lo que hoy tenemos la tarea de desarrollar un turismo responsable y sostenible. Deseamos que seas partícipe de nuestras experiencias y que puedas disfrutar de una oferta turística responsable, de calidad e inolvidable. Muchas gracias.</p>
-            <img src="../static/img/Fotos Página/SALIDAS_CBA/champaqui_clasico/fondo.webp" alt="Imagen del cerro champaqui">
+    </div>
+    <div class="nosotros-grid">
+        <div>
+            <h2 class="section-title section-title-nosotros">NUESTRA MISION</h2>
+            <p class="section-parrafo-grid center">Nuestra misión es crear experiencias turísticas únicas y de calidad
+                para nuestros clientes, involucrando a viajeros y comunidades locales, favoreciendo el desarrollo local.
+            </p>
         </div>
         <div>
-            <div>
-                <h2 class="section-title section-title-nosotros">NUESTRA FILOSOFIA RESPONSABLE</h2>
-                <p class="section-parrafo-grid filosofia center">Nos apoyamos en 3 ejes fundamentales a la hora de hacer turismo: en lo sociocultural, involucrando a comunidades locales, interactuando con ella, generando beneficios; en lo económico, generando productos turísticos que generen ingresos a las comunidades donde se desarrollan las actividades; y en lo ambiental, cuidando el entorno, generando conciencia, teniendo en cuenta la capacidad de carga mediante grupos reducidos y desarrollando prácticas responsables con el ambiente .</p>
+            <h2 class="section-title section-title-nosotros">NUESTRA VISION</h2>
+            <p class="section-parrafo-grid center">Nuestra visión es ofrecer un servicio de calidad y al mejor precio,
+                constituirnos como ejemplo de profesionalismo y posicionarnos como símbolo de experiencias inolvidables
+                y turismo responsable.</p>
+        </div>
+    </div>
+    <div class="nosotros-grid">
+        <div class="nosotros-img">
+        </div>
+        <div class="nosotros-grid-descripcion">
+            <div class="nosotros-grid-descripcion-div">
+                <h3 class="nosotros-grid-descripcion-div-title">DIEGO CEJAS</h3>
+                <h4 class="nosotros-grid-descripcion-div-subtitle">Guía de Montaña & Técnico en Turismo y Hotelería
+                    ISAUI</h4>
+            </div>
+            <div class="nosotros-grid-descripcion-list">
+                <ul class="nosotros-grid-descripcion-list-ul">
+                    <li class="nosotros-grid-descripcion-list-ul-li">Fundador de Instinto Trek Argentina.</li>
+                    <li class="nosotros-grid-descripcion-list-ul-li">Prestador de Turismo Alternativo Córdoba y Mendoza.
+                    </li>
+                    <li class="nosotros-grid-descripcion-list-ul-li">Guía de Montaña Parque Nacional los Glaciares,
+                        Santa Cruz.</li>
+                    <li class="nosotros-grid-descripcion-list-ul-li">Guía de Trekking Parque Nacional Quebrada del
+                        Condorito, Córdoba.</li>
+                    <li class="nosotros-grid-descripcion-list-ul-li">Curioso, viajero y montañista.</li>
+                </ul>
             </div>
         </div>
-        <div class="nosotros-grid">
-            <div>
-                <h2 class="section-title section-title-nosotros">NUESTRA MISION</h2>
-                <p class="section-parrafo-grid center">Nuestra misión es crear experiencias turísticas únicas y de calidad para nuestros clientes, involucrando a viajeros y comunidades locales, favoreciendo el desarrollo local.</p>
-            </div>
-            <div>
-                <h2 class="section-title section-title-nosotros">NUESTRA VISION</h2>
-                <p class="section-parrafo-grid center">Nuestra visión es ofrecer un servicio de calidad y al mejor precio, constituirnos como ejemplo de profesionalismo y posicionarnos como símbolo de experiencias inolvidables y turismo responsable.</p>
-            </div>
-        </div>
-        <div class="nosotros-grid">
-            <div class="nosotros-img">
-            </div>
-            <div class="nosotros-grid-descripcion">
-                <div class="nosotros-grid-descripcion-div">
-                    <h3 class="nosotros-grid-descripcion-div-title">DIEGO CEJAS</h3>
-                    <h4 class="nosotros-grid-descripcion-div-subtitle">Guía de Montaña & Técnico en Turismo y Hotelería ISAUI</h4>
-                </div>
-                <div class="nosotros-grid-descripcion-list">
-                    <ul class="nosotros-grid-descripcion-list-ul">
-                        <li class="nosotros-grid-descripcion-list-ul-li">Fundador de Instinto Trek Argentina.</li>
-                        <li class="nosotros-grid-descripcion-list-ul-li">Prestador de Turismo Alternativo Córdoba y Mendoza.</li>
-                        <li class="nosotros-grid-descripcion-list-ul-li">Guía de Montaña Parque Nacional los Glaciares, Santa Cruz.</li>
-                        <li class="nosotros-grid-descripcion-list-ul-li">Guía de Trekking Parque Nacional Quebrada del Condorito, Córdoba.</li>
-                        <li class="nosotros-grid-descripcion-list-ul-li">Curioso, viajero y montañista.</li>
-                    </ul>
-                </div>
-            </div>
 
-        </div>
-    </main>
+    </div>
+</main>
 {% endblock %}
-        

@@ -19,7 +19,7 @@ def registro():
             return redirect(url_for('index')) #registra nuevo usuario
     return render_template('index.html')
 
-@bp.route('/log', methods = ['GET', 'POST'])
+@bp.route('/login', methods = ('GET', 'POST'))
 def login():
     if request.method == 'POST':
         username = request.form['username']
@@ -33,6 +33,7 @@ def login():
             error = 'Nombre de usuario o contraseña incorrecto'
         elif not check_password_hash(user.password, password):          # Esto es una mala practica porque te indica el error que cometes 
             error = 'Nombre de usuario o contraseña incorrecto'
+        session.clear()
         flash(error)
 
         if error is None:
@@ -41,9 +42,9 @@ def login():
             session['is_admin'] = user.is_admin
 
             if user.is_admin:
-                return redirect(url_for('cerro_champaqui'))
+                return redirect(url_for('index'))
             else:
-                return redirect(url_for('base'))
+                return redirect(url_for('acciones.index'))
 
         
-    return render_template('/nosotros.html')
+    return redirect(url_for('acciones.pag_log'))
