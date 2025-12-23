@@ -931,6 +931,19 @@ header {
   background-size: cover;
 }
 
+.titular-fondo-uritorco {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../img/Fotos\ Página/SALIDAS_CBA/uritorco/4.jpeg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 200%;
+}
+
+@media (max-width: 768px) {
+  .titular-fondo-uritorco {
+    height: 60vh;
+    background-size: 100% 100%;
+  }
+}
 .titular-fondo-penitentes {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../img/Fotos\ Página/SALIDAS_CBA/penitentes/fondo.webp);
   background-position: 0% 38%;
@@ -957,7 +970,7 @@ header {
   justify-content: center;
   text-align: center;
   width: 100%;
-  height: 60vh;
+  height: 30vh;
   flex-direction: column;
   color: #ffffff;
 }
@@ -965,6 +978,13 @@ header {
 .titular-texto {
   display: flex;
   flex-direction: column;
+}
+
+.titular-texto h3 {
+  margin-top: 5rem;
+  text-shadow: 5px 5px 5px hsl(0, 0%, 0%);
+  font-size: 25px;
+  font-weight: bold;
 }
 
 .titular-texto p, .titular p {
@@ -1191,11 +1211,13 @@ form .btn-primary {
 }
 
 .carga-imagen-nueva {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 80vh;
-  width: 80%;
+  height: 100vh;
+}
+
+.titular h2 {
+  font-size: 40px;
+  text-transform: uppercase;
+  text-shadow: 5px 5px 5px #000000;
 }
 
 @media (max-width: 768px) {
@@ -1203,9 +1225,14 @@ form .btn-primary {
     height: 50vh;
     width: 100%;
   }
+  .titular h2 {
+    font-size: 25px;
+    text-transform: uppercase;
+    text-shadow: 5px 5px 5px #000000;
+  }
 }
-.titular h2 {
-  font-size: 40px;
+.titular h3 {
+  font-size: 30px;
   text-transform: uppercase;
   text-shadow: 5px 5px 5px #000000;
 }

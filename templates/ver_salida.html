@@ -8,20 +8,20 @@
 </head>
 <body>
     <main>
-        <form action="{{url_for("admin.crear_post")}}" method="post">
-
+        <div>
             <div class="section-titles-subtitles">
                 <h1 class="section-title">{{salida.titulo}}</h1>
             </div>
             <section class="principal">
                 <div>
-                    <div class="principal-salidas portada titular-fondo carga-imagen-nueva" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(/static/uploads/{{salida.foto_portada}});">
+                    <div class="principal-salidas portada titular-fondo carga-imagen-nueva" style="background-image:url('{{url_for('static',filename='uploads/'+salida.foto_portada) }}');">
+
                         <div class="titular">
                             <h2>{{salida.subtitulo}}</h2>
-                            <p>{{salida.dias}}</p>
+                            <h3>{{salida.dias}}</h3>
                         </div>
                         <div class="titular-texto">
-                            <p>{{salida.contado}}</p>
+                            <h3>Desde: ${{salida.contado}}</h3>
                         </div>
                     
                         <div>
@@ -83,13 +83,13 @@
                         <div class="precio-carta precio-1">
                             <div class="precio-subtitulo">
                                 <p>CONTADO</p>
-                                <p class="num">{{salida.contado}}</p>
+                                <p class="num">${{salida.contado}} Por persona</p>
                             </div>
                             <div class="br"></div>
                             <div class="precio-subtitulo">
                                 <p>FINANCIADO</p>
-                                <p class="num">{{salida.trescuotas}}</p>
-                                <p class="num">{{salida.seiscuotas}}</p>
+                                <p class="num">3 x ${{salida.trescuotas}}</p>
+                                <p class="num">6 x ${{salida.seiscuotas}}</p>
                             </div>
                             <div class="br"></div>
                             <div class="precio-ul">
@@ -122,8 +122,6 @@
                             </div>
                         </div>
             </section>
-
-
             <section class="cartel-consulta">
                 <div>
                     <p>Realizá tus reservas con anticipación. Cupos limitados</p>
@@ -219,10 +217,7 @@
                     {{salida.preguntas|safe}}
                 </div>
             </section>
-            
-                
-            <button type="submit" class="boton-dashboard">ENVIAR</button>
-        </form>
+        </div>
     </main>
 </body>
 <script src="https://cdn.ckeditor.com/4.10.0/standard/ckeditor.js"></script>

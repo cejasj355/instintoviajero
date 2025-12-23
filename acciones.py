@@ -53,11 +53,30 @@ def ver_salida(id):
     salida = SalidaTrekking.query.get_or_404(id)
     return render_template('ver_salida.html', salida=salida)
 
+def borrar_imagen(nombre_imagen):
+    if not nombre_imagen:
+        return
+
+    ruta = os.path.join('static', 'uploads', nombre_imagen)
+    if os.path.exists(ruta):
+        os.remove(ruta)
+
+
 @bp.route('/eliminar-salida/<int:id>', methods=['POST'])
 def eliminar_salida(id):
     salida = SalidaTrekking.query.get_or_404(id)
+
+    # Borrar imágenes del disco
+    borrar_imagen(salida.foto_portada)
+    borrar_imagen(salida.foto_carta)
+    borrar_imagen(salida.foto_uno)
+    borrar_imagen(salida.foto_dos)
+    borrar_imagen(salida.foto_tres)
+
+    # Borrar de la base de datos
     db.session.delete(salida)
     db.session.commit()
+
     return redirect(url_for('acciones.lista_salidas'))
 
 @bp.route('/proximas_salidas')

@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from models import Usuario
 from extensions import db
 from flask_ckeditor import CKEditor
+import os
 
 
 app = Flask(__name__)
@@ -11,6 +12,10 @@ app.config.from_mapping(
     SECRET_KEY='instinto-trekking',
     SQLALCHEMY_DATABASE_URI='sqlite:///../instance/datos.db',
 )
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+UPLOAD_FOLDER = os.path.join(BASE_DIR, 'static', 'uploads')
+
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 ckeditor = CKEditor(app)
 db.init_app(app)

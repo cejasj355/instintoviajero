@@ -9,7 +9,7 @@ with app.app_context():
     if not admin:
         admin = Usuario(
             username="diego_admin",
-            password=generate_password_hash("nanfifruti128"),  # cambiá la contraseña por una segura
+            password=generate_password_hash("Instinto-Trek1"),  # cambiá la contraseña por una segura
             is_admin=True
         )
         db.session.add(admin)
