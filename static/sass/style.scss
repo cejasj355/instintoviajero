@@ -82,6 +82,7 @@ header{
 // Seccion principal de salidas
 
 .principal-salidas{
+    height: 60vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(/static/img/Fotos\ Página/salida.webp);
     border: solid 3px #001240;
     background-position: center;
@@ -90,6 +91,7 @@ header{
     object-fit: cover;
     width: 90%;
     height: 75vh;
+    gap: 10rem;
     margin: 5px auto;
 }
 .p-s-uno{
@@ -942,14 +944,21 @@ header{
     background-image:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(../img/Fotos\ Página/SALIDAS_CBA/penitentes/fondo.webp);
     background-position: 0% 38%;
     background-repeat: no-repeat;
-    background-size: 100% 400%;
+    background-size: 100% 300%;
 }
 
 .titular-fondo-gigantes{
     background-image:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(../img/Fotos\ Página/SALIDAS_CBA/gigantes_full/pagina-2.webp);
-    background-position: 0% 70%;
+    background-position: 0% 100%;
     background-repeat: no-repeat;
-    background-size: 100% 150%;
+    
+    
+}
+.titular-fondo-champaqui{
+    background-image:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(../img/Fotos\ Página/SALIDAS_CBA/champaqui_clasico/fondo.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 @media (max-width:450px) {
     .titular-fondo-penitentes{
@@ -964,7 +973,7 @@ header{
     justify-content: center;
     text-align: center;
     width: 100%;
-    height: 30vh;
+    row-gap: 3rem;
     flex-direction: column;
     color: #ffffff;
 }
