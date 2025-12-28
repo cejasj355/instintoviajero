@@ -599,6 +599,10 @@ header {
   margin: 1rem 0;
 }
 
+.precio-1-champa {
+  height: 110%;
+}
+
 .precio-1, .precio-2 {
   margin: 1rem 1rem;
   background-color: #000000;

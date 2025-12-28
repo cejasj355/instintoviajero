@@ -581,7 +581,7 @@ header{
 .info-1 h3{
     text-align: center;
 }
-.info-2{
+.info-2{ 
     margin: 2rem 0rem;
     padding: 2rem;
 }
@@ -614,6 +614,9 @@ header{
     height: 70vh; //70vh
     margin: 1rem 0;
 }
+.precio-1-champa{
+    height: 110%;
+}
 .precio-1, .precio-2{
     margin: 1rem 1rem;
     background-color: #000000;
@@ -625,6 +628,7 @@ header{
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
     padding-bottom: 5px;
+    
 }
 @media(min-width:980px) {
     
