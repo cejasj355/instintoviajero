@@ -39,14 +39,54 @@ def nosotros():
 def pag_log():
     return render_template('/auth/login.html')
 
-@bp.route('/plantillas_salidas')
+@bp.route('/crear-salidas')
 def plantilla_salidas():
-    return render_template('plantilla_salidas.html')
+    return render_template('crear_salidas.html')
 
 @bp.route('/lista-salidas')
 def lista_salidas():
     salidas = SalidaTrekking.query.all()
     return render_template('listado_salidas.html', salidas=salidas)
+
+
+@bp.route('/editar-salida/<int:id>', methods=['GET', 'POST'])
+def editar_salida(id):
+    salida = SalidaTrekking.query.get_or_404(id)
+
+    if request.method == 'POST':
+        salida.tipo_salida = request.form['tipo-salida']
+        salida.titulo = request.form['titulo']
+        salida.subtitulo = request.form['subtitulo']
+        salida.dias = request.form['dias-noches']
+        salida.contado = request.form['precio-contado']
+        salida.lugarsalida = request.form['lugar-salida']
+        salida.dificultad = request.form['dificultad']
+        salida.recorrido = request.form['recorrido']
+        salida.encuentro = request.form['encuentro']
+        salida.inicio = request.form['inicio']
+        salida.fin = request.form['fin']
+        salida.edad = request.form['edad']
+        salida.proximasfechas = request.form['proximas-fechas']
+        salida.descripcion = request.form['descripcion-salida']
+        salida.trescuotas = request.form['tres-cuotas']
+        salida.seiscuotas = request.form['seis-cuotas']
+        salida.finpromo = request.form['fin-promo']
+        salida.incluye = request.form['incluye']
+        salida.opcional = request.form['opcional']
+        salida.itinerario = request.form['itinerario']
+        salida.equipamiento = request.form['equipamiento']
+        salida.preguntas = request.form['preguntas']
+        salida.codigo = request.form['codigo']
+        salida.foto_carta = request.files.get('foto-carta')
+        salida.foto_portada = request.files.get('foto-portada')
+        salida.foto_uno = request.files.get('foto-uno')
+        salida.foto_dos = request.files.get('foto-dos')
+        salida.foto_tres = request.files.get('foto-tres')
+        db.session.commit()
+        return redirect(url_for('acciones.lista_salidas'))
+
+    return render_template('editar_salidas.html', salida=salida)
+
 
 @bp.route('/ver-salida/<int:id>')
 def ver_salida(id):

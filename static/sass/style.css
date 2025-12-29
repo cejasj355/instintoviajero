@@ -1183,10 +1183,18 @@ form .btn-primary {
   margin: auto;
 }
 
+.card {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .card-salidas {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   height: 3rem;
+  width: 100%;
 }
 
 .dashboard {

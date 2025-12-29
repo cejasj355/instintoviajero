@@ -1,0 +1,253 @@
+{% extends 'base.html' %}
+
+{% block title %}salidas{% endblock %}
+
+{% block content %}
+
+<body>
+    <main>
+        <form class="formulario" method="post" enctype="multipart/form-data">
+            <div class="tipo-salida">
+                <label>Selecciona el tipo de salida</label>
+                <select name="tipo-salida" id="" value="{{salida.tipo_salida}}">
+                    <option value="trekking-cordoba">Trekking en Córdoba</option>
+                    <option value="expedicion-de-montaña">Expediciones de montaña</option>
+                </select>
+            </div>
+            <div class="carga_imagenes">
+                <div>
+                    <label>Carga la imagen para la carta de la sección: próximas salidas</label>
+                    <div class="trekking_cba_img">
+                        <input type="file" name="foto-carta" value="{{salida.foto_carta}}">
+                    </div>
+                </div>
+                <div>
+                    <label class="carga_imagenes">Carga la imagen que quieres de portada</label>
+                    <div class="trekking_cba_img">
+                        <input type="file" name="foto-portada"  value="{{salida.foto_portada}}">
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-titles-subtitles">
+                <h1 class="section-title"><input type="text" name="titulo" placeholder="ingrese el titulo de su salida" value="{{salida.titulo}}">
+                </h1>
+            </div>
+            <section class="principal">
+                <div class="">
+                    <div class="principal-salidas portada titular-fondo" >
+                        <div class="titular">
+                            <h2><input type="text" name="subtitulo" placeholder="ingrese el subtitulo de su salida" value="{{salida.subtitulo}}"></h2>
+                            <p><input type="text" name="dias-noches" placeholder="ingrese la cantidad de dias/noches" value="{{salida.dias_noches}}">
+                            </p>
+                        </div>
+                        <div class="titular-texto">
+                            <p><input type="number" name="precio-contado"
+                                    placeholder="ingrese el precio de contado o transf" value="{{salida.precio_contado}}">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="info">
+                <div class="info-grid">
+                    <div class="prox-fechas">
+                        <div>
+                            <h3 class="prox-fechas-titulo"><input type="text" name="lugar-salida"
+                                    placeholder="ingrese el lugar de salida" value="{{salida.lugar_salida}}"></h3>
+                            <ul class="ul">
+                                <li>Dificultad: <input type="text" name="dificultad"
+                                        placeholder="ingrese la dificultad" value="{{salida.dificultad}}"></li>
+                                <li>Recorrido:<input type="text" name="recorrido" placeholder="ingrese el recorrido" value="{{salida.recorrido}}">
+                                </li>
+                                <li>Punto de encuentro:<input type="text" name="encuentro"
+                                        placeholder="ingrese el punto de encuentro" value="{{salida.punto_encuentro}}"></li>
+                                <li>Hora de Inicio: <input type="text" name="inicio"
+                                        placeholder="ingrese hora de inicio" value="{{salida.hora_inicio}}"></li>
+                                <li>Hora de finalización: <input type="text" name="fin"
+                                        placeholder="ingrese hora de finalizacion" value="{{salida.hora_fin}}"></li>
+                                <li>Edad: <input type="text" name="edad" placeholder="ingrese la edad minima" value="{{salida.edad}}"></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="prox-fechas">
+                        <h3 class="prox-fechas-titulo">PRÓXIMAS FECHAS</h3>
+                        <textarea name="proximas-fechas" id="" value="{{salida.proximas_fechas}}"></textarea>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h3 class="section-titles-subtitles section-title">DESCRIPCIÓN</h3>
+                <div class="descripcion">
+                    <textarea name="descripcion-salida" placeholder="ingrese la descripcion de la salida" value="{{salida.descripcion_salida}}"></textarea>
+                    
+                </div>
+            </section>
+            <section class="info">
+                <h3 class="section-titles-subtitles section-title">Precio desde lugar de salida</h3>
+                <div class="info-grid">
+                    <div class="info-2">
+                        <div class="precio-carta precio-1">
+                            <div class="precio-subtitulo">
+                                <p>CONTADO</p>
+                            </div>
+                            <div class="br"></div>
+                            <div class="precio-subtitulo">
+                                <p>FINANCIADO</p>
+                                <p class="num"><input type="number" name="tres-cuotas"
+                                        placeholder="ingrese el precio en 3 cuotas" value="{{salida.tres_cuotas}}"></p>
+                                <p class="num"><input type="number" name="seis-cuotas"
+                                        placeholder="ingrese el precio en 6 cuotas" value="{{salida.seis_cuotas}}"></p>
+                            </div>
+                            <div class="br"></div>
+                            <div class="precio-ul">
+                                <ul>
+                                    <li> Se reserva abonando 25%.</li>
+                                    <li> Con la reserva se congela el precio.</li>
+                                    <li> Grupos reducidos, reserva con anticipación.</li>
+                                    <li> <input type="text" name="fin-promo"
+                                            placeholder="ingrese la fecha de caducidad de la promo" value="{{salida.fin_promo}}"></li>
+                                </ul>
+                                <a href="https://api.whatsapp.com/send?phone=+3541207389&text=Hola!%20Quiero%20inscribirme%20a%20la%20salida:%20%20CHAMPAQUI%20CLASICO(MARZO)%20-%20EFECTIVO/TRANSFERENCIA"
+                                    target="_blank" class="trekking_cba_boton botones boton-reserva">CONSULTAR POR
+                                    WHATSAPP</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-1">
+                        <div>
+                            <h4>¿Qué incluye?</h4>
+                            <textarea name="incluye" id="" value="{{salida.incluye}}"></textarea>
+                        </div>
+                        <div>
+                            <h4>Opcional</h4>
+                            <textarea name="opcional" id="" value="{{salida.opcional}}"></textarea>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="cartel-consulta">
+                <div>
+                    <p>Realizá tus reservas con anticipación. Cupos limitados</p>
+                </div>
+                <div>
+                    <h4>Consulta por Whatsapp</h4>
+                    <a id="whatsapp al champa"
+                        href="https://api.whatsapp.com/send?phone=+3541207389&text=Hola!%20Quiero%20más%20info%20de%20la%20salida:%20"
+                        target="_blank" alt="logo de whatsapp para consulta a champaqui">
+                        <svg class="boton-insta" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100"
+                            height="100" viewBox="0 0 48 48">
+                            <path fill="#fff"
+                                d="M4.9,43.3l2.7-9.8C5.9,30.6,5,27.3,5,24C5,13.5,13.5,5,24,5c5.1,0,9.8,2,13.4,5.6	C41,14.2,43,18.9,43,24c0,10.5-8.5,19-19,19c0,0,0,0,0,0h0c-3.2,0-6.3-0.8-9.1-2.3L4.9,43.3z">
+                            </path>
+                            <path fill="#fff"
+                                d="M4.9,43.8c-0.1,0-0.3-0.1-0.4-0.1c-0.1-0.1-0.2-0.3-0.1-0.5L7,33.5c-1.6-2.9-2.5-6.2-2.5-9.6	C4.5,13.2,13.3,4.5,24,4.5c5.2,0,10.1,2,13.8,5.7c3.7,3.7,5.7,8.6,5.7,13.8c0,10.7-8.7,19.5-19.5,19.5c-3.2,0-6.3-0.8-9.1-2.3	L5,43.8C5,43.8,4.9,43.8,4.9,43.8z">
+                            </path>
+                            <path fill="#cfd8dc"
+                                d="M24,5c5.1,0,9.8,2,13.4,5.6C41,14.2,43,18.9,43,24c0,10.5-8.5,19-19,19h0c-3.2,0-6.3-0.8-9.1-2.3	L4.9,43.3l2.7-9.8C5.9,30.6,5,27.3,5,24C5,13.5,13.5,5,24,5 M24,43L24,43L24,43 M24,43L24,43L24,43 M24,4L24,4C13,4,4,13,4,24	c0,3.4,0.8,6.7,2.5,9.6L3.9,43c-0.1,0.3,0,0.7,0.3,1c0.2,0.2,0.4,0.3,0.7,0.3c0.1,0,0.2,0,0.3,0l9.7-2.5c2.8,1.5,6,2.2,9.2,2.2	c11,0,20-9,20-20c0-5.3-2.1-10.4-5.8-14.1C34.4,6.1,29.4,4,24,4L24,4z">
+                            </path>
+                            <path fill="#40c351"
+                                d="M35.2,12.8c-3-3-6.9-4.6-11.2-4.6C15.3,8.2,8.2,15.3,8.2,24c0,3,0.8,5.9,2.4,8.4L11,33l-1.6,5.8	l6-1.6l0.6,0.3c2.4,1.4,5.2,2.2,8,2.2h0c8.7,0,15.8-7.1,15.8-15.8C39.8,19.8,38.2,15.8,35.2,12.8z">
+                            </path>
+                            <path fill="#fff" fill-rule="evenodd"
+                                d="M19.3,16c-0.4-0.8-0.7-0.8-1.1-0.8c-0.3,0-0.6,0-0.9,0	s-0.8,0.1-1.3,0.6c-0.4,0.5-1.7,1.6-1.7,4s1.7,4.6,1.9,4.9s3.3,5.3,8.1,7.2c4,1.6,4.8,1.3,5.7,1.2c0.9-0.1,2.8-1.1,3.2-2.3	c0.4-1.1,0.4-2.1,0.3-2.3c-0.1-0.2-0.4-0.3-0.9-0.6s-2.8-1.4-3.2-1.5c-0.4-0.2-0.8-0.2-1.1,0.2c-0.3,0.5-1.2,1.5-1.5,1.9	c-0.3,0.3-0.6,0.4-1,0.1c-0.5-0.2-2-0.7-3.8-2.4c-1.4-1.3-2.4-2.8-2.6-3.3c-0.3-0.5,0-0.7,0.2-1c0.2-0.2,0.5-0.6,0.7-0.8	c0.2-0.3,0.3-0.5,0.5-0.8c0.2-0.3,0.1-0.6,0-0.8C20.6,19.3,19.7,17,19.3,16z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        <p style="display: none;">whatsapp al champa</p>
+                    </a>
+                </div>
+                <div>
+                    <h4>SEGUINOS EN INSTAGRAM</h4>
+                    <a id="instagram al champa" href="https://www.instagram.com/instintoviajero.trek" target="_blank"
+                        alt="Logo de instagram para consulta a champaqui">
+                        <svg class="boton-insta" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100"
+                            height="100" viewBox="0 0 48 48">
+                            <radialGradient id="yOrnnhliCrdS2gy~4tD8ma_Xy10Jcu1L2Su_gr1" cx="19.38" cy="42.035"
+                                r="44.899" gradientUnits="userSpaceOnUse">
+                                <stop offset="0" stop-color="#fd5"></stop>
+                                <stop offset=".328" stop-color="#ff543f"></stop>
+                                <stop offset=".348" stop-color="#fc5245"></stop>
+                                <stop offset=".504" stop-color="#e64771"></stop>
+                                <stop offset=".643" stop-color="#d53e91"></stop>
+                                <stop offset=".761" stop-color="#cc39a4"></stop>
+                                <stop offset=".841" stop-color="#c837ab"></stop>
+                            </radialGradient>
+                            <path fill="url(#yOrnnhliCrdS2gy~4tD8ma_Xy10Jcu1L2Su_gr1)"
+                                d="M34.017,41.99l-20,0.019c-4.4,0.004-8.003-3.592-8.008-7.992l-0.019-20	c-0.004-4.4,3.592-8.003,7.992-8.008l20-0.019c4.4-0.004,8.003,3.592,8.008,7.992l0.019,20	C42.014,38.383,38.417,41.986,34.017,41.99z">
+                            </path>
+                            <radialGradient id="yOrnnhliCrdS2gy~4tD8mb_Xy10Jcu1L2Su_gr2" cx="11.786" cy="5.54"
+                                r="29.813" gradientTransform="matrix(1 0 0 .6663 0 1.849)"
+                                gradientUnits="userSpaceOnUse">
+                                <stop offset="0" stop-color="#4168c9"></stop>
+                                <stop offset=".999" stop-color="#4168c9" stop-opacity="0"></stop>
+                            </radialGradient>
+                            <path fill="url(#yOrnnhliCrdS2gy~4tD8mb_Xy10Jcu1L2Su_gr2)"
+                                d="M34.017,41.99l-20,0.019c-4.4,0.004-8.003-3.592-8.008-7.992l-0.019-20	c-0.004-4.4,3.592-8.003,7.992-8.008l20-0.019c4.4-0.004,8.003,3.592,8.008,7.992l0.019,20	C42.014,38.383,38.417,41.986,34.017,41.99z">
+                            </path>
+                            <path fill="#fff"
+                                d="M24,31c-3.859,0-7-3.14-7-7s3.141-7,7-7s7,3.14,7,7S27.859,31,24,31z M24,19c-2.757,0-5,2.243-5,5	s2.243,5,5,5s5-2.243,5-5S26.757,19,24,19z">
+                            </path>
+                            <circle cx="31.5" cy="16.5" r="1.5" fill="#fff"></circle>
+                            <path fill="#fff"
+                                d="M30,37H18c-3.859,0-7-3.14-7-7V18c0-3.86,3.141-7,7-7h12c3.859,0,7,3.14,7,7v12	C37,33.86,33.859,37,30,37z M18,13c-2.757,0-5,2.243-5,5v12c0,2.757,2.243,5,5,5h12c2.757,0,5-2.243,5-5V18c0-2.757-2.243-5-5-5H18z">
+                            </path>
+                        </svg>
+                        <p style="display: none;">instagram al champa</p>
+                    </a>
+                </div>
+            </section>
+            <section>
+                <h3 class="section-titles-subtitles section-title">ITINERARIO</h3>
+                <div class="descripcion ">
+                    <textarea name="itinerario" placeholder="ingrese el itinerario" id="" value="{{salida.itinerario}}"></textarea>
+                </div>
+            </section>
+            <section>
+                <div class="excursion-img">
+                    <div class="champa-1">
+                        <input type="file" name="foto-uno" value="{{salida.foto_uno}}">
+                    </div>
+                    <div class="champa-1">
+                        <input type="file" name="foto-dos" value="{{salida.foto_dos}}">
+                    </div>
+                    <div class="champa-1">
+                        <input type="file" name="foto-tres" value="{{salida.foto_tres}}">
+                    </div>
+                    
+                </div>
+            </section>
+            <section>
+                <h4 class="section-titles-subtitles section-title">EQUIPAMIENTO NECESARIO</h4>
+                <textarea class="equipamiento" name="equipamiento" id="" value="{{salida.equipamiento}}">
+                    </textarea>
+
+            </section>
+            <section class="preguntas">
+                <h4 class="section-titles-subtitles section-title">PREGUNTAS FRECUENTES</h4>
+                <textarea name="preguntas" id="" value="{{salida.preguntas}}"></textarea>
+            </section>
+            <section>
+                <h4 class="section-titles-subtitles section-title">INSERTE CODIGO</h4>
+                <textarea type="text" name="codigo" placeholder="ingrese el codigo de la salida" id="" value="{{salida.codigo}}">
+
+                </textarea>
+            </section>
+            <button type="submit" class="trekking_cba_boton botones">ENVIAR</button>
+        </form>
+    </main>
+</body>
+<script src="https://cdn.ckeditor.com/4.10.0/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('proximas-fechas');
+    CKEDITOR.replace('descripcion-salida');
+    CKEDITOR.replace('incluye');
+    CKEDITOR.replace('opcional');
+    CKEDITOR.replace('itinerario');
+    CKEDITOR.replace('equipamiento');
+    CKEDITOR.replace('preguntas');
+    CKEDITOR.replace('codigo');
+</script>
+{% endblock %}
