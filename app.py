@@ -1,6 +1,6 @@
 from flask import Flask, url_for, render_template, request, flash, redirect
 from flask_sqlalchemy import SQLAlchemy
-from models import Usuario
+from models import SalidaTrekking, Usuario
 from extensions import db
 from flask_ckeditor import CKEditor
 import os
@@ -33,7 +33,8 @@ app.register_blueprint(auth.bp)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    salida = SalidaTrekking.query.all()
+    return render_template('index.html', salida=salida)
 
 
 if __name__ == '__main__':

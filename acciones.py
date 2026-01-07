@@ -77,15 +77,41 @@ def editar_salida(id):
         salida.equipamiento = request.form['equipamiento']
         salida.preguntas = request.form['preguntas']
         salida.codigo = request.form['codigo']
-        salida.foto_carta = request.files.get('foto-carta')
-        salida.foto_portada = request.files.get('foto-portada')
-        salida.foto_uno = request.files.get('foto-uno')
-        salida.foto_dos = request.files.get('foto-dos')
-        salida.foto_tres = request.files.get('foto-tres')
+
+        # ✅ IMÁGENES
+        salida.foto_carta = guardar_foto(
+            request.files.get('foto-carta'),
+            salida.foto_carta
+        )
+        salida.foto_portada = guardar_foto(
+            request.files.get('foto-portada'),
+            salida.foto_portada
+        )
+        salida.foto_uno = guardar_foto(
+            request.files.get('foto-uno'),
+            salida.foto_uno
+        )
+        salida.foto_dos = guardar_foto(
+            request.files.get('foto-dos'),
+            salida.foto_dos
+        )
+        salida.foto_tres = guardar_foto(
+            request.files.get('foto-tres'),
+            salida.foto_tres
+        )
+
         db.session.commit()
         return redirect(url_for('acciones.lista_salidas'))
 
     return render_template('editar_salidas.html', salida=salida)
+def guardar_foto(file, foto_actual):
+    if file and file.filename:
+        nombre = secure_filename(file.filename)
+        ruta = os.path.join(current_app.config['UPLOAD_FOLDER'], nombre)
+        file.save(ruta)
+        return nombre
+    return foto_actual
+
 
 
 @bp.route('/ver-salida/<int:id>')
