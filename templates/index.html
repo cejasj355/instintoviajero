@@ -71,12 +71,15 @@
                         <a class="botones blanco-boton" href="#trekking_cba">PRÓXIMAS SALIDAS</a>
                     </div>
                 </div>
-                    
                 <div class="aventuras">
                     <div class="principal-salidas p-s-dos">
                         <h2 class="principal-salidas-titulo span">ASCENSO CERRO</h2>
                         <h3 class="principal-salidas-subtitulo span">CHAMPAQUÍ</h3>
-                        <a class="botones blanco-boton" href="{{url_for("acciones.cerro_champaqui")}}">PRÓXIMOS ASCENSOS</a>
+                        {% for s in salida %}
+                        {% if s.titulo == "ascenso cerro champaquí clásico" %}    
+                        <a class="botones blanco-boton" href="{{ url_for('acciones.ver_salida', id=s.id) }}">PRÓXIMOS ASCENSOS</a>
+                        {% endif %}
+                        {% endfor %}
                     </div>
                 </div>
 

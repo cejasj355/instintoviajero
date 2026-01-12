@@ -3,6 +3,7 @@ from werkzeug.utils import secure_filename
 from extensions import db
 import os
 from flask import current_app
+import uuid
 
 from models import SalidaTrekking, Usuario
 bp = Blueprint('acciones', __name__, url_prefix='/acciones')
@@ -55,6 +56,7 @@ def editar_salida(id):
 
     if request.method == 'POST':
         salida.tipo_salida = request.form['tipo-salida']
+        salida.prox_desc = request.form['prox-desc']
         salida.titulo = request.form['titulo']
         salida.subtitulo = request.form['subtitulo']
         salida.dias = request.form['dias-noches']
@@ -70,6 +72,10 @@ def editar_salida(id):
         salida.descripcion = request.form['descripcion-salida']
         salida.trescuotas = request.form['tres-cuotas']
         salida.seiscuotas = request.form['seis-cuotas']
+        salida.meses_proximos = request.form['meses-proximos']
+        salida.precio_meses_proximos = request.form['precio-meses-proximos']
+        salida.tres_cuotas_meses = request.form['precio-tres-meses']
+        salida.seis_cuotas_meses = request.form['precio-seis-meses']
         salida.finpromo = request.form['fin-promo']
         salida.incluye = request.form['incluye']
         salida.opcional = request.form['opcional']
@@ -104,13 +110,40 @@ def editar_salida(id):
         return redirect(url_for('acciones.lista_salidas'))
 
     return render_template('editar_salidas.html', salida=salida)
-def guardar_foto(file, foto_actual):
-    if file and file.filename:
-        nombre = secure_filename(file.filename)
-        ruta = os.path.join(current_app.config['UPLOAD_FOLDER'], nombre)
-        file.save(ruta)
-        return nombre
-    return foto_actual
+
+def guardar_foto(file, foto_actual=None):
+    # Si no se sube nueva imagen → mantener la actual
+    if not file or file.filename == '':
+        return foto_actual
+
+    # Extensión
+    extension = file.filename.rsplit('.', 1)[-1].lower()
+    extensiones_permitidas = {'jpg', 'jpeg', 'png', 'webp'}
+
+    if extension not in extensiones_permitidas:
+        return foto_actual
+
+    # Borrar imagen anterior
+    if foto_actual:
+        ruta_vieja = os.path.join(
+            current_app.config['UPLOAD_FOLDER'],
+            foto_actual
+        )
+        if os.path.exists(ruta_vieja):
+            os.remove(ruta_vieja)
+
+    # Nombre único
+    nombre = f"{uuid.uuid4().hex}.{extension}"
+    nombre = secure_filename(nombre)
+
+    # Guardar
+    ruta = os.path.join(
+        current_app.config['UPLOAD_FOLDER'],
+        nombre
+    )
+    file.save(ruta)
+
+    return nombre
 
 
 

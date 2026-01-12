@@ -17,6 +17,7 @@ class Usuario(db.Model, UserMixin):
 class SalidaTrekking(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     tipo_salida = db.Column(db.String(255))
+    prox_desc = db.Column(db.Text)
     foto_carta = db.Column(db.String(255))
     foto_portada = db.Column(db.String(255))
     titulo = db.Column(db.String(100))
@@ -34,6 +35,10 @@ class SalidaTrekking(db.Model):
     descripcion = db.Column(db.Text)
     trescuotas = db.Column(db.String(50))
     seiscuotas = db.Column(db.String(50))
+    meses_proximos = db.Column(db.String(100))
+    precio_meses_proximos = db.Column(db.String(50))
+    tres_cuotas_meses = db.Column(db.String(50))
+    seis_cuotas_meses = db.Column(db.String(50))
     finpromo = db.Column(db.String(100))
     incluye = db.Column(db.Text)
     opcional = db.Column(db.Text)

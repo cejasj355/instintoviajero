@@ -87,11 +87,23 @@
                             </div>
                             <div class="br"></div>
                             <div class="precio-subtitulo">
-                                <p>FINANCIADO</p>
-                                <p class="num">3 x ${{salida.trescuotas}}</p>
-                                <p class="num">6 x ${{salida.seiscuotas}}</p>
+                                <p>TARJETA DE CREDITO</p>
+                                <p class="num">3 Cuotas x ${{salida.trescuotas}}</p>
+                                <p class="num">6 Cuotas x ${{salida.seiscuotas}}</p>
                             </div>
                             <div class="br"></div>
+                            {% if salida.meses_proximos != "" %}
+                            <div class="precio-subtitulo">
+                                <p>{{salida.meses_proximos}}</p>
+                                <p>${{salida.precio_meses_proximos}} Por persona</p>
+                            </div>
+                            <div class="br"></div>
+                            <div class="precio-subtitulo">
+                                <p>TARJETA DE CREDITO</p>
+                                <p class="num">3 Cuotas x ${{salida.tres_cuotas_meses}}</p>
+                                <p class="num">6 Cuotas x ${{salida.seis_cuotas_meses}}</p>
+                            </div>
+                            {% endif %}
                             <div class="precio-ul">
                                 <ul>
                                     <li> Se reserva abonando 25%.</li>
@@ -195,7 +207,7 @@
             <section>
                 <h3 class="section-titles-subtitles section-title">ITINERARIO</h3>
                 <div class="descripcion ">
-                    {{salida.itinerario|safe}}
+                    {{salida.itinerario | safe}}
                 </div>
             </section>
             <section>

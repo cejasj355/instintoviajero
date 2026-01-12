@@ -22,6 +22,10 @@
                     </div>
                 </div>
                 <div>
+                    <label class="carga_imagenes">Escribe la descripcion en la seccion: próximas salidas</label>
+                    <textarea name="prox-desc" id=""></textarea>
+                </div>
+                <div>
                     <label class="carga_imagenes">Carga la imagen que quieres de portada</label>
                     <div class="trekking_cba_img">
                         <input type="file" name="foto-portada">
@@ -93,11 +97,22 @@
                             </div>
                             <div class="br"></div>
                             <div class="precio-subtitulo">
-                                <p>FINANCIADO</p>
+                                <p>TARJETA DE CRÉDITO</p>
                                 <p class="num"><input type="number" name="tres-cuotas"
                                         placeholder="ingrese el precio en 3 cuotas"></p>
                                 <p class="num"><input type="number" name="seis-cuotas"
                                         placeholder="ingrese el precio en 6 cuotas"></p>
+                            </div>
+                            <div class="br"></div>
+                            <div class="precio-subtitulo">
+                                <p><input name="meses-proximos" type="text" placeholder="Ingresa meses para otro precio"></p>
+                                <p><input type="number" name="precio-meses-proximos" placeholder="Ingresa el precio por persona"></p>
+                            </div>
+                            <div class="br"></div>
+                            <div class="precio-subtitulo">
+                                <p>TARJETA DE CREDITO</p>
+                                <p class="num"><input name="precio-tres-meses" type="number" placeholder="Ingresa el precio para 3 cuotas"></p>
+                                <p class="num"><input name="precio-seis-meses" type="number" placeholder="Ingresa el precio para 6 cuotas"></p>
                             </div>
                             <div class="br"></div>
                             <div class="precio-ul">
@@ -242,6 +257,7 @@
 <script src="https://cdn.ckeditor.com/4.10.0/standard/ckeditor.js"></script>
 <script>
     CKEDITOR.replace('proximas-fechas');
+    CKEDITOR.replace('prox-desc');
     CKEDITOR.replace('descripcion-salida');
     CKEDITOR.replace('incluye');
     CKEDITOR.replace('opcional');

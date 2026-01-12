@@ -22,6 +22,10 @@
                     </div>
                 </div>
                 <div>
+                    <label class="carga_imagenes" for="">Escribe la descripcion de la salida en la seccion: próximas salidas</label>
+                    <textarea name="prox-desc" value="">{{salida.prox_desc|safe}}</textarea>
+                </div>
+                <div>
                     <label class="carga_imagenes">Carga la imagen que quieres de portada</label>
                     <div class="trekking_cba_img">
                         <input type="file" name="foto-portada"  value="{{salida.foto_portada}}">
@@ -38,12 +42,12 @@
                     <div class="principal-salidas portada titular-fondo" >
                         <div class="titular">
                             <h2><input type="text" name="subtitulo" placeholder="ingrese el subtitulo de su salida" value="{{salida.subtitulo}}"></h2>
-                            <p><input type="text" name="dias-noches" placeholder="ingrese la cantidad de dias/noches" value="{{salida.dias_noches}}">
+                            <p><input type="text" name="dias-noches" placeholder="ingrese la cantidad de dias/noches" value="{{salida.dias}}">
                             </p>
                         </div>
                         <div class="titular-texto">
                             <p><input type="number" name="precio-contado"
-                                    placeholder="ingrese el precio de contado o transf" value="{{salida.precio_contado}}">
+                                    placeholder="ingrese el precio de contado o transf" value="{{salida.contado}}">
                             </p>
                         </div>
                     </div>
@@ -54,32 +58,32 @@
                     <div class="prox-fechas">
                         <div>
                             <h3 class="prox-fechas-titulo"><input type="text" name="lugar-salida"
-                                    placeholder="ingrese el lugar de salida" value="{{salida.lugar_salida}}"></h3>
+                                    placeholder="ingrese el lugar de salida" value="{{salida.lugarsalida}}"></h3>
                             <ul class="ul">
                                 <li>Dificultad: <input type="text" name="dificultad"
                                         placeholder="ingrese la dificultad" value="{{salida.dificultad}}"></li>
                                 <li>Recorrido:<input type="text" name="recorrido" placeholder="ingrese el recorrido" value="{{salida.recorrido}}">
                                 </li>
                                 <li>Punto de encuentro:<input type="text" name="encuentro"
-                                        placeholder="ingrese el punto de encuentro" value="{{salida.punto_encuentro}}"></li>
+                                        placeholder="ingrese el punto de encuentro" value="{{salida.encuentro}}"></li>
                                 <li>Hora de Inicio: <input type="text" name="inicio"
-                                        placeholder="ingrese hora de inicio" value="{{salida.hora_inicio}}"></li>
+                                        placeholder="ingrese hora de inicio" value="{{salida.inicio}}"></li>
                                 <li>Hora de finalización: <input type="text" name="fin"
-                                        placeholder="ingrese hora de finalizacion" value="{{salida.hora_fin}}"></li>
+                                        placeholder="ingrese hora de finalizacion" value="{{salida.fin}}"></li>
                                 <li>Edad: <input type="text" name="edad" placeholder="ingrese la edad minima" value="{{salida.edad}}"></li>
                             </ul>
                         </div>
                     </div>
                     <div class="prox-fechas">
                         <h3 class="prox-fechas-titulo">PRÓXIMAS FECHAS</h3>
-                        <textarea name="proximas-fechas" id="" value="{{salida.proximas_fechas}}"></textarea>
+                        <textarea name="proximas-fechas" id="" value="">{{salida.proximasfechas|safe}}</textarea>
                     </div>
                 </div>
             </section>
             <section>
                 <h3 class="section-titles-subtitles section-title">DESCRIPCIÓN</h3>
                 <div class="descripcion">
-                    <textarea name="descripcion-salida" placeholder="ingrese la descripcion de la salida" value="{{salida.descripcion_salida}}"></textarea>
+                    <textarea name="descripcion-salida" placeholder="ingrese la descripcion de la salida" value="">{{salida.descripcion|safe}}</textarea>
                     
                 </div>
             </section>
@@ -93,12 +97,25 @@
                             </div>
                             <div class="br"></div>
                             <div class="precio-subtitulo">
-                                <p>FINANCIADO</p>
+                                <p>TARJETA DE CREDITO</p>
                                 <p class="num"><input type="number" name="tres-cuotas"
-                                        placeholder="ingrese el precio en 3 cuotas" value="{{salida.tres_cuotas}}"></p>
+                                        placeholder="ingrese el precio en 3 cuotas" value="{{salida.trescuotas}}"></p>
                                 <p class="num"><input type="number" name="seis-cuotas"
-                                        placeholder="ingrese el precio en 6 cuotas" value="{{salida.seis_cuotas}}"></p>
+                                        placeholder="ingrese el precio en 6 cuotas" value="{{salida.seiscuotas}}"></p>
                             </div>
+                            {% if salida.meses_proximos != "None" %}
+                            <div class="br"></div>
+                            <div class="precio-subtitulo">
+                                <p><input name="meses-proximos" type="text" placeholder="Ingresa meses para otro precio" value="{{salida.meses_proximos}}"></p>
+                                <p><input type="number" name="precio-meses-proximos" placeholder="Ingresa el precio por persona" value="{{salida.precio_meses_proximos}}"></p>
+                            </div>
+                            <div class="br"></div>
+                            <div class="precio-subtitulo">
+                                <p>TARJETA DE CREDITO</p>
+                                <p class="num"><input name="precio-tres-meses" type="number" placeholder="Ingresa el precio para 3 cuotas" value="{{salida.tres_cuotas_meses}}"></p>
+                                <p class="num"><input name="precio-seis-meses" type="number" placeholder="Ingresa el precio para 6 cuotas" value="{{salida.seis_cuotas_meses}}"></p>
+                            </div>
+                            {% endif %}
                             <div class="br"></div>
                             <div class="precio-ul">
                                 <ul>
@@ -106,7 +123,7 @@
                                     <li> Con la reserva se congela el precio.</li>
                                     <li> Grupos reducidos, reserva con anticipación.</li>
                                     <li> <input type="text" name="fin-promo"
-                                            placeholder="ingrese la fecha de caducidad de la promo" value="{{salida.fin_promo}}"></li>
+                                            placeholder="ingrese la fecha de caducidad de la promo" value="{{salida.finpromo}}"></li>
                                 </ul>
                                 <a href="https://api.whatsapp.com/send?phone=+3541207389&text=Hola!%20Quiero%20inscribirme%20a%20la%20salida:%20%20CHAMPAQUI%20CLASICO(MARZO)%20-%20EFECTIVO/TRANSFERENCIA"
                                     target="_blank" class="trekking_cba_boton botones boton-reserva">CONSULTAR POR
@@ -117,11 +134,11 @@
                     <div class="info-1">
                         <div>
                             <h4>¿Qué incluye?</h4>
-                            <textarea name="incluye" id="" value="{{salida.incluye}}"></textarea>
+                            <textarea name="incluye" id="" >{{salida.incluye|safe}}</textarea>
                         </div>
                         <div>
                             <h4>Opcional</h4>
-                            <textarea name="opcional" id="" value="{{salida.opcional}}"></textarea>
+                            <textarea name="opcional" id="" >{{salida.opcional|safe}}</textarea>
                         </div>
 
                     </div>
@@ -202,7 +219,7 @@
             <section>
                 <h3 class="section-titles-subtitles section-title">ITINERARIO</h3>
                 <div class="descripcion ">
-                    <textarea name="itinerario" placeholder="ingrese el itinerario" id="" value="{{salida.itinerario}}"></textarea>
+                    <textarea name="itinerario" placeholder="ingrese el itinerario" id="" >{{salida.itinerario|safe}}</textarea>
                 </div>
             </section>
             <section>
@@ -221,18 +238,19 @@
             </section>
             <section>
                 <h4 class="section-titles-subtitles section-title">EQUIPAMIENTO NECESARIO</h4>
-                <textarea class="equipamiento" name="equipamiento" id="" value="{{salida.equipamiento}}">
+                <textarea class="equipamiento" name="equipamiento" id="" >
+                    {{ salida.equipamiento | safe }}
                     </textarea>
 
             </section>
             <section class="preguntas">
                 <h4 class="section-titles-subtitles section-title">PREGUNTAS FRECUENTES</h4>
-                <textarea name="preguntas" id="" value="{{salida.preguntas}}"></textarea>
+                <textarea name="preguntas" id="" >{{salida.preguntas|safe}}</textarea>
             </section>
             <section>
                 <h4 class="section-titles-subtitles section-title">INSERTE CODIGO</h4>
                 <textarea type="text" name="codigo" placeholder="ingrese el codigo de la salida" id="" value="{{salida.codigo}}">
-
+                    {{ salida.codigo | safe }}
                 </textarea>
             </section>
             <button type="submit" class="trekking_cba_boton botones">ENVIAR</button>
@@ -242,6 +260,7 @@
 <script src="https://cdn.ckeditor.com/4.10.0/standard/ckeditor.js"></script>
 <script>
     CKEDITOR.replace('proximas-fechas');
+    CKEDITOR.replace('prox-desc');
     CKEDITOR.replace('descripcion-salida');
     CKEDITOR.replace('incluye');
     CKEDITOR.replace('opcional');

@@ -55,6 +55,7 @@ def crear_post():
     if request.method == 'POST':
         nueva_salida = SalidaTrekking(
             tipo_salida=request.form['tipo-salida'],
+            prox_desc=request.form['prox-desc'],
             titulo=request.form['titulo'],
             subtitulo=request.form['subtitulo'],
             dias=request.form['dias-noches'],
@@ -70,6 +71,10 @@ def crear_post():
             descripcion=request.form['descripcion-salida'],
             trescuotas=request.form['tres-cuotas'],
             seiscuotas=request.form['seis-cuotas'],
+            meses_proximos=request.form['meses-proximos'],
+            precio_meses_proximos=request.form['precio-meses-proximos'],
+            tres_cuotas_meses=request.form['precio-tres-meses'],
+            seis_cuotas_meses=request.form['precio-seis-meses'],
             finpromo=request.form['fin-promo'],
             incluye=request.form['incluye'],
             opcional=request.form['opcional'],

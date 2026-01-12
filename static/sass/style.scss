@@ -1,7 +1,7 @@
 *{
     font-family: "Nunito", serif;
     margin: 0;
-    padding: 0%;
+    
     text-decoration: none;
     
 }
@@ -1058,7 +1058,7 @@ header{
     font-weight: bold;
     font-size: 15px;
     text-transform: uppercase;
-    list-style: none;
+    
 }
 @media(max-width:600px) {
     .titular h1{
@@ -1178,8 +1178,9 @@ form .btn-primary{
 }
 .card-salidas{
     display: grid;
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(3,1fr);
     height: 3rem;
+    text-align: center;
     width: 100%;
 }
 .dashboard{
@@ -1223,7 +1224,7 @@ form .btn-primary{
 }
 @media(max-width:768px) {
     .carga-imagen-nueva{
-        height: 50vh;
+        height: 100%;
         width: 100%;
     }
     .titular h2{
