@@ -58,7 +58,7 @@
         </div>
     </section>
     
-    <section class="trekking_cba">
+    <!-- <section class="trekking_cba">
         <div class="trekking-cba-grid">
             <div class="trekking_cba_carta">
                 <div class="trekking_cba_img">
@@ -103,7 +103,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <section class="expediciones-de-montaña">
         <div class="section-titles-subtitles">
             <h2 class="section-title">EXPEDICIONES DE MONTAÑA</h2>
@@ -119,7 +119,7 @@
                         <h4>{{s.titulo}}</h4>
                     </div>
                     <div class="trekking_cba_parrafo">
-                        <p>{{s.descripcion|safe}}</p>
+                        <p>{{s.prox_desc|safe}}</p>
                     </div>
                     <div>
                         <a class="trekking_cba_boton botones" href="{{url_for('acciones.ver_salida', id=s.id)}}">VER MÁS</a>
@@ -127,7 +127,7 @@
                 </div>
                 {%endif%}
             {%endfor%}
-            <div class="trekking_cba_carta">
+            <!-- <div class="trekking_cba_carta">
                 <div class="trekking_cba_img">
                     <img src="../static/img/Fotos Página/SALIDAS_CBA/Ascenso-PenitentesP.webp" alt="Imagen del ascenso al cerro penitentes">
                 </div>
@@ -154,7 +154,7 @@
                 <div>
                     <a class="trekking_cba_boton botones" href="{{url_for("acciones.vallecitos")}}">VER MÁS</a>
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
 </main>

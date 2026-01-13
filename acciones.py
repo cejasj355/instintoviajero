@@ -79,6 +79,7 @@ def editar_salida(id):
         salida.finpromo = request.form['fin-promo']
         salida.incluye = request.form['incluye']
         salida.opcional = request.form['opcional']
+        salida.no_incluye = request.form['no-incluye']
         salida.itinerario = request.form['itinerario']
         salida.equipamiento = request.form['equipamiento']
         salida.preguntas = request.form['preguntas']

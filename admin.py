@@ -78,6 +78,7 @@ def crear_post():
             finpromo=request.form['fin-promo'],
             incluye=request.form['incluye'],
             opcional=request.form['opcional'],
+            no_incluye=request.form['no-incluye'],
             itinerario=request.form['itinerario'],
             equipamiento=request.form['equipamiento'],
             preguntas=request.form['preguntas'],

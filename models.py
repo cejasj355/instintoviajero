@@ -42,6 +42,7 @@ class SalidaTrekking(db.Model):
     finpromo = db.Column(db.String(100))
     incluye = db.Column(db.Text)
     opcional = db.Column(db.Text)
+    no_incluye = db.Column(db.Text)
     itinerario = db.Column(db.Text)
     equipamiento = db.Column(db.Text)
     preguntas = db.Column(db.Text)
