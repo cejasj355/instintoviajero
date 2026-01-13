@@ -77,7 +77,7 @@
                         <h3 class="principal-salidas-subtitulo span">CHAMPAQUÍ</h3>
                         {% for s in salida %}
                         {% if s.titulo == "ascenso cerro champaquí clásico" %}    
-                        <a class="botones blanco-boton" href="{{ url_for('acciones.ver_salida', id=s.id) }}">PRÓXIMOS ASCENSOS</a>
+                        <a class="botones blanco-boton" href="{{ url_for('acciones.ver_salida', slug=s.slug) }}">PRÓXIMOS ASCENSOS</a>
                         {% endif %}
                         {% endfor %}
                     </div>

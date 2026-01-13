@@ -16,6 +16,7 @@ class Usuario(db.Model, UserMixin):
     
 class SalidaTrekking(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    slug = db.Column(db.String(160), unique=True, nullable=False)
     tipo_salida = db.Column(db.String(255))
     prox_desc = db.Column(db.Text)
     foto_carta = db.Column(db.String(255))

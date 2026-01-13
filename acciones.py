@@ -4,6 +4,8 @@ from extensions import db
 import os
 from flask import current_app
 import uuid
+from slugify import slugify
+
 
 from models import SalidaTrekking, Usuario
 bp = Blueprint('acciones', __name__, url_prefix='/acciones')
@@ -50,6 +52,8 @@ def lista_salidas():
     return render_template('listado_salidas.html', salidas=salidas)
 
 
+
+
 @bp.route('/editar-salida/<int:id>', methods=['GET', 'POST'])
 def editar_salida(id):
     salida = SalidaTrekking.query.get_or_404(id)
@@ -58,6 +62,7 @@ def editar_salida(id):
         salida.tipo_salida = request.form['tipo-salida']
         salida.prox_desc = request.form['prox-desc']
         salida.titulo = request.form['titulo']
+        salida.slug = slugify(salida.titulo)
         salida.subtitulo = request.form['subtitulo']
         salida.dias = request.form['dias-noches']
         salida.contado = request.form['precio-contado']
@@ -148,9 +153,9 @@ def guardar_foto(file, foto_actual=None):
 
 
 
-@bp.route('/ver-salida/<int:id>')
-def ver_salida(id):
-    salida = SalidaTrekking.query.get_or_404(id)
+@bp.route('/ver-salida/<slug>')
+def ver_salida(slug):
+    salida = SalidaTrekking.query.filter_by(slug=slug).first_or_404()
     return render_template('ver_salida.html', salida=salida)
 
 def borrar_imagen(nombre_imagen):

@@ -11,7 +11,7 @@ def dashboard():
     return render_template('admin/dashboard.html')
 
 
-
+from slugify import slugify
 import os
 import uuid
 from PIL import Image
@@ -57,6 +57,7 @@ def crear_post():
             tipo_salida=request.form['tipo-salida'],
             prox_desc=request.form['prox-desc'],
             titulo=request.form['titulo'],
+            slug = slugify(request.form['titulo']),
             subtitulo=request.form['subtitulo'],
             dias=request.form['dias-noches'],
             contado=request.form['precio-contado'],

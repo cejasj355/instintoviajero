@@ -8,7 +8,7 @@
 {% for s in salidas %}
 <div class="card mb-3 shadow-sm">
   <div class="card-salidas">
-    <h4><a href="{{ url_for('acciones.ver_salida', id=s.id) }}" class="text-decoration-none">{{ s.titulo }}</a></h4>
+    <h4><a href="{{ url_for('acciones.ver_salida', slug=s.slug) }}" class="text-decoration-none">{{ s.titulo }}</a></h4>
     <form action="{{ url_for('acciones.eliminar_salida', id=s.id) }}" method="POST" style="display:inline;"
       onsubmit="return confirm('¿Seguro que querés eliminar esta salida?');">
       <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>

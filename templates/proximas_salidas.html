@@ -1,3 +1,8 @@
+{% extends 'base.html' %}
+
+{% block title %}Próximas Salidas{% endblock %}
+
+{% block content %}
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Google tag (gtag.js) -->
@@ -25,11 +30,6 @@
         src="https://www.facebook.com/tr?id=637563278683166&ev=PageView&noscript=1"
         /></noscript>
 </head>
-{% extends 'base.html' %}
-
-{% block title %}Próximas Salidas{% endblock %}
-
-{% block content %}
 <main>
     <div class="section-titles-subtitles">
         <h2 class="section-title">ELEGI TU PRÓXIMA</h2>
@@ -50,7 +50,7 @@
                             <p>{{s.prox_desc|safe}}</p>
                         </div>
                         <div>
-                            <a class="trekking_cba_boton botones" href="{{url_for('acciones.ver_salida', id=s.id)}}">VER MÁS</a>
+                            <a class="trekking_cba_boton botones" href="{{url_for('acciones.ver_salida', slug=s.slug)}}">VER MÁS</a>
                         </div>
                     </div>
                 {% endif %}
@@ -58,52 +58,7 @@
         </div>
     </section>
     
-    <!-- <section class="trekking_cba">
-        <div class="trekking-cba-grid">
-            <div class="trekking_cba_carta">
-                <div class="trekking_cba_img">
-                    <img src="../static/img/Fotos Página/SALIDAS_CBA/Uritorco-Cuadradoo.webp" alt="Imagen del cerro uritorco">
-                </div>
-                <div class="trekking_cba_titulo">
-                    <h4>Ascenso Cerro Uritorco nocturno</h4>
-                </div>
-                <div class="trekking_cba_parrafo">
-                    <p>Nos vamos tras los misterios de la noche en el Cerro Uritorco. Desde la medianoche caminamos para vivir el amanecer desde la cumbre. ¿Te animas?</p>
-                </div>
-                <div>
-                    <a class="trekking_cba_boton botones" href="{{url_for("acciones.uritorco")}}">VER MÁS</a>
-                </div>
-            </div>
-            <div class="trekking_cba_carta">
-                <div class="trekking_cba_img">
-                    <img src="../static/img/Fotos Página/SALIDAS_CBA/Cajones-y-Gigantes-cuadradoo.webp" alt="Imagen de gigantes">
-                </div>
-                <div class="trekking_cba_titulo">
-                    <h4>Los Gigantes Full: noche en refugio</h4>
-                </div>
-                <div class="trekking_cba_parrafo">
-                    <p>Una vuelta sin desperdicio por el macizo. 2 días y 1 noche en refugio, atardecer en cumbre, noche en lo alto y Cajones de Achala. ¿Venís a vivir esta experiencia?</p>
-                </div>
-                <div>
-                    <a class="trekking_cba_boton botones" href="{{url_for("acciones.gigantes_full")}}">VER MÁS</a>
-                </div>
-            </div>
-            <div class="trekking_cba_carta">
-                <div class="trekking_cba_img">
-                    <img src="../static/img/Fotos Página/SALIDAS_CBA/Champaquí-ClásicoP-_1_.webp" alt="Imagen del cerro champaqui">
-                </div>
-                <div class="trekking_cba_titulo">
-                    <h4>Ascenso cerro Champaquí clásico</h4>
-                </div>
-                <div class="trekking_cba_parrafo">
-                    <p>La vuelta clásica del Cerro Champaquí desde Villa Alpina. Tres días de desafío por el techo de Córdoba. Reservá y congelá precios.</p>
-                </div>
-                <div>
-                    <a class="trekking_cba_boton botones" href="{{url_for("acciones.cerro_champaqui")}}">VER MÁS</a>
-                </div>
-            </div>
-        </div>
-    </section> -->
+    
     <section class="expediciones-de-montaña">
         <div class="section-titles-subtitles">
             <h2 class="section-title">EXPEDICIONES DE MONTAÑA</h2>
@@ -122,39 +77,12 @@
                         <p>{{s.prox_desc|safe}}</p>
                     </div>
                     <div>
-                        <a class="trekking_cba_boton botones" href="{{url_for('acciones.ver_salida', id=s.id)}}">VER MÁS</a>
+                        <a class="trekking_cba_boton botones" href="{{url_for('acciones.ver_salida', slug=s.slug)}}">VER MÁS</a>
                     </div>
                 </div>
                 {%endif%}
             {%endfor%}
-            <!-- <div class="trekking_cba_carta">
-                <div class="trekking_cba_img">
-                    <img src="../static/img/Fotos Página/SALIDAS_CBA/Ascenso-PenitentesP.webp" alt="Imagen del ascenso al cerro penitentes">
-                </div>
-                <div class="trekking_cba_titulo">
-                    <h4>Expedición ascenso Cerro Penitentes – 4350 msnm</h4>
-                </div>
-                <div class="trekking_cba_parrafo">
-                    <p>Clásico desafío de montaña en la cordillera mendocina, a los pies del Cerro Aconcagua. Expedición de 4 días y 3 noches desde Penitentes. Incluye pensión completa en alojamiento de montaña (primera noche) y campamento de montaña (segunda y tercer noche).</p>
-                </div>
-                <div>
-                    <a class="trekking_cba_boton botones" href="{{url_for("acciones.cerro_penitentes")}}">VER MÁS</a>
-                </div>
-            </div>
-            <div class="trekking_cba_carta">
-                <div class="trekking_cba_img">
-                    <img src="../static/img/Fotos Página/SALIDAS_CBA/Expedición-Vallecitos-P.webp" alt="Imagen del cerro adolfo calle">
-                </div>
-                <div class="trekking_cba_titulo">
-                    <h4>Vallecitos, 2 x 4 mil – Cerros Adolfo Calle & Stepanek</h4>
-                </div>
-                <div class="trekking_cba_parrafo">
-                    <p>Gran desafío para iniciarse en altura. Nos vamos en busca de estos dos emblemáticos cuatro miles de Vallecitos. Expedición de 4 días y 3 noches. Incluye pensión completa en alojamiento de montaña (primera noche) y campamento de montaña (segunda y tercer noche).</p>
-                </div>
-                <div>
-                    <a class="trekking_cba_boton botones" href="{{url_for("acciones.vallecitos")}}">VER MÁS</a>
-                </div>
-            </div> -->
+            
         </div>
     </section>
 </main>
