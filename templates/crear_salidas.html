@@ -57,26 +57,23 @@
                 <div class="info-grid">
                     <div class="prox-fechas">
                         <div>
-                            <h3 class="prox-fechas-titulo"><input type="text" name="lugar-salida"
-                                    placeholder="ingrese el lugar de salida"></h3>
+                            <h3 class="prox-fechas-titulo">PRÓXIMAS FECHAS</h3>
+                                <textarea name="proximas-fechas" id=""></textarea>
+                            
                             <ul class="ul">
-                                <li>Dificultad: <input type="text" name="dificultad"
-                                        placeholder="ingrese la dificultad"></li>
-                                <li>Recorrido:<input type="text" name="recorrido" placeholder="ingrese el recorrido">
-                                </li>
-                                <li>Punto de encuentro:<input type="text" name="encuentro"
-                                        placeholder="ingrese el punto de encuentro"></li>
-                                <li>Hora de Inicio: <input type="text" name="inicio"
-                                        placeholder="ingrese hora de inicio"></li>
-                                <li>Hora de finalización: <input type="text" name="fin"
-                                        placeholder="ingrese hora de finalizacion"></li>
+                                <li>Punto de encuentro:<input type="text" name="encuentro" placeholder="ingrese el punto de encuentro"></li>
+                                <li>Hora de Inicio: <input type="text" name="inicio" placeholder="ingrese hora de inicio"></li>
+                                <li>Hora de finalización: <input type="text" name="fin" placeholder="ingrese hora de finalizacion"></li>
+                                <li>Recorrido:<input type="text" name="recorrido" placeholder="ingrese el recorrido"></li>
                                 <li>Edad: <input type="text" name="edad" placeholder="ingrese la edad minima"></li>
+                                <li><input type="text" name="info-extra" placeholder="ingrese informacion extra"></li>
                             </ul>
                         </div>
                     </div>
                     <div class="prox-fechas">
-                        <h3 class="prox-fechas-titulo">PRÓXIMAS FECHAS</h3>
-                        <textarea name="proximas-fechas" id=""></textarea>
+                        <h3 class="prox-fechas-titulo">DIFICULTAD</h3>
+                        <p><textarea name="dificultad" placeholder="ingrese la dificultad"></textarea></p>
+                        
                     </div>
                 </div>
             </section>
@@ -261,6 +258,7 @@
 <script src="https://cdn.ckeditor.com/4.10.0/standard/ckeditor.js"></script>
 <script>
     CKEDITOR.replace('proximas-fechas');
+    CKEDITOR.replace('dificultad');
     CKEDITOR.replace('prox-desc');
     CKEDITOR.replace('descripcion-salida');
     CKEDITOR.replace('incluye');

@@ -66,7 +66,6 @@ def editar_salida(id):
         salida.subtitulo = request.form['subtitulo']
         salida.dias = request.form['dias-noches']
         salida.contado = request.form['precio-contado']
-        salida.lugarsalida = request.form['lugar-salida']
         salida.dificultad = request.form['dificultad']
         salida.recorrido = request.form['recorrido']
         salida.encuentro = request.form['encuentro']
@@ -89,6 +88,7 @@ def editar_salida(id):
         salida.equipamiento = request.form['equipamiento']
         salida.preguntas = request.form['preguntas']
         salida.codigo = request.form['codigo']
+        salida.infoextra = request.form['info-extra']
 
         # ✅ IMÁGENES
         salida.foto_carta = guardar_foto(

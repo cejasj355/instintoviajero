@@ -61,7 +61,6 @@ def crear_post():
             subtitulo=request.form['subtitulo'],
             dias=request.form['dias-noches'],
             contado=request.form['precio-contado'],
-            lugarsalida=request.form['lugar-salida'],
             dificultad=request.form['dificultad'],
             recorrido=request.form['recorrido'],
             encuentro=request.form['encuentro'],
@@ -83,7 +82,8 @@ def crear_post():
             itinerario=request.form['itinerario'],
             equipamiento=request.form['equipamiento'],
             preguntas=request.form['preguntas'],
-            codigo = request.form['codigo']
+            codigo = request.form['codigo'],
+            infoextra=request.form['info-extra'],
         )
         foto_carta = request.files.get('foto-carta')
         if foto_carta:

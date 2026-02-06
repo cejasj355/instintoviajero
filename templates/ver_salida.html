@@ -51,21 +51,22 @@
                 <div class="info-grid">
                     <div class="prox-fechas">
                         <div>
-                            <h3 class="prox-fechas-titulo">{{salida.lugarsalida}}</h3>
+                            <h3 class="prox-fechas-titulo">PRÓXIMAS SALIDAS</h3>
+                            <p>{{salida.proximasfechas|safe}}</p>
                             <ul class="ul">
-                                <li>Dificultad: {{salida.dificultad}}</li>
-                                <li>Recorrido: {{salida.recorrido}}</li>
                                 <li>Punto de encuentro: {{salida.encuentro}}</li>
                                 <li>Hora de Inicio: {{salida.inicio}}</li>
                                 <li>Hora de finalización:{{salida.fin}} </li>
+                                <li>Recorrido: {{salida.recorrido}}</li>
                                 <li>Edad: {{salida.edad}}</li>
+                                <li>{{salida.infoextra}}</li>
                             </ul>
                         </div>
                     </div>
                     <div class="prox-fechas">
-                        <h3 class="prox-fechas-titulo">PRÓXIMAS FECHAS</h3>
+                        <h3 class="prox-fechas-titulo">DIFICULTAD</h3>
                         <div>
-                            {{salida.proximasfechas|safe}}
+                            <li>{{salida.dificultad|safe}}</li>
                         </div>
                     </div>
                 </div>

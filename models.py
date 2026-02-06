@@ -51,3 +51,4 @@ class SalidaTrekking(db.Model):
     foto_dos = db.Column(db.String(255))
     foto_tres = db.Column(db.String(255))
     codigo = db.Column(db.Text)
+    infoextra = db.Column(db.Text)
