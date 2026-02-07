@@ -1213,7 +1213,22 @@ form .btn-primary{
     text-transform: uppercase;
     text-shadow: 5px 5px 5px #000000;
     }
+    .nosotros-cuadros{
+        padding: 5px;
+        margin-top: 10px;
+    }
+    .nosotros-grid-descripcion-list-ul-li{
+        line-height: 20px;
+        margin: 10px 0;
+    }
+    .nosotros-grid-descripcion-list{
+        margin: 40px 0 0 0;
+    }
 }
+.nosotros-cuadros{
+        padding: 5px;
+        margin-top: 10px;
+    }
 .titular h3{
     font-size: 30px;
     text-transform: uppercase;
@@ -1237,3 +1252,4 @@ form .btn-primary{
     font-size: 20px;
     font-weight: 700;
 }
+
