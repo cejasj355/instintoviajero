@@ -10,29 +10,6 @@ from slugify import slugify
 from models import SalidaTrekking, Usuario
 bp = Blueprint('acciones', __name__, url_prefix='/acciones')
 
-
-
-@bp.route('/ascenso-cerro-champaqui-cordoba')
-def cerro_champaqui():
-    return render_template('/salidas/cerro_champaqui.html')
-
-@bp.route('/trekking-uritorco-nocturno-amanecer-en-cumbre')
-def uritorco():
-    return render_template('/salidas/uritorco.html')
-
-
-@bp.route('/excursion-trekking-gigantes')
-def gigantes_full():
-    return render_template('/salidas/gigantes_full.html')
-
-@bp.route('/vallecitos-mendoza-ascenso-cerro-adolfo-calle-y-cerro-stepanek')
-def vallecitos():
-    return render_template('/salidas/vallecitos.html')
-
-@bp.route('/ascenso-cerro-penitentes-mendoza')
-def cerro_penitentes():
-    return render_template('/salidas/cerro_penitentes.html')
-
 #RUTA HACIA LA PAGINA NOSOTROS
 @bp.route('/nosotros')
 def nosotros():
@@ -50,9 +27,6 @@ def plantilla_salidas():
 def lista_salidas():
     salidas = SalidaTrekking.query.all()
     return render_template('listado_salidas.html', salidas=salidas)
-
-
-
 
 @bp.route('/editar-salida/<int:id>', methods=['GET', 'POST'])
 def editar_salida(id):
