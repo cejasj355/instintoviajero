@@ -1103,4 +1103,12 @@ form .btn-primary {
   margin: auto;
   font-size: 20px;
   font-weight: 700;
+}
+
+.br-prox {
+  display: flex;
+  height: 1px;
+  width: 90%;
+  background-color: #000000;
+  margin: 10px auto;
 }/*# sourceMappingURL=style.css.map */
