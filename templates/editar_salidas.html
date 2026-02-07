@@ -57,26 +57,23 @@
                 <div class="info-grid">
                     <div class="prox-fechas">
                         <div>
-                            <h3 class="prox-fechas-titulo"><input type="text" name="lugar-salida"
-                                    placeholder="ingrese el lugar de salida" value="{{salida.lugarsalida}}"></h3>
+                            <h3 class="prox-fechas-titulo">PRÓXIMAS FECHAS</h3>
+                            <textarea name="proximas-fechas" id="" value="">{{salida.proximasfechas|safe}}</textarea>
                             <ul class="ul">
-                                <li>Dificultad: <input type="text" name="dificultad"
-                                        placeholder="ingrese la dificultad" value="{{salida.dificultad}}"></li>
-                                <li>Recorrido:<input type="text" name="recorrido" placeholder="ingrese el recorrido" value="{{salida.recorrido}}">
-                                </li>
-                                <li>Punto de encuentro:<input type="text" name="encuentro"
-                                        placeholder="ingrese el punto de encuentro" value="{{salida.encuentro}}"></li>
-                                <li>Hora de Inicio: <input type="text" name="inicio"
-                                        placeholder="ingrese hora de inicio" value="{{salida.inicio}}"></li>
-                                <li>Hora de finalización: <input type="text" name="fin"
-                                        placeholder="ingrese hora de finalizacion" value="{{salida.fin}}"></li>
+                                <li>Punto de encuentro:<input type="text" name="encuentro" placeholder="ingrese el punto de encuentro" value="{{salida.encuentro}}"></li>
+                                <li>Hora de Inicio: <input type="text" name="inicio" placeholder="ingrese hora de inicio" value="{{salida.inicio}}"></li>
+                                <li>Recorrido:<input type="text" name="recorrido" placeholder="ingrese el recorrido" value="{{salida.recorrido}}"></li>
+                                <li>Hora de finalización: <input type="text" name="fin" placeholder="ingrese hora de finalizacion" value="{{salida.fin}}"></li>
                                 <li>Edad: <input type="text" name="edad" placeholder="ingrese la edad minima" value="{{salida.edad}}"></li>
+                                <li><input type="text" name="info-extra" placeholder="ingrese informacion extra" value="{{salida.infoextra}}"></li>
                             </ul>
                         </div>
                     </div>
                     <div class="prox-fechas">
-                        <h3 class="prox-fechas-titulo">PRÓXIMAS FECHAS</h3>
-                        <textarea name="proximas-fechas" id="" value="">{{salida.proximasfechas|safe}}</textarea>
+                        <h3 class="prox-fechas-titulo">DIFICULTAD</h3>
+                        <p>
+                            <textarea name="dificultad" placeholder="ingrese la dificultad">{{salida.dificultad|safe}}</textarea>
+                        </p>
                     </div>
                 </div>
             </section>
@@ -106,12 +103,13 @@
                             {% if salida.meses_proximos != "None" %}
                             <div class="br"></div>
                             <div class="precio-subtitulo">
+                                <p>PRECIOS PARA SALIDAS FUTURAS</p>
                                 <p><input name="meses-proximos" type="text" placeholder="Ingresa meses para otro precio" value="{{salida.meses_proximos}}"></p>
                                 <p><input type="number" name="precio-meses-proximos" placeholder="Ingresa el precio por persona" value="{{salida.precio_meses_proximos}}"></p>
                             </div>
                             <div class="br"></div>
                             <div class="precio-subtitulo">
-                                <p>TARJETA DE CREDITO</p>
+                                <p>TARJETA DE CREDITO PARA SALIDAS FUTURAS</p>
                                 <p class="num"><input name="precio-tres-meses" type="number" placeholder="Ingresa el precio para 3 cuotas" value="{{salida.tres_cuotas_meses}}"></p>
                                 <p class="num"><input name="precio-seis-meses" type="number" placeholder="Ingresa el precio para 6 cuotas" value="{{salida.seis_cuotas_meses}}"></p>
                             </div>
@@ -264,6 +262,7 @@
 <script src="https://cdn.ckeditor.com/4.10.0/standard/ckeditor.js"></script>
 <script>
     CKEDITOR.replace('proximas-fechas');
+    CKEDITOR.replace('dificultad');
     CKEDITOR.replace('prox-desc');
     CKEDITOR.replace('descripcion-salida');
     CKEDITOR.replace('incluye');
