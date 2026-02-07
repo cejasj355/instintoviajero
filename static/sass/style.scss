@@ -6,8 +6,6 @@
     
 }
 
-
-
 // LOGO
 
 .logo{
@@ -716,59 +714,7 @@ header{
     height: 100%;
     
 }
-.gigantes-full-1{
-    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/gigantes_full/ascenso-mogote.webp);
-    background-position: center;
-    background-repeat: no-repeat;
-    object-fit: cover;
-    background-size: cover;
-    height: 60vh;
-    width: auto;
-}
-.gigantes-full-2{
-    object-fit: cover;
-    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/gigantes_full/fondo.webp);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 60vh;
-    width: auto;
-}
-.gigantes-full-3{
-    object-fit: cover;
-    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/gigantes_full/pag-3.webp);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 60vh;
-    width: auto;
-}
-.gigantes-full-4{
-    object-fit: cover;
-    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/gigantes_full/pag-1.webp);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 60vh;
-    width: auto;
-}
-.gigantes-full-5{
-    object-fit: cover;
-    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/gigantes_full/pag-6.webp);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 60vh;
-    width: auto;
-}
-.gigantes-full-6{
-    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/gigantes_full/pagina-2.webp);
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 60vh;
-    width: auto;
-}
+
 .preguntas ul li{
     display: flex;
     justify-content: center;
@@ -780,70 +726,11 @@ header{
     margin: 2rem;
     
 }
-.champa-1{
-    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(../img/Fotos\ Página/SALIDAS_CBA/champaqui_clasico/1.webp);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 60vh;
-    color: #ffffff;
-    width: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.vallecitos-1{
-    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/vallecitos/1.webp);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 60vh;
-    width: auto;
-}
-.vallecitos-2{
-    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/vallecitos/2.webp);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 60vh;
-    width: auto;
-}
-.vallecitos-3{
-    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/vallecitos/3.webp);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 60vh;
-    width: auto;
-}
 .center{
     text-align: center;
 }
-.penitentes-1{
-    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/penitentes/peni1.webp);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 60vh;
-    width: auto;
-}
-.penitentes-2{
-    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/penitentes/penitentes2.webp);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 60vh;
-    width: auto;
-}
-.penitentes-3{
-    background-image: url(../img/Fotos\ Página/SALIDAS_CBA/penitentes/penitentes1.webp);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 60vh;
-    width: auto;
-}
+
 .preguntas p{
     text-align: center;
 }
@@ -910,47 +797,7 @@ header{
     background-repeat: no-repeat;
     background-size: cover;
 }
-.titular-fondo-uritorco{
-    background-image:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(../img/Fotos\ Página/SALIDAS_CBA/uritorco/4.jpeg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100% 200%;
 
-}
-@media (max-width:768px) {
-    .titular-fondo-uritorco{
-        height: 60vh;
-        background-size: 100% 100%;
-    }
-}
-.titular-fondo-penitentes{
-    background-image:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(../img/Fotos\ Página/SALIDAS_CBA/penitentes/fondo.webp);
-    background-position: 0% 38%;
-    background-repeat: no-repeat;
-    background-size: 100% 300%;
-}
-
-.titular-fondo-gigantes{
-    background-image:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(../img/Fotos\ Página/SALIDAS_CBA/gigantes_full/pagina-2.webp);
-    background-position: 0% 100%;
-    background-repeat: no-repeat;
-    
-    
-}
-.titular-fondo-champaqui{
-    background-image:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(../img/Fotos\ Página/SALIDAS_CBA/champaqui_clasico/fondo.webp);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-}
-@media (max-width:450px) {
-    .titular-fondo-penitentes{
-        background-position: 0% 38%;
-        background-repeat: no-repeat;
-        background-size: 100% 150%;
-    }
-    
-}
 .titular-fondo, .titular, .titular-texto{
     display: flex;
     justify-content: center;
