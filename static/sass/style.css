@@ -494,33 +494,6 @@ header {
     width: 65vw;
   }
 }
-.uritorco-1 {
-  background-image: url(../img/Fotos\ Página/SALIDAS_CBA/uritorco/1.webp);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 60vh;
-  width: auto;
-}
-
-.uritorco-2 {
-  background-image: url(../img/Fotos\ Página/SALIDAS_CBA/uritorco/2.webp);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 60vh;
-  width: auto;
-}
-
-.uritorco-3 {
-  background-image: url(../img/Fotos\ Página/SALIDAS_CBA/uritorco/3.webp);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 60vh;
-  width: auto;
-}
-
 .precio-subtitulo {
   font-size: 30px;
   text-align: center;
@@ -581,6 +554,8 @@ header {
 .descripcion {
   font-size: larger;
   margin: 1rem;
+  padding: 1rem;
+  text-align: center;
 }
 
 .precio-subtitulo {
@@ -1264,4 +1239,14 @@ form .btn-primary {
   height: 1rem;
   margin: auto;
   text-align: center;
+}
+
+.prox-fechas-dificultad {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+  font-size: 20px;
+  font-weight: 700;
 }/*# sourceMappingURL=style.css.map */

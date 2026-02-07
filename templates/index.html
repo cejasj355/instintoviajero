@@ -96,8 +96,11 @@
 
         </section>
         <section class="trekking_cba">
+            <div class="section-titles-subtitles">
+                <h2 class="section-title">TREKKING EN CÓRDOBA</h2>
+            </div>
             <div class="trekking-cba-grid">
-                {% for s in salidas%}
+                {% for s in salida%}
                     {% if s.tipo_salida == 'trekking-cordoba'%}
                         <div class="trekking_cba_carta">
                             <div class="trekking_cba_img">
@@ -124,7 +127,7 @@
                 <h2 class="section-title">EXPEDICIONES DE MONTAÑA</h2>
             </div>
             <div class="trekking-cba-grid">
-                {% for s in salidas %}
+                {% for s in salida %}
                     {%if s.tipo_salida == 'expedicion-de-montaña'%}
                     <div class="trekking_cba_carta">
                         <div class="trekking_cba_img">
