@@ -75,10 +75,10 @@
                     <div class="principal-salidas p-s-dos">
                         <h2 class="principal-salidas-titulo span">ASCENSO CERRO</h2>
                         <h3 class="principal-salidas-subtitulo span">CHAMPAQUÍ</h3>
-                        {% for s in salida %}
-                        {% if s.titulo == "Ascenso cerro Champaquí clásico" %}    
-                        <a class="botones blanco-boton" href="{{ url_for('acciones.ver_salida', slug=s.slug) }}">PRÓXIMOS ASCENSOS</a>
-                        {% endif %}
+                        {%for s in salida%}
+                            {% if s.id == 3 %}    
+                                <a class="botones blanco-boton" href="{{ url_for('acciones.ver_salida', slug=s.slug) }}">PRÓXIMOS ASCENSOS</a>
+                            {% endif %}
                         {% endfor %}
                     </div>
                 </div>
