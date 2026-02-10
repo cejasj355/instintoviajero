@@ -122,32 +122,28 @@
                     <div class="info-1">
                         <div>
                             <h4>¿Qué incluye?</h4>
-                            <div>
+                            <div class="info-incluye">
                                 {{salida.incluye|safe}}
                             </div>
                         </div>
                         {% if salida.no_incluye != "" %}
-                        <div>
+                        <div >
                             <h4>¿Qué no incluye?</h4>
-                            <div>
-                                <div>
-                                    {{salida.no_incluye|safe}}
-                                </div>
-
+                            <div class="info-incluye">
+                                {{salida.no_incluye|safe}}
                             </div>
                         </div>
                         {% endif %}
                         {% if salida.opcional != "" %}
                         <div>
                             <h4>Opcional</h4>
-                            <div>
-                                <div>
-                                    {{salida.opcional|safe}}
-                                </div>
-
+                            <div class="info-incluye">
+                                {{salida.opcional|safe}}
                             </div>
                         </div>
                         {% endif %}
+                
+                </div>
             </section>
             <section class="cartel-consulta">
                 <div>
