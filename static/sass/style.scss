@@ -540,22 +540,8 @@ header{
 .info-1 div h4{
     margin-top: 3rem;
 }
-.info-1 div ul li{
-    line-height: 30px;
-    font-size: 20px;
-}
-.info-1 h2{
-    height: 30vh;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    margin: 2rem auto;
-    
-}
-.info-1 h3{
-    text-align: center;
-}
+
+
 .info-2{ 
     margin: 2rem 0rem;
     padding: 2rem;
@@ -566,9 +552,7 @@ header{
 .info h4{
     text-align:center;
 }
-.info-1 ul{
-    margin: 1rem 2rem;
-}
+
 .info-2 li{
     
     margin: 1rem 0rem;
@@ -1113,3 +1097,9 @@ form .btn-primary{
     margin: 10px auto;
 }
 
+.info-1 .info-incluye{
+    text-align: start;
+    margin: 1rem auto;
+    line-height: 2rem;
+    
+}
