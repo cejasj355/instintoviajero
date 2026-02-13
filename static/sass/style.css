@@ -509,25 +509,7 @@ header {
 }
 
 .info-1 div h4 {
-  margin-top: 3rem;
-}
-
-.info-1 div ul li {
-  line-height: 30px;
-  font-size: 20px;
-}
-
-.info-1 h2 {
-  height: 30vh;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-  margin: 2rem auto;
-}
-
-.info-1 h3 {
-  text-align: center;
+  margin-top: 0.5rem;
 }
 
 .info-2 {
@@ -541,10 +523,6 @@ header {
 
 .info h4 {
   text-align: center;
-}
-
-.info-1 ul {
-  margin: 1rem 2rem;
 }
 
 .info-2 li {
@@ -610,7 +588,7 @@ header {
     margin: 2rem;
   }
   .info ul {
-    margin: 1rem 6rem;
+    margin: 1rem 1rem;
   }
   .section-precio h3 {
     text-align: center;
@@ -1111,4 +1089,10 @@ form .btn-primary {
   width: 90%;
   background-color: #000000;
   margin: 10px auto;
+}
+
+.info-1 .info-incluye {
+  text-align: start;
+  margin: 1rem auto;
+  line-height: 2rem;
 }/*# sourceMappingURL=style.css.map */
