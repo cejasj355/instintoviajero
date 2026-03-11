@@ -518,7 +518,7 @@ header {
 }
 
 .excursion-img div {
-  margin: 1rem;
+  margin: 0.5rem;
 }
 
 .info h4 {
@@ -553,6 +553,14 @@ header {
 
 .precio-1-champa {
   height: 110%;
+}
+
+.champa-1 {
+  background-position: center;
+  background-size: contain;
+  height: 20rem;
+  width: 100%;
+  background-repeat: no-repeat;
 }
 
 .precio-1, .precio-2 {
@@ -801,8 +809,7 @@ header {
   border-bottom-left-radius: 10px;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-  -webkit-backdrop-filter: blur(3px);
-          backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
 }
 
 .boton-titular:hover {
