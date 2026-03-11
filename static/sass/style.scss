@@ -547,7 +547,7 @@ header{
     padding: 2rem;
 }
 .excursion-img div{
-    margin: 1rem;
+    margin: 0.5rem;
 }
 .info h4{
     text-align:center;
@@ -577,6 +577,14 @@ header{
 }
 .precio-1-champa{
     height: 110%;
+}
+.champa-1{
+    background-position: center;
+    background-size: contain;
+    height: 20rem;
+    width: 100%;
+    background-repeat: no-repeat;
+
 }
 .precio-1, .precio-2{
     margin: 1rem 1rem;
