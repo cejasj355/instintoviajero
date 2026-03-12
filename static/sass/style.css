@@ -849,12 +849,16 @@ header {
 }
 
 .prox-fechas ul {
-  line-height: 50px;
+  line-height: 20px;
   padding-left: 40px;
   margin: auto;
   font-weight: bold;
   font-size: 15px;
   text-transform: uppercase;
+}
+
+.prox-fechas ul li {
+  margin: 1.5rem 0;
 }
 
 @media (max-width: 600px) {
