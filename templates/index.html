@@ -104,7 +104,7 @@
                     {% if s.tipo_salida == 'trekking-cordoba'%}
                         <div class="trekking_cba_carta">
                             <div class="trekking_cba_img">
-                                <img src="{{ url_for('static', filename='uploads/'~s.foto_carta) }}" class="img-fluid">
+                                <img src="{{ url_for('static', filename='uploads/'~s.foto_carta) }}" alt="{{s.titulo}}" class="img-fluid">
                             </div>
                             <div class="trekking_cba_titulo">
                                 <h4>{{s.titulo}}</h4>
@@ -131,7 +131,7 @@
                     {%if s.tipo_salida == 'expedicion-de-montaña'%}
                     <div class="trekking_cba_carta">
                         <div class="trekking_cba_img">
-                            <img src="{{ url_for('static', filename='uploads/'~s.foto_carta) }}" class="img-fluid">
+                            <img src="{{ url_for('static', filename='uploads/'~s.foto_carta) }}" alt="{{s.titulo}}" class="img-fluid">
                         </div>
                         <div class="trekking_cba_titulo">
                             <h4>{{s.titulo}}</h4>
