@@ -10,19 +10,17 @@
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="preload" href="{{ url_for('static', filename='sass/style.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet" href="{{ url_for('static', filename='sass/style.css') }}">
-    </noscript>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+    <link rel="preload" href="{{ url_for('static', filename='sass/style.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+    <link rel="stylesheet" href="{{ url_for('static', filename='sass/style.css') }}">
+    </noscript>
+
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&family=Open+Sans:wght@300;400;600&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
 
-    <meta name="description" content="Agencia de viajes especializada en experiencias de montaña, fundada por profesionales del turismo. Trekking, travesías, escalada y expediciones de montaña a lo largo de toda Argentina. Te esperamos para vivir aventuras inolvidables.">
+    <meta name="description" content="Agencia de viajes especializada en experiencias de montaña en Argentina. Trekking, travesías y expediciones.">
 
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/Logos/favicon.ico') }}">
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/Logos/favicon.png') }}">
