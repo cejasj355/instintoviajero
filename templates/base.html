@@ -66,7 +66,11 @@
                 {% if session.is_admin %}
                     <li><a href="{{url_for('acciones.dashboard')}}" aria-label="Panel de control">panel</a></li>
                 {% endif %}
-                <li class="login-circle"><a href="{{url_for("acciones.pag_log")}}" aria-label="Iniciar sesión"><i class="fa-solid fa-circle-user fa-lg"></i></a></li>
+                <li class="login-circle">
+                    <a href="{{ url_for('acciones.pag_log') }}" aria-label="Iniciar sesión">
+                        <i class="fa-solid fa-circle-user fa-lg" aria-hidden="true"></i>
+                    </a>
+                </li>
             </ul>
         </nav>
     </header>

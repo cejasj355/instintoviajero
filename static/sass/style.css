@@ -269,7 +269,7 @@ header {
   border: solid 3px #001240;
 }
 
-.trekking_cba_titulo h4 {
+.trekking_cba_titulo p {
   text-transform: uppercase;
   font-weight: 900;
   display: flex;
