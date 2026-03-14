@@ -9,17 +9,22 @@
     })(window,document,'script','dataLayer','GTM-MFRZG494');</script>
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/sass/style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='sass/style.css') }}">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kaushan+Script&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Playwrite+NL:wght@100..400&family=Playwrite+PT:wght@100..400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kaushan+Script&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Playwrite+NL:wght@100..400&family=Playwrite+PT:wght@100..400&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
-    <meta name="description" content="Agencia de viajes especializada en experiencias de montaña, fundada por profesionales del turismo. Trekking, travesías, escalada y expediciones de montaña a lo largo de toda Argentina. Te esperamos para vivir aventuras inolvidables.">    
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&family=Open+Sans:wght@300;400;600&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+
+    <meta name="description" content="Agencia de viajes especializada en experiencias de montaña, fundada por profesionales del turismo. Trekking, travesías, escalada y expediciones de montaña a lo largo de toda Argentina. Te esperamos para vivir aventuras inolvidables.">
+
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/Logos/favicon.ico') }}">
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/Logos/favicon.png') }}">
-    
-    <script src="https://kit.fontawesome.com/3c21f2f44b.js" crossorigin="anonymous"></script>
+
+    <script src="https://kit.fontawesome.com/3c21f2f44b.js" crossorigin="anonymous" defer></script>
     <title>Instinto Viajero 🇦🇷 - {% block title %}{% endblock %}</title>
     <meta>
     <!-- Google tag (gtag.js) -->
@@ -107,6 +112,5 @@
             <p class="footerp">© 2024 - Instinto Viajero. Todos los derechos reservados</p>
         </div>
     </footer>
-    
 </body>
 </html>
