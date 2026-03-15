@@ -112,7 +112,6 @@ def guardar_foto(file, foto_actual=None):
         if os.path.exists(ruta_vieja):
             os.remove(ruta_vieja)
 
-    # nombre nuevo
     nombre = f"{uuid.uuid4().hex}.webp"
     nombre = secure_filename(nombre)
 
@@ -121,22 +120,14 @@ def guardar_foto(file, foto_actual=None):
         nombre
     )
 
-    # abrir imagen
     img = Image.open(file)
 
-    # convertir a RGB si hace falta
     if img.mode in ("RGBA", "P"):
         img = img.convert("RGB")
 
-    # REDIMENSIONAR (clave para Lighthouse)
-    tamaño_max = 500
+    tamaño_max = 400
+    img.thumbnail((tamaño_max, tamaño_max), Image.LANCZOS)
 
-    if img.width > tamaño_max:
-        ratio = tamaño_max / img.width
-        nuevo_alto = int(img.height * ratio)
-        img = img.resize((tamaño_max, nuevo_alto), Image.LANCZOS)
-
-    # GUARDAR COMPRIMIDA
     img.save(
         ruta,
         "WEBP",
