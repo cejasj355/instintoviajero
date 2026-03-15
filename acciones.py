@@ -5,6 +5,7 @@ import os
 from flask import current_app
 import uuid
 from slugify import slugify
+from PIL import Image
 
 
 from models import SalidaTrekking, Usuario
@@ -92,18 +93,17 @@ def editar_salida(id):
     return render_template('editar_salidas.html', salida=salida)
 
 def guardar_foto(file, foto_actual=None):
-    # Si no se sube nueva imagen → mantener la actual
+
     if not file or file.filename == '':
         return foto_actual
 
-    # Extensión
-    extension = file.filename.rsplit('.', 1)[-1].lower()
     extensiones_permitidas = {'jpg', 'jpeg', 'png', 'webp'}
+    extension = file.filename.rsplit('.', 1)[-1].lower()
 
     if extension not in extensiones_permitidas:
         return foto_actual
 
-    # Borrar imagen anterior
+    # borrar imagen anterior
     if foto_actual:
         ruta_vieja = os.path.join(
             current_app.config['UPLOAD_FOLDER'],
@@ -112,19 +112,39 @@ def guardar_foto(file, foto_actual=None):
         if os.path.exists(ruta_vieja):
             os.remove(ruta_vieja)
 
-    # Nombre único
-    nombre = f"{uuid.uuid4().hex}.{extension}"
+    # nombre nuevo
+    nombre = f"{uuid.uuid4().hex}.webp"
     nombre = secure_filename(nombre)
 
-    # Guardar
     ruta = os.path.join(
         current_app.config['UPLOAD_FOLDER'],
         nombre
     )
-    file.save(ruta)
+
+    # abrir imagen
+    img = Image.open(file)
+
+    # convertir a RGB si hace falta
+    if img.mode in ("RGBA", "P"):
+        img = img.convert("RGB")
+
+    # REDIMENSIONAR (clave para Lighthouse)
+    tamaño_max = 500
+
+    if img.width > tamaño_max:
+        ratio = tamaño_max / img.width
+        nuevo_alto = int(img.height * ratio)
+        img = img.resize((tamaño_max, nuevo_alto), Image.LANCZOS)
+
+    # GUARDAR COMPRIMIDA
+    img.save(
+        ruta,
+        "WEBP",
+        quality=70,
+        optimize=True
+    )
 
     return nombre
-
 
 
 @bp.route('/ver-salida/<slug>')
