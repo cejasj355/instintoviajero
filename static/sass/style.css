@@ -265,7 +265,7 @@ header {
   display: flex;
   margin: 5px auto;
   width: 90%;
-  height: auto;
+  height: 500px;
   border: solid 3px #001240;
 }
 
