@@ -1107,4 +1107,9 @@ form .btn-primary {
   text-align: start;
   margin: 1rem auto;
   line-height: 2rem;
+}
+
+.img-fluid {
+  height: auto;
+  width: auto;
 }/*# sourceMappingURL=style.css.map */
