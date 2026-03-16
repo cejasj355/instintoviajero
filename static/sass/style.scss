@@ -81,6 +81,7 @@ header{
 
 .principal-salidas{
     height: 60vh;
+    
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(/static/img/Fotos\ Página/salida.webp);
     border: solid 3px #001240;
     background-position: center;
@@ -286,7 +287,7 @@ header{
 .trekking_cba_img img{
     display: flex;
     margin: 5px auto;
-    width: 90%;
+    width: 90%; 
     height: auto;
     border: solid 3px #001240;
 }
