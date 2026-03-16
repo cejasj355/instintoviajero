@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, url_for, redirect, g, session, flash, current_app, jsonify
+from flask import Blueprint, render_template, request, url_for, redirect, g, session, flash, current_app, Response
 from werkzeug.utils import secure_filename
 from extensions import db
 import os
@@ -6,7 +6,8 @@ from flask import current_app
 import uuid
 from slugify import slugify
 from PIL import Image
-
+from datetime import datetime
+from models import SalidaTrekking
 
 from models import SalidaTrekking, Usuario
 bp = Blueprint('acciones', __name__, url_prefix='/acciones')
