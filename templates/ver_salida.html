@@ -2,10 +2,10 @@
 
 {% block title %}{{salida.titulo}}{% endblock %}
 
+{% block description %}{{salida.descripcion|safe}}{% endblock %}
+
 {% block content %}
-<head>
-    <meta name="description" content="{{salida.codigo|safe}}">
-</head>
+
 <body>
     <main>
         <div>
