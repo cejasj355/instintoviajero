@@ -178,3 +178,7 @@ def proximas_salidas():
 @bp.route('/dashboard')
 def dashboard():
     return render_template('dashboard.html')
+
+@bp.route('/crear_blog', methods=['GET', 'POST'])
+def crear_blogs():
+    return render_template('crear_blog.html')
