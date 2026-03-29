@@ -182,3 +182,7 @@ def dashboard():
 @bp.route('/crear_blog', methods=['GET', 'POST'])
 def crear_blogs():
     return render_template('crear_blog.html')
+
+@bp.route('/ver_blog', methods=['GET', 'POST'])
+def ver_blogs():
+    return render_template('ver_blog.html')

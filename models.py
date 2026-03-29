@@ -52,3 +52,14 @@ class SalidaTrekking(db.Model):
     foto_tres = db.Column(db.String(255))
     codigo = db.Column(db.Text)
     infoextra = db.Column(db.Text)
+
+
+class Blog(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    titulo_blog = db.Column(db.String(150))
+    foto_blog = db.Column(db.String(255))
+    contenido_blog = db.Column(db.Text)
+    dificultad_blog = db.Column(db.Text)
+    ubicacion_blog = db.Column(db.Text)
+    duracion_blog = db.Column(db.Text)
+    msnm_blog = db.Column(db.Text)

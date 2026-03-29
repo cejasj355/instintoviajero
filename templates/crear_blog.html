@@ -5,345 +5,137 @@
 
 <head>
     
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;800;900&amp;family=Manrope:wght@400;500;600;700&amp;display=swap"
-        rel="stylesheet" />
-    <!-- Material Symbols -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <style>
-        :root {
-            --primary-color: #17341c;
-            --secondary-color: #805533;
-            --surface-bg: #f5fbf6;
-            --surface-container: #eaefeb;
-            --surface-container-low: #eff5f0;
-            --on-surface: #171d1a;
-            --outline-variant: #c2c8bf;
-            --text-secondary: #737971;
-            --primary-container: #2d4b31;
-            --on-primary-container: #98ba99;
-            --primary-fixed: #c8ecc8;
-            --on-primary-fixed-variant: #2f4e33;
-        }
-
-        body {
-            font-family: 'Manrope', sans-serif;
-            background-color: var(--surface-bg);
-            color: var(--on-surface);
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .font-headline {
-            font-family: 'Epilogue', sans-serif;
-        }
-
-        .font-label {
-            font-family: 'Manrope', sans-serif;
-        }
-
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-            vertical-align: middle;
-        }
-
-        /* Custom Nav Styling */
-        .navbar-custom {
-            background-color: rgba(245, 251, 246, 0.7);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(23, 29, 26, 0.05);
-        }
-
-        .brand-logo {
-            font-family: 'Epilogue', sans-serif;
-            font-weight: 900;
-            letter-spacing: -0.05em;
-            color: var(--primary-color) !important;
-        }
-
-        .nav-link-custom {
-            font-family: 'Epilogue', sans-serif;
-            font-weight: 700;
-            color: var(--text-secondary);
-            margin: 0 1rem;
-            transition: color 0.3s;
-        }
-
-        .nav-link-custom:hover {
-            color: var(--primary-color);
-        }
-
-        .nav-link-custom.active {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--secondary-color);
-        }
-
-        /* Custom Buttons */
-        .btn-brand-primary {
-            background-color: var(--primary-color);
-            color: #ffffff;
-            border: none;
-            font-weight: 700;
-            padding: 0.625rem 2rem;
-        }
-
-        .btn-brand-primary:hover {
-            opacity: 0.9;
-            color: #001240;
-        }
-
-        .btn-brand-outline {
-            border: 1px solid;
-            font-weight: 700;
-            padding: 0.625rem 1.5rem;
-        }
-
-        .btn-brand-outline:hover {
-            background-color: var(--surface-container-low);
-            color: #001240;
-        }
-
-        /* Form Controls Overrides */
-        .form-control-title {
-            background: transparent;
-            border: none;
-            font-family: 'Epilogue', sans-serif;
-            font-weight: 900;
-            font-size: calc(1.5rem + 1.5vw);
-            padding: 0;
-            color: var(--on-surface);
-        }
-
-        .form-control-title:focus {
-            background: transparent;
-            box-shadow: none;
-            outline: none;
-        }
-
-        .form-control-title::placeholder {
-            color: var(--outline-variant);
-        }
-
-        .form-label-brand {
-            font-weight: 700;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            
-        }
-
-        /* Sidebar & Cards */
-        .card-logistics {
-            background-color: var(--surface-container-low);
-            border: none;
-            border-radius: 0.75rem;
-            padding: 2rem;
-        }
-
-        .sidebar-sticky {
-            position: sticky;
-            top: 6rem;
-        }
-
-        /* Media Uploader */
-        .hero-uploader {
-            aspect-ratio: 21/9;
-            border: 2px dashed var(--outline-variant);
-            border-radius: 1rem;
-            background-color: var(--surface-container-low);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: border-color 0.3s;
-        }
-
-        .hero-uploader:hover {
-            border-color: var(--primary-color);
-        }
-
-        /* Editor Area */
-        .editor-container {
-            border: 1px solid rgba(194, 200, 191, 0.2);
-            border-radius: 0.75rem;
-            background: #fff;
-            overflow: hidden;
-        }
-
-        .editor-toolbar {
-            background-color: var(--surface-bg);
-            border-bottom: 1px solid var(--surface-container-low);
-            padding: 0.75rem;
-        }
-
-        .editor-btn {
-            background: transparent;
-            border: none;
-            color: var(--text-secondary);
-            padding: 0.5rem;
-            border-radius: 0.25rem;
-        }
-
-        .editor-btn:hover {
-            background-color: var(--surface-container-low);
-        }
-
-        .editor-textarea {
-            border: none;
-            width: 100%;
-            min-height: 600px;
-            padding: 2rem;
-            resize: none;
-            font-size: 1.125rem;
-            line-height: 1.6;
-        }
-
-        .editor-textarea:focus {
-            outline: none;
-        }
-
-        /* Difficulty Toggle Buttons */
-        .btn-group-difficulty .btn {
-            background-color: #dee4df;
-            border: none;
-            font-weight: 700;
-            font-size: 0.875rem;
-            padding: 0.75rem 0;
-            color: var(--text-secondary);
-        }
-
-        .btn-group-difficulty .btn.active {
-            background-color: var(--primary-container);
-            color: var(--on-primary-container);
-        }
-
-        /* Input Overrides */
-        .form-control-brand {
-            background-color: #dee4df;
-            border: none;
-            padding: 0.75rem 1rem;
-        }
-
-        .form-control-brand:focus {
-            background-color: #dee4df;
-            box-shadow: 0 0 0 0.25rem rgba(23, 52, 28, 0.1);
-        }
-
-        /* Tags */
-        .tag-badge {
-            background-color: var(--primary-fixed);
-            color: var(--on-primary-fixed-variant);
-            font-weight: 700;
-            font-size: 0.75rem;
-            border-radius: 50rem;
-            padding: 0.25rem 0.75rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.25rem;
-        }
-
-    </style>
+    
 </head>
 
 <body>
     <!-- Main Content -->
-    <main class="container-xxl mt-5 pt-5">
-        <!-- Header Area -->
-        <div class="row align-items-end mb-5 gy-4">
-            <div class="col-lg-8">
-                <span class="form-label-brand mb-2 d-block">Nueva Entrada</span>
-                <input class="form-control form-control-title" placeholder="Cargar título del blog" type="text" />
-            </div>
-            <div class="col-lg-4 text-lg-end">
-                <div class="d-flex gap-3 justify-content-lg-end">
-                    <button class="btn btn-brand-outline">Save Draft</button>
-                    <button class="btn btn-brand-primary">Publish Trail</button>
+    <form action="{{url_for('admin.crear_nuevo_blog')}}" method="post" enctype="multipart/form-data">
+        <main class="container-xxl mt-5 pt-5">
+            <!-- Header Area -->
+            <div class="row align-items-end mb-5 gy-4">
+                <div class="col-lg-8">
+                    <span class="form-label-brand mb-2 d-block">Nueva Entrada</span>
+                    <input class="form-control form-control-title" name="titulo_blog" placeholder="Cargar título del blog" type="text" />
                 </div>
             </div>
-        </header>
-        <div class="row g-5">
-            <!-- Main Column -->
-            <div class="col-lg-8">
-                <div class="mb-5">
-                    <div class="hero-uploader">
-                        <span class="material-symbols-outlined fs-1 text-secondary mb-2">add_photo_alternate</span>
-                        <span class="font-headline fw-bold fs-5">Drag your hero imagery here</span>
-                        <span class="text-muted small mt-1">Recommended size: 2400x1200px</span>
-                    </div>
-                </div>
-                <div class="editor-container">
-                    <textarea class="editor-textarea" name="editor-textarea"
-                        placeholder="Begin your narrative... Talk about the crisp mountain air, the silent pines, and the rhythm of the trail." id="editor-textarea"></textarea>
-                </div>
-            </div>
-            <!-- Sidebar Column -->
-            <div class="col-lg-4">
-                <div class="sidebar-sticky">
-                    <div class="card-logistics mb-4">
-                        <h4 class="font-headline fw-bold text-primary mb-4 pb-3 border-bottom border-light">Trail
-                            Logistics</h4>
-                        <!-- Difficulty -->
-                        <div class="mb-4">
-                            <label class="form-label-brand mb-3 d-block">Route Difficulty</label>
-                            <div class="btn-group btn-group-difficulty w-100" role="group">
-                                <button class="btn rounded-start-2" type="button">Easy</button>
-                                <button class="btn active" type="button">Medium</button>
-                                <button class="btn rounded-end-2" type="button">Hard</button>
+            </header>
+            <div class="row g-5">
+                <!-- Main Column -->
+                <div class="col-lg-8">
+                    <div class="mb-5">
+                        <div class="hero-uploader" id="drop-zone" style="position: relative; overflow: hidden; cursor: pointer;">
+                            <div id="uploader-content" class="d-flex flex-column align-items-center">
+                                <span class="material-symbols-outlined fs-1 text-secondary mb-2">add_photo_alternate</span>
+                                <span class="font-headline fw-bold fs-5">Agregar imagen de portada</span>
+                                <span class="text-muted small mt-1">Tamaño recomendado: 2400x1200px</span>
                             </div>
-                        </div>
-                        <!-- Location -->
-                        <div class="mb-4">
-                            <label class="form-label-brand mb-2 d-block">Location</label>
-                            <div class="input-group">
-                                <span class="input-group-text border-0 bg-secondary-subtle px-2">
-                                    <span class="material-symbols-outlined text-secondary">location_on</span>
-                                </span>
-                                <input class="form-control form-control-brand" placeholder="E.g. Dolomites, Italy"
-                                    type="text" />
-                            </div>
-                        </div>
-                        <!-- Duration & Elevation -->
-                        <div class="row g-3 mb-4">
-                            <div class="col-6">
-                                <label class="form-label-brand mb-2 d-block">Duration</label>
-                                <input class="form-control form-control-brand" placeholder="4-5 days" type="text" />
-                            </div>
-                            <div class="col-6">
-                                <label class="form-label-brand mb-2 d-block">Elevation</label>
-                                <input class="form-control form-control-brand" placeholder="2,400m" type="text" />
-                            </div>
-                        </div>
-                        <!-- Tags -->
-                        <div>
-                            <label class="form-label-brand mb-2 d-block">Tags</label>
-                            <div class="d-flex flex-wrap gap-2">
-                                <span class="tag-badge">Solo Travel <span class="material-symbols-outlined fs-6"
-                                        style="cursor: pointer;">close</span></span>
-                                <span class="tag-badge">Photography <span class="material-symbols-outlined fs-6"
-                                        style="cursor: pointer;">close</span></span>
-                                <button class="btn btn-sm border-secondary text-secondary rounded-pill fw-bold"
-                                    style="font-size: 0.7rem;">+ Add Tag</button>
-                            </div>
+
+                            <img id="preview-img" src="" class="d-none" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+                            
+                            <input type="file" id="hero-input" name="hero_image" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; z-index: 2; cursor: pointer;">
                         </div>
                     </div>
-                    <!-- Quote Section -->
-                    <div class="ps-3 border-start border-4 border-secondary py-1">
-                        <p class="font-headline fw-bold text-primary fs-5 mb-1">"The best views come after the hardest
-                            climb. Write for the soul of the trail."</p>
-                        <p class="small text-muted mb-0 italic">— Editorial Team</p>
+                    <div class="editor-container">
+                        <textarea class="editor-textarea" name="editor_textarea"
+                            placeholder="Begin your narrative... Talk about the crisp mountain air, the silent pines, and the rhythm of the trail." id="editor-textarea"></textarea>
+                    </div>
+                </div>
+                <!-- Sidebar Column -->
+                <div class="col-lg-4">
+                    <div class="sidebar-sticky">
+                        <div class="card-logistics mb-4">
+                            <h4 class="font-headline fw-bold text-primary mb-4 pb-3 border-bottom border-light">Datos de la excursion</h4>
+                            <!-- Difficulty -->
+                            <div class="mb-4">
+                                <label class="form-label-brand mb-3 d-block">Dificultad</label>
+                                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                                    <label class="btn btn-outline-primary" for="btnradio1">Facil</label>
+
+                                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="btnradio2">Media</label>
+
+                                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="btnradio3">Dificil</label>
+                                </div>
+                            </div>
+                            <!-- Location -->
+                            <div class="mb-4">
+                                <label class="form-label-brand mb-2 d-block">Ubicación</label>
+                                <div class="input-group">
+                                    <span class="input-group-text border-0 bg-secondary-subtle px-2">
+                                        <span class="material-symbols-outlined text-secondary">location_on</span>
+                                    </span>
+                                    <input class="form-control form-control-brand" name="ubicacion_blog" placeholder="Ej. Cerro Champaqui, Córdoba"
+                                        type="text" />
+                                </div>
+                            </div>
+                            <!-- Duration & Elevation -->
+                            <div class="row g-3 mb-4">
+                                <div class="col-6">
+                                    <label class="form-label-brand mb-2 d-block">Duración</label>
+                                    <input class="form-control form-control-brand" name="duracion_expedicion" placeholder="4-5 days" type="text" />
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label-brand mb-2 d-block">MSNM</label>
+                                    <input class="form-control form-control-brand" name="msnm" placeholder="2,400m" type="text" />
+                                </div>
+                            </div>
+                            <div class="d-flex gap-3 justify-content-lg-end">
+                                <button type="submit" class="trekking_cba_boton botones btn-guardar-blog">GUARDAR BLOG</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
+        </main>
+    </form>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
+<script>
+  tinymce.init({
+    selector: 'textarea',
+    plugins: [
+      // Core editing features
+      'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'link', 'lists', 'media', 'searchreplace', 'table', 'visualblocks', 'wordcount',
+      // Your account includes a free trial of TinyMCE premium features
+      // Try the most popular premium features until Mar 31, 2026:
+      'checklist', 'mediaembed', 'casechange', 'formatpainter', 'pageembed', 'a11ychecker', 'tinymcespellchecker', 'permanentpen', 'powerpaste', 'advtable', 'advcode', 'advtemplate', 'ai', 'uploadcare', 'mentions', 'tinycomments', 'tableofcontents', 'footnotes', 'mergetags', 'autocorrect', 'typography', 'inlinecss', 'markdown','importword', 'exportword', 'exportpdf'
+    ],
+    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography uploadcare | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+    tinycomments_mode: 'embedded',
+    tinycomments_author: 'Author name',
+    mergetags_list: [
+      { value: 'First.Name', title: 'First Name' },
+      { value: 'Email', title: 'Email' },
+    ],
+    ai_request: (request, respondWith) => respondWith.string(() => Promise.reject('See docs to implement AI Assistant')),
+    uploadcare_public_key: '6f9820fc3121930cfaa4',
+  });
+</script>
+<script>
+    document.getElementById('hero-input').addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    const preview = document.getElementById('preview-img');
+    const content = document.getElementById('uploader-content');
 
+    if (file) {
+        const reader = new FileReader();
+
+        reader.onload = function(event) {
+            // Asignar la imagen y mostrarla
+            preview.src = event.target.result;
+            preview.classList.remove('d-none');
+            
+            // Opcional: Ocultar el texto original para que solo se vea la imagen
+            content.classList.add('d-none');
+        }
+
+        reader.readAsDataURL(file);
+    }
+});
+</script>
 </html>
 {%endblock%}

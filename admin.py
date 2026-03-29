@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from werkzeug.utils import secure_filename
-from models import SalidaTrekking
+from models import Blog, SalidaTrekking
 from app import db
 import app
 import os
@@ -41,14 +41,6 @@ def guardar_imagen(file, calidad=85):
 
     return filename
 
-
-# def guardar_imagen(file):
-#     if file:
-#         filename = secure_filename(file.filename)
-#         filepath = os.path.join('static', 'uploads', filename)
-#         file.save(filepath)
-#         return filename
-#     return None
 
 @bp.route('/crear-post', methods=['GET', 'POST'])
 def crear_post():
@@ -121,4 +113,25 @@ def crear_post():
     # ✅ Si entra por GET, renderiza el formulario
     return render_template('admin/crear_post.html')
 
-        
+@bp.route('/crear-nuevo-blog', methods=['GET', 'POST'])
+def crear_nuevo_blog():
+    if request.method == 'POST':
+        nuevo_blog = Blog(
+            # Aquí puedes manejar la lógica para crear un nuevo blog
+            titulo_blog = request.form['titulo_blog'],
+            # Asignar la ruta de la imagen al blog
+            contenido_blog = request.form['editor_textarea'],
+            dificultad_blog = request.form['btnradio'],
+            ubicacion_blog = request.form['ubicacion_blog'],
+            duracion_blog = request.form['duracion_expedicion'],
+            msnm_blog = request.form['msnm']
+            )
+        foto_blog = request.files.get('hero_image')
+        if foto_blog:
+            ruta_foto_blog = guardar_imagen(foto_blog)
+        nuevo_blog.foto_blog = ruta_foto_blog
+
+        db.session.add(nuevo_blog)
+        db.session.commit()
+        return redirect(url_for('acciones.dashboard'))
+    return render_template('crear_blog.html')

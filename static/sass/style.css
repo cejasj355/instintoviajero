@@ -5,73 +5,481 @@
   text-decoration: none;
 }
 
-.logo {
+:root {
+  --bs-primary: #001a41;
+  --bs-primary-rgb: 0, 26, 65;
+  --accent: #F9A825;
+  --surface: #faf8ff;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background-color: var(--surface);
+  color: #001847;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.navbar-brand,
+.font-headline {
+  font-family: "Work Sans", sans-serif;
+}
+
+.navbar {
+  background-color: #001240;
+  transition: background-color 0.3s ease;
+  backdrop-filter: blur(20px);
+  padding: 1rem 2rem;
+  border: none;
+}
+.navbar.scrolled {
+  background-color: rgba(1, 20, 49, 0.7) !important;
+  backdrop-filter: blur(10px);
+}
+
+.navbar-brand {
+  font-weight: 900;
+  letter-spacing: -1px;
+  font-size: 1.5rem;
+}
+
+.nav-link {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 12.8px;
+  letter-spacing: 0.1em;
+  color: #faf8ff !important;
+  margin: 0 1rem;
+}
+
+.nav-link.active {
+  color: var(--accent) !important;
+  border-bottom: 2px solid var(--accent);
+}
+
+.btn-reserve {
+  background-color: var(--accent);
+  color: #2a1800;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  padding: 0.5rem 2rem;
+  border: none;
+  border-radius: 0;
+  transition: all 0.3s ease;
+}
+
+.btn-reserve:hover {
+  opacity: 0.9;
+  transform: scale(0.98);
+}
+
+/* Hero Section */
+.hero {
+  height: 850px;
+  position: relative;
+  background: var(--bs-primary);
   display: flex;
-  background-image: url(../img/Logos/Instinto_viajero.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  border-radius: 100%;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.hero-img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  margin-bottom: 10px;
+  object-cover: cover;
+  opacity: 0.7;
 }
 
-.header .header-logo {
-  display: flex;
-  justify-content: center;
-  margin: auto;
-}
-
-.header-logo .logo {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  height: 15vh;
-  width: 25vw;
-}
-
-.nave ul li a {
-  justify-content: space-around;
-  text-align: center;
-}
-
-.nave {
+.hero-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 100%;
-  justify-content: space-around;
-  text-align: center;
+  height: 50%;
+  background: linear-gradient(to top, var(--bs-primary), transparent);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 120px;
+}
+
+.badge-expedicion {
+  background-color: #276488;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+}
+
+.hero-title {
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -2px;
+  color: white;
 }
 
 @media (min-width: 768px) {
-  .header-logo .logo {
-    margin-left: -50px;
-  }
-  .principal-salidas-titulo {
-    filter: drop-shadow(5px 5px 4px #000000);
+  .hero-title {
+    font-size: 6rem;
   }
 }
-header {
-  background-color: #001240;
-  color: #ffffff;
-  padding-bottom: 25px;
-}
-
-.header .nave ul {
-  display: flex;
-  justify-content: space-around;
-  list-style-type: none;
+.hero-meta {
+  font-size: 0.8rem;
   text-transform: uppercase;
-  color: #ffffff;
+  letter-spacing: 0.15em;
+  color: #dae2ff;
 }
 
-.nave ul li a {
+/* Stats Bar */
+.stats-bar {
+  background: rgba(0, 26, 65, 0.8);
+  backdrop-filter: blur(15px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.5rem 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 3;
+}
+
+.stat-label {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 0.25rem;
+}
+
+.stat-value {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+/* Content Styles */
+.editorial-shadow {
+  box-shadow: 0 20px 40px rgba(0, 24, 71, 0.06);
+}
+
+.dropcap {
+  float: left;
+  font-size: 4.5rem;
+  line-height: 0.8;
+  padding: 4px 8px 0 0;
+  font-weight: 900;
+  color: #276488;
+  font-family: "Work Sans", sans-serif;
+}
+
+.sidebar-card {
+  background: white;
+  border: none;
+  border-radius: 0;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.table-technical {
+  font-size: 0.85rem;
+}
+
+.table-technical td {
+  padding: 1rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.table-technical td:first-child {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #75777f;
+}
+
+.table-technical td:last-child {
+  font-weight: 700;
+  text-align: right;
+  color: var(--bs-primary);
+}
+
+.btn-white {
+  background: white;
+  color: var(--bs-primary);
+  border-radius: 0;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  padding: 0.8rem;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.comment-avatar {
+  width: 48px;
+  height: 48px;
+  background: #e2e7ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #276488;
+}
+
+blockquote {
+  border-left: 4px solid #276488;
+  padding-left: 2rem;
+  font-style: italic;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--bs-primary);
+  margin: 3rem 0;
+}
+
+.material-symbols-outlined {
+  vertical-align: middle;
+  font-variation-settings: "FILL" 1, "wght" 300, "GRAD" 0, "opsz" 24;
+}
+
+:root {
+  --primary-color: #17341c;
+  --secondary-color: #805533;
+  --surface-bg: #f5fbf6;
+  --surface-container: #eaefeb;
+  --surface-container-low: #eff5f0;
+  --on-surface: #171d1a;
+  --outline-variant: #c2c8bf;
+  --text-secondary: #737971;
+  --primary-container: #2d4b31;
+  --on-primary-container: #98ba99;
+  --primary-fixed: #c8ecc8;
+  --on-primary-fixed-variant: #2f4e33;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  background-color: var(--surface-bg);
+  color: var(--on-surface);
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-headline {
+  font-family: "Epilogue", sans-serif;
+}
+
+.font-label {
+  font-family: "Manrope", sans-serif;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  vertical-align: middle;
+}
+
+/* Custom Nav Styling */
+.navbar-custom {
+  background-color: rgba(245, 251, 246, 0.7);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(23, 29, 26, 0.05);
+}
+
+.brand-logo {
+  font-family: "Epilogue", sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  color: var(--primary-color) !important;
+}
+
+.nav-link-custom {
+  font-family: "Epilogue", sans-serif;
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin: 0 1rem;
+  transition: color 0.3s;
+}
+
+.nav-link-custom:hover {
+  color: var(--primary-color);
+}
+
+.nav-link-custom.active {
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--secondary-color);
+}
+
+/* Custom Buttons */
+.btn-brand-primary {
+  background-color: var(--primary-color);
   color: #ffffff;
+  border: none;
+  font-weight: 700;
+  padding: 0.625rem 2rem;
+}
+
+.btn-brand-primary:hover {
+  opacity: 0.9;
+  color: #001240;
+}
+
+.btn-brand-outline {
+  border: 1px solid;
+  font-weight: 700;
+  padding: 0.625rem 1.5rem;
+}
+
+.btn-brand-outline:hover {
+  background-color: var(--surface-container-low);
+  color: #001240;
+}
+
+/* Form Controls Overrides */
+.form-control-title {
+  background: transparent;
+  border: none;
+  font-family: "Epilogue", sans-serif;
+  font-weight: 900;
+  font-size: calc(1.5rem + 1.5vw);
+  padding: 0;
+  color: var(--on-surface);
+}
+
+.form-control-title:focus {
+  background: transparent;
+  box-shadow: none;
+  outline: none;
+}
+
+.form-control-title::-moz-placeholder {
+  color: var(--outline-variant);
+}
+
+.form-control-title::placeholder {
+  color: var(--outline-variant);
+}
+
+.form-label-brand {
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Sidebar & Cards */
+.card-logistics {
+  background-color: var(--surface-container-low);
+  border: none;
+  border-radius: 0.75rem;
+  padding: 2rem;
+}
+
+.sidebar-sticky {
+  position: sticky;
+  top: 6rem;
+}
+
+/* Media Uploader */
+.hero-uploader {
+  aspect-ratio: 21/9;
+  border: 2px dashed var(--outline-variant);
+  border-radius: 1rem;
+  background-color: var(--surface-container-low);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.hero-uploader:hover {
+  border-color: var(--primary-color);
+}
+
+/* Editor Area */
+.editor-container {
+  border: 1px solid rgba(194, 200, 191, 0.2);
+  border-radius: 0.75rem;
+  background: #fff;
+  overflow: hidden;
+}
+
+.editor-toolbar {
+  background-color: var(--surface-bg);
+  border-bottom: 1px solid var(--surface-container-low);
+  padding: 0.75rem;
+}
+
+.editor-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.editor-btn:hover {
+  background-color: var(--surface-container-low);
+}
+
+.editor-textarea {
+  border: none;
+  width: 100%;
+  min-height: 600px;
+  padding: 2rem;
+  resize: none;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.editor-textarea:focus {
+  outline: none;
+}
+
+/* Difficulty Toggle Buttons */
+.btn-group-difficulty .btn {
+  background-color: #dee4df;
+  border: none;
+  font-weight: 700;
+  font-size: 0.875rem;
+  padding: 0.75rem 0;
+  color: var(--text-secondary);
+}
+
+.btn-group-difficulty .btn.active {
+  background-color: var(--primary-container);
+  color: var(--on-primary-container);
+}
+
+/* Input Overrides */
+.form-control-brand {
+  background-color: #dee4df;
+  border: none;
+  padding: 0.75rem 1rem;
+}
+
+.form-control-brand:focus {
+  background-color: #dee4df;
+  box-shadow: 0 0 0 0.25rem rgba(23, 52, 28, 0.1);
 }
 
 .principal-salidas {
   height: 60vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(/static/img/Fotos\ Página/salida.webp);
-  border: solid 3px #001240;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -79,8 +487,7 @@ header {
      object-fit: cover;
   width: 90%;
   height: 75vh;
-  gap: 10rem;
-  margin: 5px auto;
+  margin: 0px auto 5px;
 }
 
 .p-s-uno {
@@ -99,6 +506,7 @@ header {
   border: none;
   height: 50vh;
   width: 100%;
+  background-color: white;
 }
 
 .portada .botones {
@@ -129,18 +537,18 @@ header {
   justify-content: center;
   margin: auto auto;
   background-color: transparent;
-  text-shadow: 1px 1px 30px #000000;
+  text-shadow: -5px 10px 7px #000000;
   color: #ffffff;
 }
 
 .principal-salidas-titulo {
   padding-top: 3vh;
-  font-family: "Oswald", serif;
+  font-family: "Oswald", sans-serif; /* Cambiado de serif a sans-serif */
 }
 
-.span_subtitulo {
-  font-family: "Oswald", serif;
-  font-size: 30px;
+.principal-salidas-titulo {
+  padding-top: 3vh;
+  font-family: "Oswald", sans-serif; /* Cambiado de serif a sans-serif */
 }
 
 .botones {
@@ -159,6 +567,7 @@ header {
   border-bottom-right-radius: 10px;
   font-weight: 900;
   color: #ffffff;
+  text-decoration: none;
 }
 
 .botones:hover {
@@ -169,29 +578,35 @@ header {
 
 .trekking_cba_titulo h3 {
   color: #000000;
-  font-family: "Oswald", serif;
+  font-family: "Oswald", sans-serif;
   text-align: center;
   text-decoration: underline;
 }
 
 .section-titles-subtitles {
+  font-family: "Nunito", serif;
   padding: 25px 0;
   color: #ffffff;
   background-color: #001240;
   text-transform: uppercase;
+  font-weight: 700;
 }
 
 .section-title {
   display: flex;
   justify-content: center;
+  font-family: "Nunito", serif;
   text-align: center;
   color: #ffffff;
+  font-weight: 700;
 }
 
 .section-subtitle {
   display: flex;
   justify-content: center;
   color: #ffffff;
+  font-family: "Nunito", serif;
+  font-weight: 700;
 }
 
 .blanco-desc {
@@ -254,7 +669,7 @@ header {
 .span {
   font-size: 50px;
   font-weight: bold;
-  font-family: "Oswald", serif;
+  font-family: "Oswald", sans-serif;
 }
 
 .principal-salidas-subtitulo .span {
@@ -313,83 +728,91 @@ header {
   }
 }
 .miembro .blanco {
-  height: 20vh;
   display: flex;
-  margin: auto;
   align-items: center;
-  flex-direction: row;
-  width: 80%;
-  justify-content: space-around;
 }
 
-.blanco img {
-  height: 12vh;
-  width: 12vh;
+@media (max-width: 768px) {
+  .blanco {
+    margin: auto;
+    flex-direction: column;
+  }
 }
-
 @media (min-width: 768px) {
   .boton-portada {
     margin-top: 700px;
   }
 }
-.footer {
-  text-align: center;
+/* 1. Limpiamos los SVG */
+.footer_contact svg {
+  height: 80px; /* Es mejor usar px que vh para iconos para que no se deformen */
+  width: auto;
+  display: block;
+  margin: 0 auto 10px auto; /* Solo margen abajo para acercarlo al texto */
+  transition: 0.3s;
 }
 
+.footer_contact svg:hover {
+  transform: scale(1.2); /* Usar transform es más estable que scale solo */
+}
+
+/* 2. Arreglamos los enlaces (los contenedores de cada red) */
+.footer_contact .logos {
+  display: flex;
+  flex-direction: column; /* Icono ARRIBA, texto ABAJO */
+  align-items: center; /* Centra ambos horizontalmente */
+  text-decoration: none; /* Quita el subrayado de los links */
+  width: 200px; /* Ancho fijo para que el texto de FB no se estire */
+}
+
+/* 3. Estilo de los textos */
 .redes {
   color: #000000;
   font-weight: 900;
+  margin: 0;
+  text-align: center;
 }
 
+/* 4. Contenedor principal */
+.footer_contact {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Alinea los iconos al mismo nivel superior */
+  gap: 40px;
+  padding: 20px 0;
+}
+
+/* 5. El Copyright (Footer P) */
 .footerp {
   font-weight: 900;
   margin-top: 25px;
   color: #ffffff;
-  padding: 2.5vh 0 0 0;
-  height: 10vh;
-  background-color: #001240;
-}
-
-.footer_contact {
-  gap: 20px;
-  display: flex;
-  justify-content: center;
-}
-
-.footer_contact svg {
-  height: 10vh;
-  display: flex;
+  padding: 2.5vh 0;
   text-align: center;
-  margin: 20px auto;
+  background-color: #001240;
+  /* Quitamos el height fijo de 10vh para que el texto no se corte en móviles */
 }
 
-.footer_contact svg:hover {
-  scale: 1.3;
-  transition: 0.3s;
-}
-
-.boton-insta:hover {
-  scale: 1.05;
-  transition: 0.3s;
-}
-
+/* 6. El WhatsApp flotante */
 .whatsapp {
   position: fixed;
-  right: 0%;
-  bottom: 0%;
-  background-color: transparent;
-  filter: drop-shadow(5px 5px 4px grey);
+  right: 20px; /* Un poco de margen desde el borde */
+  bottom: 20px;
+  z-index: 999; /* Para que siempre esté arriba de todo */
+  filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.3));
 }
 
-.boton-insta {
-  height: 20vh;
-  width: 25vw;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+/* 7. Ajuste para Celulares */
+@media (max-width: 768px) {
+  .footer_contact {
+    flex-direction: column; /* Se apilan uno abajo del otro */
+    align-items: center;
+  }
+  .footer_contact .logos {
+    width: 100%; /* Que ocupen el ancho disponible */
+    margin-bottom: 30px;
+  }
 }
-
 .section-title-nosotros {
   color: #000000;
   height: 10vh;
@@ -498,7 +921,7 @@ header {
   font-size: 30px;
   text-align: center;
   align-items: center;
-  font-family: "Oswald", serif;
+  font-family: "Oswald", sans-serif;
   font-weight: 900;
 }
 
@@ -722,7 +1145,7 @@ header {
   text-align: center;
   line-height: 50px;
   margin: 35px;
-  font-family: "Oswald", serif;
+  font-family: "Oswald", sans-serif;
 }
 
 .cartel-consulta h4 {
@@ -960,7 +1383,7 @@ header {
   position: absolute;
 }
 
-.mb-3 {
+.mb-33 {
   background-color: #001240;
   color: white;
   width: 80%;
@@ -1028,10 +1451,20 @@ form .btn-primary {
   height: 100vh;
 }
 
-.titular h2 {
-  font-size: 40px;
+.titular h3 {
+  font-family: "Nunito", serif;
+  font-size: 30px;
+  font-weight: 900;
   text-transform: uppercase;
-  text-shadow: 5px 5px 5px #000000;
+  text-shadow: -5px 5px 7px #000000;
+}
+
+.titular h2 {
+  font-family: "Nunito", serif;
+  font-size: 40px;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-shadow: -5px 5px 7px #000000;
 }
 
 @media (max-width: 768px) {
@@ -1042,7 +1475,7 @@ form .btn-primary {
   .titular h2 {
     font-size: 25px;
     text-transform: uppercase;
-    text-shadow: 5px 5px 5px #000000;
+    text-shadow: -5px 5px 7px #000000;
   }
   .nosotros-cuadros {
     padding: 5px;
@@ -1069,18 +1502,20 @@ form .btn-primary {
   margin: 40px 0 0 0;
 }
 
-.titular h3 {
-  font-size: 30px;
-  text-transform: uppercase;
-  text-shadow: 5px 5px 5px #000000;
+.form-label {
+  display: flex;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .formulario input {
   margin: 1rem;
   padding: 0.5rem;
-  width: 80%;
-  display: inline-block;
-  height: 1rem;
+  width: 40%;
+  display: flex;
+  height: 2rem;
   margin: auto;
   text-align: center;
 }
@@ -1112,4 +1547,8 @@ form .btn-primary {
 .img-fluid {
   height: auto;
   width: auto;
+}
+
+.btn-guardar-blog {
+  width: 90%;
 }/*# sourceMappingURL=style.css.map */

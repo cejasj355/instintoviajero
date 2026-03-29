@@ -11,18 +11,15 @@
     <meta charset="UTF-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='sass/style.css') }}">
+    
 
     <title>Instinto Viajero 🇦🇷 - {% block title %}{% endblock %}</title>
     <meta name="description" content="{% block description %}{% endblock %}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
-
-
+    
+    
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/Logos/favicon.ico') }}">
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/Logos/favicon.png') }}">
-
+    
     <script src="https://kit.fontawesome.com/3c21f2f44b.js" crossorigin="anonymous" defer></script>
     <meta>
     <!-- Google tag (gtag.js) -->
@@ -45,38 +42,55 @@
         'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '637563278683166');
         fbq('track', 'PageView');
-        </script>
-        <noscript><img height="1" width="1" style="display:none"
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
         src="https://www.facebook.com/tr?id=637563278683166&ev=PageView&noscript=1"
-        /></noscript>
-        <script src="https://cdn.tiny.cloud/1/3cujxjkjjcs6dfv736vor4vv4ybv20t24q3037fnzzhzdmqy/tinymce/8/tinymce.min.js" referrerpolicy="origin" crossorigin="anonymous"></script>
-</head>
-<body>
+        />
+    </noscript>
+    <script src="https://cdn.tiny.cloud/1/3cujxjkjjcs6dfv736vor4vv4ybv20t24q3037fnzzhzdmqy/tinymce/8/tinymce.min.js" referrerpolicy="origin" crossorigin="anonymous"></script>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MFRZG494"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <header class="header">
-        <div class="header-logo" aria-label="Logo de Instinto Viajero">
-            <a href="{{url_for("index")}}" class="logo" aria-label="Logo de Instinto Viajero"></a>
-        </div>
-        <nav class="nave">
-            <ul>
-                <li><a href="{{url_for("index")}}" aria-label="Inicio">Inicio</a></li>
-                <li><a href="{{url_for("acciones.proximas_salidas")}}" aria-label="Excursiones">Excursiones</a></li>
-                <li><a href="{{url_for("acciones.nosotros")}}" aria-label="Sobre nosotros">nosotros</a></li>
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-                {% if session.is_admin %}
-                    <li><a href="{{url_for('acciones.dashboard')}}" aria-label="Panel de control">panel</a></li>
-                {% endif %}
-                <li class="login-circle">
-                    <a href="{{ url_for('acciones.pag_log') }}" aria-label="Iniciar sesión">
-                        <i class="fa-solid fa-circle-user fa-lg" aria-hidden="true"></i>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Work+Sans:wght@400;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='sass/style.css') }}">
+            
+                
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" href="{{url_for("index")}}" >Instinto Viajero</a>
+            <button class="navbar-toggler" data-bs-target="#navMain" data-bs-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMain">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="{{url_for("index")}}" aria-label="Inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{url_for("acciones.proximas_salidas")}}" aria-label="Excursiones">Excursiones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{url_for("acciones.nosotros")}}" aria-label="Sobre nosotros">Nosotros</a></li>
+                    <li class="nav-item ms-lg-4">
+                        <button class="btn btn-reserve">Reservar</button>
+                    </li>
+                    {% if session.is_admin %}
+                        <li class="nav-item"><a class="nav-link" href="{{url_for('acciones.dashboard')}}" aria-label="Panel de control">panel</a></li>
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('acciones.pag_log') }}" aria-label="Iniciar sesión">
+                            <i class="fa-solid fa-circle-user fa-lg" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- </header> -->
     {% block content %}
 
     {% endblock %}
@@ -110,6 +124,16 @@
             <p class="footerp">© 2024 - Instinto Viajero. Todos los derechos reservados</p>
         </div>
     </footer>
+    <script>
+        window.addEventListener('scroll', function() {
+        const nav = document.querySelector('.navbar');
+        if (window.scrollY > 50) { // Si baja más de 50px
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+        });
+    </script>
 </body>
 
 </html>
