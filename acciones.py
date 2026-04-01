@@ -186,3 +186,7 @@ def crear_blogs():
 @bp.route('/ver_blog', methods=['GET', 'POST'])
 def ver_blogs():
     return render_template('ver_blog.html')
+
+@bp.route('/mostrar_blogs', methods=['GET', 'POST'])
+def mostrar_blogs():
+    return render_template('blogs.html')

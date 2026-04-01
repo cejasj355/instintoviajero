@@ -520,22 +520,9 @@ body {
     margin-top:40px; 
 }
 
-@media (min-width:768px){
-    .principal-salidas-titulo{
-        font-size: 50px;
-    }
-    .portada .botones{
-        margin-top:25%;
-        width: 30%;
-    }
-    
-    .principal-salidas{
-        height: 70vh;
-    }
-}
 .principal-salidas .principal-salidas-titulo,
 .principal-salidas .principal-salidas-subtitulo{
-
+    
     display: flex;
     align-items: center;
     text-align: center;
@@ -550,10 +537,20 @@ body {
 .principal-salidas-titulo {
     padding-top: 3vh;
     font-family: "Oswald", sans-serif; /* Cambiado de serif a sans-serif */
+    font-size: 40px;
 }
-.principal-salidas-titulo {
-    padding-top: 3vh;
-    font-family: "Oswald", sans-serif; /* Cambiado de serif a sans-serif */
+@media (min-width:768px){
+    .principal-salidas-titulo{
+        font-size: 50px;
+    }
+    .portada .botones{
+        margin-top:25%;
+        width: 30%;
+    }
+    
+    .principal-salidas{
+        height: 70vh;
+    }
 }
 
 // BOTONES DE LAS PROXIMAS SALIDAS
@@ -683,8 +680,9 @@ body {
 
 
 // expediciones en cordoba
+
 .span{
-    font-size: 50px;
+    font-size: 30px;
     font-weight: bold;
     font-family: "Oswald", sans-serif;
 }
@@ -1549,4 +1547,16 @@ form .btn-primary{
 }
 .btn-guardar-blog{
     width: 90%;
+}
+
+// seccion de blogs
+.mt-4{
+    background-color: #001240;
+    margin-top: 0 !important;
+}
+.card{
+    background-color: #001240 !important;
+}
+.card-title{
+    color: white;
 }
