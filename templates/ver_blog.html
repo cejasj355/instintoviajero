@@ -1,12 +1,11 @@
 {% extends "base.html" %}
 
-{% block title %}{% endblock %}
-
+{% block title %}{{blogs_total.titulo_blog}}{% endblock %}
 {% block content%}
-    
+
     <header class="hero">
         <img alt="Champaquí Mountain" class="hero-img"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRMjbPHY6VwrUrti5t7E4MZGKYVOyytdAZf6wdO5WAhi8KBfNPr0Ng2NiKULDdHCjKe8H1bXeL9c7r1TnUHLFbXaSBqGoo_wiJcBmZcltUWN7QmqlZ4r6ldo6mCA7367IzvRLD8sGgBHuY3-9fLedfahYHS3SYrgi2_7R0cGCp9G9By7ZjFrXAK0OvUiatZoLsIlW6tDbVvCy0_AsQigLRMxxiu4VBhPm1erx-R7QJjJBhsEl6n0PEMDW4N8pKZGopE--Qfv3uJSbS" />
+            src="{{ url_for('static', filename='uploads/' + blogs_total.foto_blog) }}" class="hero-img" alt="{{ blogs_total.titulo_blog }}">
         <div class="hero-overlay"></div>
         <div class="container hero-content">
             <div class="row">
@@ -15,14 +14,12 @@
                         <span class="badge-expedicion">Expedición</span>
                         <div style="width: 50px; height: 1px; background: rgba(255,255,255,0.3);"></div>
                         <span class="text-white text-uppercase small ls-widest"
-                            style="letter-spacing: 0.2em;">Dificultad Alta</span>
+                            style="letter-spacing: 0.2em;">Dificultad: {{blogs_total.dificultad_blog}}</span>
                     </div>
-                    <h1 class="hero-title mb-4">ASCENSO AL<br />CERRO CHAMPAQUÍ</h1>
+                    <h1 class="hero-title mb-4">{{blogs_total.titulo_blog}}</h1>
                     <div class="hero-meta d-flex flex-wrap gap-4">
-                        <span><span class="material-symbols-outlined text-accent me-1">person</span> Por Marcos
-                            Rivera</span>
-                        <span><span class="material-symbols-outlined text-accent me-1">calendar_today</span> 14 Octubre,
-                            2024</span>
+                        <span><span class="material-symbols-outlined text-accent me-1">person</span> Por: {{blogs_total.autor}}</span>
+                        <span><span class="material-symbols-outlined text-accent me-1">calendar_today</span> FECHA: {{blogs_total.fecha}}</span>
                     </div>
                 </div>
             </div>
@@ -33,19 +30,19 @@
                 <div class="row text-center text-md-start">
                     <div class="col-6 col-md-3 mb-3 mb-md-0">
                         <p class="stat-label">Altitud Máxima</p>
-                        <p class="stat-value">2,790 msnm</p>
+                        <p class="stat-value">{{blogs_total.msnm_blog}}</p>
                     </div>
                     <div class="col-6 col-md-3 mb-3 mb-md-0">
                         <p class="stat-label">Distancia Total</p>
-                        <p class="stat-value">42 Kilómetros</p>
+                        <p class="stat-value">{{blogs_total.km_total}}</p>
                     </div>
                     <div class="col-6 col-md-3">
-                        <p class="stat-label">Duración Media</p>
-                        <p class="stat-value">3 Días / 2 Noches</p>
+                        <p class="stat-label">Duración</p>
+                        <p class="stat-value">{{blogs_total.duracion_blog}}</p>
                     </div>
                     <div class="col-6 col-md-3">
                         <p class="stat-label">Punto de Inicio</p>
-                        <p class="stat-value">Villa Alpina</p>
+                        <p class="stat-value">{{blogs_total.punto_inicio}}</p>
                     </div>
                 </div>
             </div>
@@ -57,6 +54,7 @@
             <!-- Article Column -->
             <article class="col-lg-8">
                 <div class="article-body">
+                    {{blogs_total.contenido_blog | safe}}
                 </div>
             </article>
             <!-- Sidebar Column -->
@@ -72,28 +70,28 @@
                             <tbody>
                                 <tr>
                                     <td>Dificultad</td>
-                                    <td>hard</td>
+                                    <td>{{blogs_total.dificultad_blog}}</td>
                                 </tr>
                                 <tr>
                                     <td>Elevación</td>
-                                    <td>2,790 m</td>
+                                    <td>{{blogs_total.msnm_blog}}</td>
                                 </tr>
                                 <tr>
                                     <td>Distancia</td>
-                                    <td>2,790 m</td>
+                                    <td>{{blogs_total.km_total}}</td>
                                 </tr>
                                 <tr>
                                     <td>Punto de inicio</td>
-                                    <td>2,790 m</td>
+                                    <td>{{blogs_total.punto_inicio}}</td>
                                 </tr>
                                 <tr>
                                     <td>Duracion</td>
-                                    <td>2/3 dias</td>
+                                    <td>{{blogs_total.duracion_blog}}</td>
                                 </tr>
                             </tbody>
                         </table>
                         
-                        <a class="btn btn-reserve w-100 py-3 fw-black">Reservar mi lugar</a>
+                        <a class="btn btn-reserve w-100 py-3 fw-black" href="https://api.whatsapp.com/send?phone=+3541207389&text=Hola!%20Quiero%20reservar%20mi%20lugar%20para:%20{{blogs_total.titulo_blog}}">Reservar mi lugar</a>
                     </div>
                 </div>
             </aside>

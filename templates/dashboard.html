@@ -4,20 +4,20 @@
 {% block content %}
 <section class="dashboard">
     <div>
-        <a class="trekking_cba_boton botones" href="{{url_for("acciones.plantilla_salidas")}}">Crear
+        <a class="trekking_cba_boton botones" href="{{url_for("admin.plantilla_salidas")}}">Crear
             Salida
         </a>
     </div>
     <div>
-        <a class="trekking_cba_boton botones" href="{{url_for("acciones.lista_salidas")}}">Listado de
+        <a class="trekking_cba_boton botones" href="{{url_for("admin.lista_salidas")}}">Listado de
             salidas
         </a>
     </div>
     <div>
-        <a href="{{url_for('admin.crear_nuevo_blog')}}" class="trekking_cba_boton botones">Crear blog</a>
+        <a href="{{url_for('admin.crear_blogs')}}" class="trekking_cba_boton botones">Crear blog</a>
     </div>
     <div>
-        <a href="#" class="trekking_cba_boton botones">Listado de blogs</a>
+        <a href="{{url_for('admin.lista_blogs')}}" class="trekking_cba_boton botones">Listado de blogs</a>
     </div>
 </section>
 {% endblock %}

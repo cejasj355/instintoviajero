@@ -9,11 +9,11 @@
 <div class="card mb-33 shadow-sm">
   <div class="card-salidas">
     <h4><a href="{{ url_for('acciones.ver_salida', slug=s.slug) }}" class="text-decoration-none">{{ s.titulo }}</a></h4>
-    <form action="{{ url_for('acciones.eliminar_salida', id=s.id) }}" method="POST" style="display:inline;"
+    <form action="{{ url_for('admin.eliminar_salida', id=s.id) }}" method="POST" style="display:inline;"
       onsubmit="return confirm('¿Seguro que querés eliminar esta salida?');">
       <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
     </form>
-    <form action="{{ url_for('acciones.editar_salida', id=s.id) }}" method="GET">
+    <form action="{{ url_for('admin.editar_salida', id=s.id) }}" method="GET">
       <button type="submit" class="btn btn-primary btn-sm">Editar</button>
     </form>
   </div>

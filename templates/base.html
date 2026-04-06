@@ -77,7 +77,7 @@
                     <li class="nav-item"><a class="nav-link" href="{{url_for('acciones.mostrar_blogs')}}" aria-label="Blogs">Blog</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{url_for("acciones.nosotros")}}" aria-label="Sobre nosotros">Nosotros</a></li>
                     {% if session.is_admin %}
-                        <li class="nav-item"><a class="nav-link" href="{{url_for('acciones.dashboard')}}" aria-label="Panel de control">panel</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{url_for('admin.dashboard')}}" aria-label="Panel de control">panel</a></li>
                     {% endif %}
                     <li class="nav-item ms-lg-4">
                         <a class="btn btn-reserve" href="https://api.whatsapp.com/send?phone=+3541207389&text=Hola!%20Me%20gustaria%20recibir%20informacion%20sobre:%20">Reservar</a>

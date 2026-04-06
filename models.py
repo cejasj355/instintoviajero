@@ -58,8 +58,13 @@ class Blog(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     titulo_blog = db.Column(db.String(150))
     foto_blog = db.Column(db.String(255))
+    descripcion=db.Column(db.String(300))
     contenido_blog = db.Column(db.Text)
     dificultad_blog = db.Column(db.Text)
     ubicacion_blog = db.Column(db.Text)
     duracion_blog = db.Column(db.Text)
+    km_total = db.Column(db.String(20)) # Asegúrate de tener estos campos en tu modelo Blog
+    punto_inicio = db.Column(db.Text)
     msnm_blog = db.Column(db.Text)
+    autor= db.Column(db.Text)
+    fecha= db.Column(db.Text)

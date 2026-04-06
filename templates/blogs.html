@@ -204,8 +204,7 @@
                         style="font-size: 0.65rem; letter-spacing: 0.2em;">Bitácora de Campo</span>
                     <h1 class="display-3 text-white mb-4">Nuestras <span class="text-primary">Experiencias</span></h1>
                     <p class="lead text-on-surface-variant mb-0" style="max-width: 600px;">
-                        Explora los senderos más desafiantes y las cumbres más imponentes. Crónicas detalladas de
-                        nuestras rutas por la Cordillera y el fin del mundo.
+                        Mucho más que kilómetros; son historias grabadas en la roca. Acompañanos en nuestras expediciones por los paisajes más imponentes del fin del mundo a través de crónicas detalladas, mapas y la pasión por el trekking de altura.
                     </p>
                 </div>
             </div>
@@ -217,28 +216,30 @@
         <div class="container">
             <div class="row g-4">
                 <!-- Card 1 -->
+                {%for blog in blogs_total%}
+                
                 <div class="col-md-6 col-lg-4">
-                    <article class="card h-100">
-                        <div class="card-img-top-wrapper">
-                            <img alt="Cerro Champaquí" class="card-img-top"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTm9l3kFVKt9cNN_f9d6tXIcPQTr4yJND7FZkN0TwphgV7dWjbx-bEiqfJG5mfkab2aoLOIAVUQq4z2r5ZVZtMkoBCU2esKFTQ6LA9kWv5NdZNmvMZni8J0SAtsgQFdPDtcb1ao6SQmZpuwtiXCBa-QkQJSn3WcY0UajdiIKuzLi0RoTxLVPoFbyf7ejK6dcJ3AKiZKKdeeJXOYQlink1eT0XiaGgnM9OlUVKFaxfIXzVhmbx9pVnob6qh3fsWVov_etehMkvv3s9g" />
-                            <div class="badge-level">Dificultad</div>
-                        </div>
-                        <div class="card-body p-4 d-flex flex-column">
-                            <h3 class="card-title h4">Ascenso al Cerro Champaquí</h3>
-                            <p class="card-text mb-4">Atravesamos las sierras cordobesas para conquistar el techo de la
-                                provincia. Una travesía técnica entre formaciones rocosas y cielos infinitos.</p>
-                        </div>
-                        <div class="card-footer d-flex justify-content-between align-items-center">
-                            <span><span class="material-symbols-outlined footer-icon">calendar_today</span> 12 OCT
-                                2024</span>
-                            <span><span class="material-symbols-outlined footer-icon">schedule</span> 3 DÍAS</span>
-                            <span class="text-primary">M. ROSSI</span>
-                        </div>
-                    </article>
+                        <a href="{{url_for('acciones.ver_blogs', id=blog.id)}}" style="text-decoration: none;">
+                        <article class="card h-100">
+                            <div class="card-img-top-wrapper">
+                                <img src="{{ url_for('static', filename='uploads/'~blog.foto_blog) }}" alt="{{blog.titulo_blog}}" class="img-fluid" loading="lazy">
+                                <div class="badge-level">Dificultad: {{ blog.dificultad_blog }}</div>
+                            </div>
+                            <div class="card-body p-4 d-flex flex-column">
+                                <h3 class="card-title h4">{{blog.titulo_blog}}</h3>
+                                <p class="card-text mb-4">{{blog.descripcion}}</p>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between align-items-center">
+                                <span><span class="material-symbols-outlined footer-icon">calendar_today</span> {{blog.fecha}}</span>
+                                <span><span class="material-symbols-outlined footer-icon">schedule</span> </span>
+                                <span class="text-primary">{{blog.autor}}</span>
+                            </div>
+                        </article>
+                    </a>
                 </div>
-                
-                
+                {%else%}
+                    <p style="color: black; margin: auto; display: flex;">No hay blogs registrados aún </p>
+                {%endfor%}
             </div>
             
         </div>

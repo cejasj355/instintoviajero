@@ -439,7 +439,6 @@ body {
 .editor-textarea {
   border: none;
   width: 100%;
-  min-height: 600px;
   padding: 2rem;
   resize: none;
   font-size: 1.125rem;
@@ -1560,4 +1559,20 @@ form .btn-primary {
 
 .card-title {
   color: white;
+}
+
+.article-body .image {
+  width: 100%; /* Ocupa el ancho total del post */
+  margin: 20px 0; /* Espaciado arriba y abajo */
+}
+
+.article-body .image img {
+  display: block;
+  max-width: 100%; /* No permite que la imagen sea más ancha que el contenedor */
+  height: auto !important; /* Mantiene la proporción para que no se estire */
+  border-radius: 8px; /* Opcional: para que combine con tu Ficha Técnica */
+}
+
+.ck.ck-editor__editable_inline {
+  height: 50vh;
 }/*# sourceMappingURL=style.css.map */
