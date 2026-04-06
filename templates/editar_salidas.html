@@ -23,7 +23,7 @@
                 </div>
                 <div>
                     <label class="carga_imagenes" for="">Escribe la descripcion de la salida en la seccion: próximas salidas</label>
-                    <textarea name="prox-desc" value="">{{salida.prox_desc|safe}}</textarea>
+                    <textarea class="editor_textarea" name="prox-desc" value="">{{salida.prox_desc|safe}}</textarea>
                 </div>
                 <div>
                     <label class="carga_imagenes">Carga la imagen que quieres de portada</label>
@@ -58,7 +58,7 @@
                     <div class="prox-fechas">
                         <div>
                             <h3 class="prox-fechas-titulo">PRÓXIMAS FECHAS</h3>
-                            <textarea name="proximas-fechas" id="" value="">{{salida.proximasfechas|safe}}</textarea>
+                            <textarea class="editor_textarea" name="proximas-fechas" id="" value="">{{salida.proximasfechas|safe}}</textarea>
                             <ul class="ul">
                                 <li>Punto de encuentro:<input type="text" name="encuentro" placeholder="ingrese el punto de encuentro" value="{{salida.encuentro}}"></li>
                                 <li>Hora de Inicio: <input type="text" name="inicio" placeholder="ingrese hora de inicio" value="{{salida.inicio}}"></li>
@@ -72,7 +72,7 @@
                     <div class="prox-fechas">
                         <h3 class="prox-fechas-titulo">DIFICULTAD</h3>
                         <p>
-                            <textarea name="dificultad" placeholder="ingrese la dificultad">{{salida.dificultad|safe}}</textarea>
+                            <textarea class="editor_textarea" name="dificultad" placeholder="ingrese la dificultad">{{salida.dificultad|safe}}</textarea>
                         </p>
                     </div>
                 </div>
@@ -80,7 +80,7 @@
             <section>
                 <h3 class="section-titles-subtitles section-title">DESCRIPCIÓN</h3>
                 <div class="descripcion">
-                    <textarea name="descripcion-salida" placeholder="ingrese la descripcion de la salida" value="">{{salida.descripcion|safe}}</textarea>
+                    <textarea class="editor_textarea" name="descripcion-salida" placeholder="ingrese la descripcion de la salida" value="">{{salida.descripcion|safe}}</textarea>
                     
                 </div>
             </section>
@@ -132,15 +132,15 @@
                     <div class="info-1">
                         <div>
                             <h4>¿Qué incluye?</h4>
-                            <textarea name="incluye" id="" >{{salida.incluye|safe}}</textarea>
+                            <textarea class="editor_textarea" name="incluye" id="" >{{salida.incluye|safe}}</textarea>
                         </div>
                         <div>
                             <h4>Opcional</h4>
-                            <textarea name="opcional" id="" >{{salida.opcional|safe}}</textarea>
+                            <textarea class="editor_textarea" name="opcional" id="" >{{salida.opcional|safe}}</textarea>
                         </div>
                         <div>
                             <h4>¿Qué no incluye?</h4>
-                            <textarea name="no-incluye" id="" >{{salida.no_incluye|safe}}</textarea>
+                            <textarea class="editor_textarea" name="no-incluye" id="" >{{salida.no_incluye|safe}}</textarea>
                         </div>
 
                     </div>
@@ -221,7 +221,7 @@
             <section>
                 <h3 class="section-titles-subtitles section-title">ITINERARIO</h3>
                 <div class="descripcion ">
-                    <textarea name="itinerario" placeholder="ingrese el itinerario" id="" >{{salida.itinerario|safe}}</textarea>
+                    <textarea class="editor_textarea" name="itinerario" placeholder="ingrese el itinerario" id="" >{{salida.itinerario|safe}}</textarea>
                 </div>
             </section>
             <section>
@@ -240,18 +240,18 @@
             </section>
             <section>
                 <h4 class="section-titles-subtitles section-title">EQUIPAMIENTO NECESARIO</h4>
-                <textarea class="equipamiento" name="equipamiento" id="" >
+                <textarea class="equipamiento editor_textarea" name="equipamiento" id="" >
                     {{ salida.equipamiento | safe }}
                     </textarea>
 
             </section>
             <section class="preguntas">
                 <h4 class="section-titles-subtitles section-title">PREGUNTAS FRECUENTES</h4>
-                <textarea name="preguntas" id="" >{{salida.preguntas|safe}}</textarea>
+                <textarea class="editor_textarea" name="preguntas" id="" >{{salida.preguntas|safe}}</textarea>
             </section>
             <section>
                 <h4 class="section-titles-subtitles section-title">INSERTE DESCRIPCION PARA GOOGLE</h4>
-                <textarea type="text" name="codigo" placeholder="ingrese una descripcion de entre 120 a 160 caracteres para google" id="" value="{{salida.codigo}}">
+                <textarea class="editor_textarea" type="text" name="codigo" placeholder="ingrese una descripcion de entre 120 a 160 caracteres para google" id="" value="{{salida.codigo}}">
                     {{ salida.codigo | safe }}
                 </textarea>
             </section>
@@ -260,26 +260,36 @@
     </main>
 </body>
 <!-- Place the following <script> and <textarea> tags your HTML's <body> -->
+<script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+
+
 <script>
-  tinymce.init({
-    selector: 'textarea',
-    plugins: [
-      // Core editing features
-      'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'link', 'lists', 'media', 'searchreplace', 'table', 'visualblocks', 'wordcount',
-      // Your account includes a free trial of TinyMCE premium features
-      // Try the most popular premium features until Mar 31, 2026:
-      'checklist', 'mediaembed', 'casechange', 'formatpainter', 'pageembed', 'a11ychecker', 'tinymcespellchecker', 'permanentpen', 'powerpaste', 'advtable', 'advcode', 'advtemplate', 'ai', 'uploadcare', 'mentions', 'tinycomments', 'tableofcontents', 'footnotes', 'mergetags', 'autocorrect', 'typography', 'inlinecss', 'markdown','importword', 'exportword', 'exportpdf'
-    ],
-    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography uploadcare | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
-    tinycomments_mode: 'embedded',
-    tinycomments_author: 'Author name',
-    mergetags_list: [
-      { value: 'First.Name', title: 'First Name' },
-      { value: 'Email', title: 'Email' },
-    ],
-    ai_request: (request, respondWith) => respondWith.string(() => Promise.reject('See docs to implement AI Assistant')),
-    uploadcare_public_key: '6f9820fc3121930cfaa4',
-  });
+    // Seleccionamos todos los campos con la clase editor_textarea
+    const elementos = document.querySelectorAll('.editor_textarea');
+
+    elementos.forEach(el => {
+        ClassicEditor
+            .create(el, {
+                toolbar: [
+                    'heading', '|', 
+                    'bold', 'italic', 'underline', 'strikethrough', '|',
+                    'fontColor', 'fontBackgroundColor', '|',
+                    'alignment', 'bulletedList', 'numberedList', 'todoList', '|',
+                    'insertTable', 'horizontalLine', 'specialCharacters', '|',
+                    'link', 'blockQuote', 'undo', 'redo'
+                ],
+                // Configuración para que las tablas sean más editables
+                table: {
+                    contentToolbar: [
+                        'tableColumn', 'tableRow', 'mergeTableCells',
+                        'tableProperties', 'tableCellProperties'
+                    ]
+                }
+            })
+            .catch(error => {
+                console.error('Error al inicializar un editor:', error);
+            });
+    });
 </script>
 
 {% endblock %}
