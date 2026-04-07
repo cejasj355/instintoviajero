@@ -51,19 +51,19 @@ def guardar_foto(file, foto_actual=None):
     if img.mode in ("RGBA", "P"):
         img = img.convert("RGB")
 
-    tamaño_max = 400
+    tamaño_max = 2650
     img.thumbnail((tamaño_max, tamaño_max), Image.LANCZOS)
 
     img.save(
         ruta,
         "WEBP",
-        quality=70,
+        quality=90,
         optimize=True
     )
 
     return nombre
 
-def guardar_imagen(file, calidad=75):
+def guardar_imagen(file, calidad=85):
     if not file or file.filename == '':
         return None
 

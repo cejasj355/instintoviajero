@@ -993,14 +993,6 @@ body {
 .precio-1-champa{
     height: 110%;
 }
-.champa-1{
-    background-position: center;
-    background-size: cover;
-    height: 20rem;
-    width: 100%;
-    background-repeat: no-repeat;
-
-}
 .precio-1, .precio-2{
     margin: 1rem 1rem;
     background-color: #000000;
@@ -1014,14 +1006,27 @@ body {
     padding-bottom: 5px;
     
 }
+.champa-1 {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    /* Altura para móviles (una sola columna) */
+    height: 35rem; 
+    width: 110%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
 @media(min-width:980px) {
-    
-    .excursion-img{
+    .excursion-img {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
-        margin: 2rem 2rem;
+        gap: 1rem; 
+        margin: 3rem auto;
+        max-width: 1100px; /* Estrechamos un poco el contenedor general */
     }
+
+
     .info-2{
         margin: 0 0 0 1rem;
         padding: 0%;
