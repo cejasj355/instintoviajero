@@ -585,6 +585,7 @@ body {
   background-color: #001240;
   text-transform: uppercase;
   font-weight: 700;
+  margin-bottom: 10px;
 }
 
 .section-title {
@@ -1251,7 +1252,7 @@ body {
 
 .prox-fechas {
   border-radius: 10px;
-  box-shadow: #000000 10px 10px 20px;
+  box-shadow: #000000 10px 10px 30px;
   margin: 0 1rem 25px 1rem;
 }
 
