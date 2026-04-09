@@ -1253,7 +1253,8 @@ body {
 .prox-fechas {
   border-radius: 10px;
   box-shadow: #000000 10px 10px 30px;
-  margin: 0 1rem 25px 1rem;
+  margin: 25px 1rem;
+  padding: 0 1rem;
 }
 
 .info-2 ul li {
@@ -1516,11 +1517,6 @@ form .btn-primary {
 }
 
 .prox-fechas-dificultad {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin: auto;
   font-size: 20px;
   font-weight: 700;
 }
