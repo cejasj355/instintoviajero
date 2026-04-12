@@ -733,7 +733,7 @@ body {
     }
     .blanco .img{
         height: auto;
-        width: 15vw;
+        width: 12vw;
 
     }
 }
@@ -745,11 +745,18 @@ body {
     display: flex;
     align-items: center;
 }
+
 @media(max-width:768px) {
     .blanco{
         margin: auto;
         flex-direction: column;
     }
+    .blanco .img{
+        height: auto;
+        width: 10vw;
+
+    }
+    
 }
 
 @media(min-width:768px) {

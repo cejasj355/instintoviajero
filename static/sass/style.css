@@ -719,7 +719,7 @@ body {
   }
   .blanco .img {
     height: auto;
-    width: 15vw;
+    width: 12vw;
   }
 }
 .miembro .blanco {
@@ -731,6 +731,10 @@ body {
   .blanco {
     margin: auto;
     flex-direction: column;
+  }
+  .blanco .img {
+    height: auto;
+    width: 7vw;
   }
 }
 @media (min-width: 768px) {
