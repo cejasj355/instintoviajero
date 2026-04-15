@@ -734,7 +734,7 @@ body {
   }
   .blanco .img {
     height: auto;
-    width: 7vw;
+    width: 40%;
   }
 }
 @media (min-width: 768px) {
