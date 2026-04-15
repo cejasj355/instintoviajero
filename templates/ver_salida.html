@@ -5,7 +5,9 @@
 {% block description %}{{salida.codigo | striptags}}{% endblock %}
 
 {% block content %}
-
+<head>
+    <meta property="og:image" content="{{url_for('static',filename='uploads/'+salida.foto_portada)}}">
+</head>
 <body>
     <main>
         <div>
