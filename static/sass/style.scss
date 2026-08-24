@@ -64,11 +64,6 @@ h6,
     margin: 0 1rem;
 }
 
-.nav-link.active {
-    color: var(--accent) !important;
-    border-bottom: 2px solid var(--accent);
-}
-
 .btn-reserve {
     background-color: var(--accent);
     color: #2a1800;
@@ -104,7 +99,6 @@ h6,
     left: 0;
     width: 100%;
     height: 100%;
-    object-cover: cover;
     opacity: 0.7;
 }
 
@@ -184,16 +178,6 @@ h6,
     box-shadow: 0 20px 40px rgba(0, 24, 71, 0.06);
 }
 
-.dropcap {
-    float: left;
-    font-size: 4.5rem;
-    line-height: 0.8;
-    padding: 4px 8px 0 0;
-    font-weight: 900;
-    color: #276488;
-    font-family: 'Work Sans', sans-serif;
-}
-
 .sidebar-card {
     background: white;
     border: none;
@@ -224,29 +208,6 @@ h6,
 }
 
 
-
-.btn-white {
-    background: white;
-    color: var(--bs-primary);
-    border-radius: 0;
-    font-weight: 700;
-    font-size: 0.75rem;
-    letter-spacing: 0.2em;
-    padding: 0.8rem;
-    text-transform: uppercase;
-    width: 100%;
-}
-
-.comment-avatar {
-    width: 48px;
-    height: 48px;
-    background: #e2e7ff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    color: #276488;
-}
 
 blockquote {
     border-left: 4px solid #276488;
@@ -289,69 +250,9 @@ body {
     font-family: 'Epilogue', sans-serif;
 }
 
-.font-label {
-    font-family: 'Manrope', sans-serif;
-}
-
 .material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
     vertical-align: middle;
-}
-
-/* Custom Nav Styling */
-.navbar-custom {
-    background-color: rgba(245, 251, 246, 0.7);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(23, 29, 26, 0.05);
-}
-
-.brand-logo {
-    font-family: 'Epilogue', sans-serif;
-    font-weight: 900;
-    letter-spacing: -0.05em;
-    color: var(--primary-color) !important;
-}
-
-.nav-link-custom {
-    font-family: 'Epilogue', sans-serif;
-    font-weight: 700;
-    color: var(--text-secondary);
-    margin: 0 1rem;
-    transition: color 0.3s;
-}
-
-.nav-link-custom:hover {
-    color: var(--primary-color);
-}
-
-.nav-link-custom.active {
-    color: var(--primary-color);
-    border-bottom: 2px solid var(--secondary-color);
-}
-
-/* Custom Buttons */
-.btn-brand-primary {
-    background-color: var(--primary-color);
-    color: #ffffff;
-    border: none;
-    font-weight: 700;
-    padding: 0.625rem 2rem;
-}
-
-.btn-brand-primary:hover {
-    opacity: 0.9;
-    color: #001240;
-}
-
-.btn-brand-outline {
-    border: 1px solid;
-    font-weight: 700;
-    padding: 0.625rem 1.5rem;
-}
-
-.btn-brand-outline:hover {
-    background-color: var(--surface-container-low);
-    color: #001240;
 }
 
 /* Form Controls Overrides */
@@ -422,24 +323,6 @@ body {
     overflow: hidden;
 }
 
-.editor-toolbar {
-    background-color: var(--surface-bg);
-    border-bottom: 1px solid var(--surface-container-low);
-    padding: 0.75rem;
-}
-
-.editor-btn {
-    background: transparent;
-    border: none;
-    color: var(--text-secondary);
-    padding: 0.5rem;
-    border-radius: 0.25rem;
-}
-
-.editor-btn:hover {
-    background-color: var(--surface-container-low);
-}
-
 .editor-textarea {
     border: none;
     width: 100%;
@@ -451,21 +334,6 @@ body {
 
 .editor-textarea:focus {
     outline: none;
-}
-
-/* Difficulty Toggle Buttons */
-.btn-group-difficulty .btn {
-    background-color: #dee4df;
-    border: none;
-    font-weight: 700;
-    font-size: 0.875rem;
-    padding: 0.75rem 0;
-    color: var(--text-secondary);
-}
-
-.btn-group-difficulty .btn.active {
-    background-color: var(--primary-container);
-    color: var(--on-primary-container);
 }
 
 /* Input Overrides */
@@ -535,7 +403,7 @@ body {
 }
 .principal-salidas-titulo {
     padding-top: 3vh;
-    font-family: "Oswald", sans-serif; /* Cambiado de serif a sans-serif */
+    font-family: "Oswald", sans-serif; 
     font-size: 40px;
 }
 @media (min-width:768px){
@@ -615,34 +483,12 @@ body {
 //  vacaciones en carlos paz
 //
 
-.blanco-desc{
-    padding-top: 25px;
-}
-.blanco-subtitulo{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    font-size: 30px;
-    background-color: transparent;
-}
-.blanco-descripcion{
-    display: flex;
-    justify-content: center;
-    font-size: 20px;
-    background-color: transparent;
-    color: #000000;
-}
 .blanco-boton{
     display: flex;
     justify-content: center;
    
 }
 
-
-.blanco-desc{
-    margin-top: 5rem;
-    background-color: transparent;
-}
 
 @media (min-width:768px) {
     .blanco-boton{
@@ -680,6 +526,70 @@ body {
 
 // expediciones en cordoba
 
+.trekking-cba-grid{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 3rem;
+}
+.trekking_cba_carta{
+    border-radius: 10px;
+    box-shadow: #696969 0px 0px 10px;
+    margin: 10px;
+    max-width: 300px; 
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+.trekking_cba_carta::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.card-img{
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+}
+
+.trekking_cba_titulo p{
+    font-weight: 700;
+    color: #00349c;
+    margin: auto;
+    text-align: center;
+}
+
+.card-btn{
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%,150%);
+    opacity: 0;
+    transition: transform 0.35s ease, opacity 0.3s ease;
+    z-index: 10;
+    color: var(--accent);
+    text-decoration: none;
+    font-size: large;
+    font-weight: 700;
+    text-align: center;
+    text-shadow: #a77200 1px 1px 5px;
+    
+}
+.trekking_cba_carta:hover .card-btn{
+    transform: translate(-50%,-50%);
+    opacity: 1;
+}
+.trekking_cba_carta:hover::after{
+    opacity: 1;
+}
 .span{
     font-size: 30px;
     font-weight: bold;
@@ -689,44 +599,8 @@ body {
     font-size: 30px;
 }
 
-.trekking_cba_img img{
-    display: flex;
-    margin: 5px auto;
-    width: 90%; 
-    height: auto;
-    border: solid 3px #001240;
-}
-.trekking_cba_titulo p{
-    text-transform: uppercase;
-    font-weight: 900;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    font-size: 25px;
-    margin: 10px 20px;
-    color: #000000;
-    box-shadow: #001240;
-}
-.trekking_cba_parrafo p{
-    margin: auto 15px;
-    color: #000000;
-}
-.trekking_cba_boton{
-    text-align: center;
-    display:flex;
-    justify-content: center;
-    background-color: #001240;
-    background-image: none;
-    width: 40%;
-    margin: 25px auto;
-    padding: 20px;
-    border: solid 3px #000000;
-}
 @media(min-width:768px) {
-    .trekking-cba-grid{
-        display: grid;
-        grid-template-columns: repeat(3,1fr);
-    }
+    
     .blanco{
         display: flex;
         justify-content: space-around;
@@ -770,29 +644,29 @@ body {
 //
 //
 
-/* 1. Limpiamos los SVG */
+
 .footer_contact svg {
-    height: 80px; /* Es mejor usar px que vh para iconos para que no se deformen */
+    height: 80px; 
     width: auto;
     display: block; 
-    margin: 0 auto 10px auto; /* Solo margen abajo para acercarlo al texto */
+    margin: 0 auto 10px auto; 
     transition: 0.3s;
 }
 
 .footer_contact svg:hover {
-    transform: scale(1.2); /* Usar transform es más estable que scale solo */
+    transform: scale(1.2); 
 }
 
-/* 2. Arreglamos los enlaces (los contenedores de cada red) */
+
 .footer_contact .logos {
     display: flex;
-    flex-direction: column; /* Icono ARRIBA, texto ABAJO */
-    align-items: center;    /* Centra ambos horizontalmente */
-    text-decoration: none;  /* Quita el subrayado de los links */
-    width: 200px;           /* Ancho fijo para que el texto de FB no se estire */
+    flex-direction: column; 
+    align-items: center;    
+    text-decoration: none;  
+    width: 200px;           
 }
 
-/* 3. Estilo de los textos */
+
 .redes {
     color: #000000;
     font-weight: 900;
@@ -800,16 +674,15 @@ body {
     text-align: center;
 }
 
-/* 4. Contenedor principal */
 .footer_contact {
     display: flex;
     justify-content: center; 
-    align-items: flex-start; /* Alinea los iconos al mismo nivel superior */
+    align-items: flex-start; 
     gap: 40px;
     padding: 20px 0;
 }
 
-/* 5. El Copyright (Footer P) */
+
 .footerp {
     font-weight: 900;
     margin-top: 25px;
@@ -997,10 +870,7 @@ body {
     height: 70vh; //70vh
     margin: 1rem 0;
 }
-.precio-1-champa{
-    height: 110%;
-}
-.precio-1, .precio-2{
+.precio-1{
     margin: 1rem 1rem;
     background-color: #000000;
     height: auto; //65vh
@@ -1017,7 +887,6 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover; 
-    /* Altura para móviles (una sola columna) */
     height: 35rem; 
     width: 100%;
     border-radius: 10px;
@@ -1051,17 +920,14 @@ body {
         margin: 1rem 1rem;
     }
     
-    .section-precio h3{
-        text-align: center;
-    }
-    .precio ul, .precio-subtitulo{
+    .precio-subtitulo{
         margin: 1rem 3rem;
     }
     
     .precio-carta{
         margin: 0;
     }
-    .precio-1, .precio-2{
+    .precio-1{
         margin: 1rem 1rem;
         background-color: #000000;
         height: auto;
@@ -1076,7 +942,7 @@ body {
     .precio-subtitulo p{
         font-size:x-large;
     }
-    .precio-1, .precio-2{
+    .precio-1{
         margin: 10px 10px;
         background-color: #000000;
         color: #ffffff;
@@ -1097,43 +963,6 @@ body {
     margin: 1rem 3rem;
     font-size: larger;
 }
-.span-dia{
-    font-size: 25px;
-    text-transform: uppercase;
-    text-decoration: underline;
-    font-weight: 900;
-    margin-left: 0;
-    padding-left: 0%;
-}
-.cartel{
-    padding: 10px;
-    margin: 1.5rem;
-    height: 100%;
-    text-align: center;
-    background-color: #000000;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    color: #ffffff;
-    font-weight: 700;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    border: #ff0000 4px solid;
-    box-shadow: #000000 10px 10px 5px;
-}
-.importante{
-    -webkit-text-stroke: 0.3px white;
-    text-align: center;
-    font-size: 35px;
-    font-weight: 900;
-    text-decoration: underline;
-    color: #ff0000;
-    height: 100%;
-    
-}
-
 .preguntas ul li{
     display: flex;
     justify-content: center;
@@ -1154,21 +983,16 @@ body {
     text-align: center;
 }
 .descripcion p,
-.equipamiento li,
-.cartel p{
+.equipamiento li{
     margin: 25px auto ;
 
 }
 
-.descripcion, .span-dia{
+.descripcion{
     margin-left: 0%;
     padding: 0%;
 }
 
-
-.cartel p{
-    font-size: larger;
-}
 .cartel-consulta{
     font-size: x-large;
     font-weight: 900;
@@ -1189,25 +1013,12 @@ body {
         font-size:medium;
         font-weight: bold;
     }
-    .boton-wp{
-        height: 15vh;
-        width: 25vw;
-    }
     .boton-insta{
         height: 25vh;
         width: 30vw;
     }
-    .importante{
-        font-size: 25px;
-    }
 }
 
-.fechas{
-    font-size: 20px;
-    
-    line-height: 5rem;
-    
-}
 .titular-fondo{
     background-image:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
     object-fit: cover;
@@ -1365,51 +1176,11 @@ body {
     
 
 }
-.red{
-    color:red;
-    margin: 0;
-    display: inline;
-    
-}
-.invierno{
-    grid-template-columns: repeat(2,1fr);
-    width: 50%;
-    height: 70%;
-    margin: auto;
-}
-.invierno-btn{
-    background-color: rgb(87, 255, 45);
-    border-radius: 30px;
-}
-@media(max-width:768px) {
-    .invierno{
-    grid-template-columns: repeat(2,1fr);
-    width: 100%;
-    height: 100%;
-    margin: auto;
-    }
-    .invierno-btn{
-        background-color: rgb(87, 255, 45);
-        justify-content: center;
-        width: 80%;
-        
-    }
-    
-}
-.login-circle{
-    top: 2rem;
-    right: 3rem;
-    display: flex;
-    position: absolute;
-}
 .mb-33{
     background-color: #001240;
     color: white;
     width: 80%;
     margin: auto;
-}
-.div-form{
-    background-color: #001240;
 }
 form .btn-primary{
     display: flex;
@@ -1508,13 +1279,6 @@ form .btn-primary{
 .nosotros-grid-descripcion-list{
     margin: 40px 0 0 0;
 }
-.form-label{
-    display: flex;
-    color: white;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
 .formulario input{
     margin: 1rem;
     padding: 0.5rem;
@@ -1542,10 +1306,7 @@ form .btn-primary{
     line-height: 2rem;
 }
 
-.img-fluid{
-    height: auto;
-    width: auto;
-}
+
 .btn-guardar-blog{
     width: 90%;
 }
@@ -1561,18 +1322,18 @@ form .btn-primary{
 .card-title{
     color: white;
 }
-// ver blog
+
 
 .article-body .image {
-    width: 100%;           /* Ocupa el ancho total del post */
-    margin: 20px 0;        /* Espaciado arriba y abajo */
+    width: 100%;           
+    margin: 20px 0;        
 }
 
 .article-body .image img {
     display: block;
-    max-width: 100%;       /* No permite que la imagen sea más ancha que el contenedor */
-    height: auto !important; /* Mantiene la proporción para que no se estire */
-    border-radius: 8px;    /* Opcional: para que combine con tu Ficha Técnica */
+    max-width: 100%;       
+    height: auto !important; 
+    border-radius: 8px;    
 }
 
 .ck.ck-editor__editable_inline{
