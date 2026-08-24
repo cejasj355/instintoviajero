@@ -11,7 +11,7 @@
     --bs-primary: #001a41;
     --bs-primary-rgb: 0, 26, 65;
     --accent: #F9A825;
-    --surface: #faf8ff;
+    --surface: #fff;
 }
 
 body {
@@ -241,7 +241,6 @@ blockquote {
 
 body {
     font-family: 'Manrope', sans-serif;
-    background-color: var(--surface-bg);
     color: var(--on-surface);
     -webkit-font-smoothing: antialiased;
 }
@@ -529,7 +528,7 @@ body {
 .trekking-cba-grid{
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    gap: 3rem;
+    gap: 1rem;
 }
 .trekking_cba_carta{
     border-radius: 10px;
@@ -599,39 +598,28 @@ body {
     font-size: 30px;
 }
 
-@media(min-width:768px) {
-    
-    .blanco{
-        display: flex;
-        justify-content: space-around;
-    }
-    .blanco .img{
-        height: auto;
-        width: 12vw;
-
-    }
-}
 //
 //
 //  MIEMBRO...IMAGEN
 //
-.miembro .blanco{
-    display: flex;
-    align-items: center;
+.miembro-img{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
 }
-
+.miembro-img .img{
+    align-items: center;
+    margin: auto;
+}
 @media(max-width:768px) {
-    .blanco{
-        margin: auto;
+    .trekking-cba-grid{
+        grid-template-columns: repeat(2,1fr);
+    }
+    .miembro-img{
+        display: flex;
         flex-direction: column;
     }
-    .blanco .img{
-        height: auto;
-        width: 40%;
-
-    }
-    
 }
+
 
 @media(min-width:768px) {
     .boton-portada{
