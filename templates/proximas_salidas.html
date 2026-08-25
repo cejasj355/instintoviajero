@@ -41,17 +41,12 @@
                 {% if s.tipo_salida == 'trekking-cordoba'%}
                     <div class="trekking_cba_carta">
                         <div class="trekking_cba_img">
-                            <img src="{{ url_for('static', filename='uploads/'~s.foto_carta) }}" alt="{{s.titulo}}" class="img-fluid" loading="lazy">
+                            <img src="{{ url_for('static', filename='uploads/'~s.foto_carta) }}" alt="{{s.titulo}}" class="card-img" loading="lazy">
                         </div>
                         <div class="trekking_cba_titulo">
                             <p>{{s.titulo}}</p>
                         </div>
-                        <div class="trekking_cba_parrafo ">
-                            <p>{{s.prox_desc|safe}}</p>
-                        </div>
-                        <div>
-                            <a class="trekking_cba_boton botones" href="{{url_for('acciones.ver_salida', slug=s.slug)}}">VER MÁS</a>
-                        </div>
+                        <a class="card-btn" href="{{url_for('acciones.ver_salida', slug=s.slug)}}">MÁS INFORMACIÓN</a>
                     </div>
                 {% endif %}
             {% endfor %}
@@ -67,18 +62,13 @@
             {% for s in salidas %}
                 {%if s.tipo_salida == 'expedicion-de-montaña'%}
                 <div class="trekking_cba_carta">
-                    <div class="trekking_cba_img">
-                        <img src="{{ url_for('static', filename='uploads/'~s.foto_carta) }}" alt="{{s.titulo}}" class="img-fluid" loading="lazy">
-                    </div>
-                    <div class="trekking_cba_titulo">
-                        <p>{{s.titulo}}</p>
-                    </div>
-                    <div class="trekking_cba_parrafo">
-                        <p>{{s.prox_desc|safe}}</p>
-                    </div>
-                    <div>
-                        <a class="trekking_cba_boton botones" href="{{url_for('acciones.ver_salida', slug=s.slug)}}">VER MÁS</a>
-                    </div>
+                        <div class="trekking_cba_img">
+                            <img src="{{ url_for('static', filename='uploads/'~s.foto_carta) }}" alt="{{s.titulo}}" class="card-img" loading="lazy">
+                        </div>
+                        <div class="trekking_cba_titulo">
+                            <p>{{s.titulo}}</p>
+                        </div>
+                        <a class="card-btn" href="{{url_for('acciones.ver_salida', slug=s.slug)}}">MÁS INFORMACIÓN</a>
                 </div>
                 {%endif%}
             {%endfor%}
