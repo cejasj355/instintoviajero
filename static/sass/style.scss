@@ -538,6 +538,7 @@ body {
     overflow: hidden;
     position: relative;
     cursor: pointer;
+    margin: auto;
 }
 .trekking_cba_carta::after{
     content: '';
@@ -611,10 +612,7 @@ body {
     margin: auto;
 }
 @media(max-width:768px) {
-    .trekking-cba-grid{
-        grid-template-columns: repeat(2,1fr);
-    }
-    .miembro-img{
+    .miembro-img, .trekking-cba-grid{
         display: flex;
         flex-direction: column;
     }
