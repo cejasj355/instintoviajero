@@ -598,6 +598,9 @@ body {
     display: flex;
     flex-direction: column;
   }
+  .trekking_cba_carta {
+    width: 90%;
+  }
 }
 @media (min-width: 768px) {
   .boton-portada {
