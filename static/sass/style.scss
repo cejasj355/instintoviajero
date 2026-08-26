@@ -529,12 +529,12 @@ body {
     display: grid;
     grid-template-columns: repeat(3,1fr);
     gap: 1rem;
+    margin: 1rem;
 }
 .trekking_cba_carta{
     border-radius: 10px;
     box-shadow: #696969 0px 0px 10px;
-    margin: 10px;
-    max-width: 300px; 
+    max-width: 350px; 
     overflow: hidden;
     position: relative;
     cursor: pointer;
@@ -615,9 +615,10 @@ body {
     .miembro-img, .trekking-cba-grid{
         display: flex;
         flex-direction: column;
+        
     }
     .trekking_cba_carta{
-        width: 90%;
+        width: 100%;
     }
 }
 
