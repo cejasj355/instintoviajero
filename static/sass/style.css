@@ -542,8 +542,9 @@ body {
 }
 
 .trekking_cba_titulo p {
+  display: none;
   font-weight: 700;
-  color: #00349c;
+  color: #fff;
   margin: auto;
   text-align: center;
 }
