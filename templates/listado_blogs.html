@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Listado de blogs{% endblock %}
+{% block content %}
+<div class="section-titles-subtitles">
+  <h2 class="mb-4 section-title">Blogs</h2>
+</div>
+
+{% for s in blogs_total %}
+<div class="card mb-33 shadow-sm">
+  <div class="card-salidas">
+    <h4><a href="{{ url_for('acciones.ver_blogs', id = s.id) }}" class="text-decoration-none">{{ s.titulo_blog }}</a></h4>
+    <form action="{{ url_for('admin.eliminar_blog', id=s.id) }}" method="POST" style="display:inline;"
+      onsubmit="return confirm('¿Seguro que querés eliminar esta salida?');">
+      <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+    </form>
+    <form action="{{ url_for('admin.editar_salida', id=s.id) }}" method="GET">
+      <button type="submit" class="btn btn-primary btn-sm">Editar</button>
+    </form>
+  </div>
+</div>
+{% else %}
+<p>No hay blogs registrados aún.</p>
+{% endfor %}
+{% endblock %}

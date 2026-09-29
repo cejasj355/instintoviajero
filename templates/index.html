@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+
+{% block title %}Experiencias de Montaña{% endblock %}
+{% block description %}Agencia de viajes especializada en experiencias de montaña, fundada por profesionales del turismo. Trekking, travesías, escalada y expediciones de montaña a lo largo de toda Argentina. Te esperamos para vivir aventuras inolvidables.{% endblock %}
+
+{% block content %}
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-MFRZG494');</script>
+    <!-- End Google Tag Manager -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16884791919"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'AW-16884791919');
+    </script>
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '637563278683166');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=637563278683166&ev=PageView&noscript=1" /></noscript>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MFRZG494" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <main>
+        <section class="principal">
+            <div class="">
+                <div class="principal-salidas portada" fetchpriority="high">
+                    <h1 class="principal-salidas-titulo">EXPERIENCIAS DE MONTAÑA</h1>
+                    <a class="botones blanco-boton boton-portada link-underline-opacity-0" href="{{url_for("acciones.proximas_salidas")}}">PRÓXIMAS SALIDAS</a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="proximas_aventuras">
+            <div class="section-titles-subtitles">
+                <h2 class="section-title">ELEGÍ TU PRÓXIMA</h2>
+                <h3 class="section-subtitle">AVENTURA</h3>
+            </div>
+            <div class="prox-aventuras">
+                <div class="aventuras">
+                    <div class="principal-salidas p-s-dos">
+                        <h2 class="principal-salidas-titulo span">ASCENSO CERRO</h2>
+                        <h3 class="principal-salidas-subtitulo span">CHAMPAQUÍ</h3>
+                        {%for s in salida%}
+                            {% if s.id == 3 %}    
+                                <a class="botones blanco-boton" href="{{ url_for('acciones.ver_salida', slug=s.slug) }}">PRÓXIMOS ASCENSOS</a>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="aventuras">
+                    <div class="principal-salidas p-s-tres">
+                        <h2 class="principal-salidas-titulo span">EXPEDICIONES</h2>
+                        <h3 class="principal-salidas-subtitulo span">DE MONTAÑA</h3>
+
+                        <a class="botones blanco-boton" href="#alta_montaña">PRÓXIMAS EXPEDICIONES</a>
+
+                    </div>
+                </div>
+                <div class="">
+                    <div class="principal-salidas p-s-uno">
+                        <h2 class="principal-salidas-titulo span">TREKKING</h2>
+                        <h3 class="principal-salidas-subtitulo span">EN CÓRDOBA</h3>
+                        <a class="botones blanco-boton" href="#trekking_cba">PRÓXIMAS SALIDAS</a>
+                    </div>
+                </div>
+                
+            </div>
+
+        </section>
+        <section class="trekking_cba">
+            <div class="section-titles-subtitles">
+                <h2 class="section-title" id="trekking_cba">TREKKING EN CÓRDOBA</h2>
+            </div>
+            <div class="trekking-cba-grid">
+                {% for s in salida%}
+                    {% if s.tipo_salida == 'trekking-cordoba'%}
+                        <div class="trekking_cba_carta">
+                            <div class="trekking_cba_img">
+                                <img src="{{ url_for('static', filename='uploads/'~s.foto_carta) }}" alt="{{s.titulo}}" class="card-img" loading="lazy">
+                            </div>
+                            <div class="trekking_cba_titulo">
+                                <p>{{s.titulo}}</p>
+                            </div>
+                            <div>
+                                <p></p>
+                                <a href=""></a>
+                            </div>
+                            <a class="card-btn" href="{{url_for('acciones.ver_salida', slug=s.slug)}}">MÁS INFORMACIÓN</a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </section>
+    
+    
+        <section class="expediciones-de-montaña">
+            <div class="section-titles-subtitles">
+                <h2 class="section-title" id="alta_montaña">EXPEDICIONES DE MONTAÑA</h2>
+            </div>
+            <div class="trekking-cba-grid">
+                {% for s in salida %}
+                    {%if s.tipo_salida == 'expedicion-de-montaña'%}
+                    <div class="trekking_cba_carta">
+                        <div class="trekking_cba_img">
+                            <img src="{{ url_for('static', filename='uploads/'~s.foto_carta) }}" alt="{{s.titulo}}" class="card-img" loading="lazy">
+                        </div>
+                        <div class="trekking_cba_titulo">
+                            <p>{{s.titulo}}</p>
+                        </div>
+                        <a class="card-btn" href="{{url_for('acciones.ver_salida', slug=s.slug)}}">MÁS INFORMACIÓN</a>
+                    </div>
+                    {%endif%}
+                {%endfor%}
+                
+            </div>
+        </section>
+        
+        <section>
+            
+            <div class="tagembed-widget" style="width:100%;height:100%;overflow:auto;" data-widget-id="322486" data-website="1"></div>
+            <script src="https://widget.tagembed.com/embed.min.js" type="text/javascript"></script>
+                
+        </section>
+        <section class="miembro">
+            <div class="section-titles-subtitles">
+            </div>
+            <div class="miembro-img">
+                <img class="img" src="/static/img/Logos/guia isaui.webp" alt="Imagen de guia isaui">
+                <img class="img" src="/static/img/Logos/isaui.webp" alt="Imagen de isaui">
+                <img class="img" src="/static/img/Logos/turismo-alternativo.webp" alt="Imagen de turismo alternativo">
+            </div>
+            
+        </section>
+        
+    </main>
+</body>
+
+
+{% endblock %}

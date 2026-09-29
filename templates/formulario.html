@@ -1,0 +1,628 @@
+{% extends 'base.html' %}
+{% block title %}Formulario de inscripcion{% endblock %}
+{% block content %}
+<main class="w-100 pb-5">
+    <!-- TOP HERO BANNER & INSTRUCTIONS -->
+    <section class="w-100 py-5" style="background: linear-gradient(180deg, #dce9ff 0%, #f8f9ff 100%);">
+        <div class="container" style="max-width: 980px;">
+            <!-- Badges header -->
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+                <div class="badge rounded-pill px-3 py-2 fw-bold d-inline-flex align-items-center gap-1"
+                    style="background-color: var(--forest-tint); color: var(--forest-green); font-size: 12px;">
+                    <i class="bi bi-shield-check fs-6"></i>
+                    Protocolo Médico de Altura
+                </div>
+            </div>
+            <!-- Section Titles -->
+            <h1 class="display-6 fw-bold mb-2" style="color: var(--mountain-navy); font-weight: 800;">
+                Ficha Médica de Inscripción
+            </h1>
+            <p class="fs-5 text-secondary mb-4" style="max-width: 780px;">
+                Declaración jurada obligatoria para expediciones de montaña, ascensos andinos y trekking de travesía.
+            </p>
+            <!-- Clinical Reason Alert Box -->
+            <div class="card border-0 shadow-sm rounded-4 p-3 p-md-4 mb-4" style="background-color: #ffffff;">
+                <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-3">
+                    <div class="rounded-3 d-flex align-items-center justify-content-center flex-shrink-0"
+                        style="width: 48px; height: 48px; background-color: var(--amber-light); color: var(--amber-dark);">
+                        <i class="bi bi-hospital fs-4"></i>
+                    </div>
+                    <div>
+                        <h2 class="h6 fw-bold mb-1" style="color: var(--mountain-navy);">¿Cómo y por qué utilizamos esta
+                            información?</h2>
+                        <p class="small text-muted mb-0 lh-base">
+                            Sus respuestas proporcionarán a nuestro personal logístico y guías de montaña la información
+                            esencial para anticipar contingencias, adaptar ritmos de aclimatación y coordinar rescate o
+                            asistencia médica inmediata en zonas remotas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Stepper Indicator -->
+            <div class="row g-2 pt-2">
+                <div class="col-6 col-md-3">
+                    <div class="step-card active shadow-sm d-flex align-items-center gap-2">
+                        <span class="step-circle"
+                            style="background-color: var(--adventure-orange); color: #fff;">1</span>
+                        <div class="text-truncate">
+                            <div style="font-size: 10px; text-transform: uppercase; color: #afc8ed;">Paso 1</div>
+                            <strong class="d-block text-truncate" style="font-size: 13px;">Salida &amp;
+                                Emergencia</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="step-card shadow-sm d-flex align-items-center gap-2">
+                        <span class="step-circle bg-light text-dark">2</span>
+                        <div class="text-truncate">
+                            <div style="font-size: 10px; text-transform: uppercase; color: #6c757d;">Paso 2</div>
+                            <strong class="d-block text-truncate text-dark" style="font-size: 13px;">Datos
+                                Personales</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="step-card shadow-sm d-flex align-items-center gap-2">
+                        <span class="step-circle bg-light text-dark">3</span>
+                        <div class="text-truncate">
+                            <div style="font-size: 10px; text-transform: uppercase; color: #6c757d;">Paso 3</div>
+                            <strong class="d-block text-truncate text-dark" style="font-size: 13px;">Salud &amp;
+                                Fisiología</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="step-card shadow-sm d-flex align-items-center gap-2">
+                        <span class="step-circle bg-light text-dark">4</span>
+                        <div class="text-truncate">
+                            <div style="font-size: 10px; text-transform: uppercase; color: #6c757d;">Paso 4</div>
+                            <strong class="d-block text-truncate text-dark" style="font-size: 13px;">Declaración
+                                Jurada</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FORM SECTION -->
+    <section class="container mt-4" style="max-width: 980px;">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show rounded-4 shadow-sm mb-4" role="alert">
+                {% if category == 'success' %}
+                <i class="bi bi-check-circle-fill me-2"></i>
+                {% else %}
+                <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                {% endif %}
+                
+                <strong>{{ message }}</strong>
+                
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <form id="medicalForm" name="medicalForm" method="post" action="{{url_for('acciones.enviar_formulario')}}">
+            <!-- ================= CARD 1: EXPEDICIÓN Y EMERGENCIA ================= -->
+            <div class="card card-custom p-4 p-md-5 mb-4">
+                <div class="d-flex align-items-center justify-content-between border-bottom pb-3 mb-4">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="icon-box-block">
+                            <img src="../static/uploads/default.png" alt="">
+                        </div>
+                        <div>
+                            <span class="badge-block-num">Bloque 01</span>
+                            <h3 class="h5 fw-bold mb-0" style="color: var(--mountain-navy);">Expedición &amp; Contacto
+                                de Emergencia</h3>
+                        </div>
+                    </div>
+                    <span class="badge rounded-pill px-3 py-2 fw-semibold"
+                        style="background-color: var(--crimson-tint); color: var(--crimson);">Requerido</span>
+                </div>
+                <div class="row g-4">
+                    <!-- Destino -->
+                    <div class="col-12 col-md-8">
+                        <label class="form-label fw-semibold" for="expedicionDestino">
+                            Fecha y Lugar de la excursión a la cual va a inscribirse <span class="text-danger">*</span>
+                        </label>
+                        <select class="form-select form-select-custom" id="expedicionDestino" name="expedicionDestino" required="">
+                            <option disabled="" selected="" value="">Seleccione la expedición confirmada...</option>
+                            <option value="aconcagua_nov">Aconcagua 360° Ruta Falso Polacos (Noviembre 2025)</option>
+                            <option value="champaqui_oct">Cerro Champaquí - Travesía Los Molles (Octubre 2025)</option>
+                            <option value="domuyo_dic">Volcán Domuyo "El Techo de la Patagonia" (Diciembre 2025)
+                            </option>
+                            <option value="plata_ene">Cordón del Plata - Cerro Vallecitos (Enero 2026)</option>
+                            <option value="fitz_roy_feb">Trekking Glaciares Fitz Roy &amp; Cerro Torre (Febrero 2026)
+                            </option>
+                            <option value="otra">Otra salida personalizada (coordinada previamente)</option>
+                        </select>
+                        <div class="field-subtext">Indique el trayecto oficial acordado con su asesor de expedición.
+                        </div>
+                    </div>
+                    <!-- Prepaga -->
+                    <div class="col-12 col-md-4">
+                        <label class="form-label fw-semibold" for="obraSocial">Obra Social / Prepaga / Póliza</label>
+                        <input class="form-control form-control-custom" name="obraSocial" id="obraSocial"
+                            placeholder="Ej: OSDE 310 / Assist Card" type="text" />
+                        <div class="field-subtext">Número de afiliado o credencial asistencial.</div>
+                    </div>
+                    <!-- Emergency Contact Panel -->
+                    <div class="col-12">
+                        <div class="p-4 rounded-4"
+                            style="background-color: var(--navy-subtle); border: 1px solid #dce9ff;">
+                            <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+                                <i class="bi bi-telephone-inbound-fill text-warning fs-5"></i>
+                                <strong class="text-dark">En caso de emergencia llamar a:</strong>
+                                <span class="badge bg-white text-muted border">Familiar directo preferentemente</span>
+                            </div>
+                            <div class="row g-3">
+                                <div class="col-12 col-md-4">
+                                    <label class="form-label small fw-bold" for="contactoEmergenciaNombre">Nombre y
+                                        Apellido Completo <span class="text-danger">*</span></label>
+                                    <input class="form-control bg-white" name="contactoEmergenciaNombre" id="contactoEmergenciaNombre"
+                                        placeholder="Ej. Mariana Gómez" required="" type="text" />
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <label class="form-label small fw-bold"
+                                        for="contactoEmergenciaParentesco">Parentesco / Vínculo <span
+                                            class="text-danger">*</span></label>
+                                    <input class="form-control bg-white" name="contactoEmergenciaParentesco" id="contactoEmergenciaParentesco"
+                                        placeholder="Ej. Cónyuge / Hermano / Padre" required="" type="text" />
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <label class="form-label small fw-bold" for="contactoEmergenciaTelefono">Teléfono
+                                        Directo 24hs <span class="text-danger">*</span></label>
+                                    <input class="form-control bg-white" name="contactoEmergenciaTelefono" id="contactoEmergenciaTelefono"
+                                        placeholder="+54 9 11 5555-0192" required="" type="tel" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ================= CARD 2: DATOS PERSONALES ================= -->
+            <div class="card card-custom p-4 p-md-5 mb-4">
+                <div class="d-flex align-items-center justify-content-between border-bottom pb-3 mb-4">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="icon-box-block">
+                            <img src="../static/uploads/default.png" alt="">
+                        </div>
+                        <div>
+                            <span class="badge-block-num">Bloque 02</span>
+                            <h3 class="h5 fw-bold mb-0" style="color: var(--mountain-navy);">Datos Personales del
+                                Participante</h3>
+                        </div>
+                    </div>
+                    <span class="badge bg-light text-secondary rounded-pill px-3 py-2 fw-semibold">Identificación</span>
+                </div>
+                <div class="row g-3">
+                    <div class="col-12 col-md-6">
+                        <label class="form-label fw-semibold" for="nombreCompleto">Nombre y Apellido <span
+                                class="text-danger">*</span></label>
+                        <input class="form-control form-control-custom" name="nombreCompleto" id="nombreCompleto"
+                            placeholder="Tal como figura en su documento" required="" type="text" />
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <label class="form-label fw-semibold" for="dniPasaporte">DNI / Pasaporte <span
+                                class="text-danger">*</span></label>
+                        <input class="form-control form-control-custom" name="dniPasaporte" id="dniPasaporte"
+                            placeholder="Número sin puntos" required="" type="text" />
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <label class="form-label fw-semibold" for="fechaNacimiento">Fecha de Nacimiento <span
+                                class="text-danger">*</span></label>
+                        <input class="form-control form-control-custom" id="fechaNacimiento" name="fechaNacimiento" required="" type="date" />
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label class="form-label fw-semibold" for="direccion">Dirección de Residencia <span
+                                class="text-danger">*</span></label>
+                        <input class="form-control form-control-custom" name="direccion" id="direccion"
+                            placeholder="Calle, número, piso y depto." required="" type="text" />
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label class="form-label fw-semibold" for="ciudadPais">Ciudad / Provincia / País <span
+                                class="text-danger">*</span></label>
+                        <input class="form-control form-control-custom" name="ciudadPais" id="ciudadPais"
+                            placeholder="Ej: Córdoba Capital, Argentina" required="" type="text" />
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label class="form-label fw-semibold" for="telefonoPersonal">Número de Teléfono (con código de
+                            área) <span class="text-danger">*</span></label>
+                        <input class="form-control form-control-custom" name="telefonoPersonal" id="telefonoPersonal"
+                            placeholder="+54 9 351 123-4567" required="" type="tel" />
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label class="form-label fw-semibold" for="email">E-mail de Contacto <span
+                                class="text-danger">*</span></label>
+                        <input class="form-control form-control-custom" name="email" id="email" placeholder="nombre@correo.com"
+                            required="" type="email" />
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label class="form-label small fw-bold" for="grupoSanguineo">Grupo Sanguíneo <span
+                                        class="text-danger">*</span></label>
+                                <select class="form-select form-select-custom" name="grupoSanguineo" id="grupoSanguineo" required="">
+                                    <option disabled="" selected="" value="">Seleccione</option>
+                                    <option value="0+">0 Positivo (0+)</option>
+                                    <option value="0-">0 Negativo (0-)</option>
+                                    <option value="A+">A Positivo (A+)</option>
+                                    <option value="A-">A Negativo (A-)</option>
+                                    <option value="B+">B Positivo (B+)</option>
+                                    <option value="B-">B Negativo (B-)</option>
+                                    <option value="AB+">AB Positivo (AB+)</option>
+                                    <option value="AB-">AB Negativo (AB-)</option>
+                                    <option value="desconocido">No lo sé</option>
+                                </select>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label class="form-label fw-semibold" for="antitetanica">Vacunacion Antitetánica <span
+                                class="text-danger">*</span></label>
+                        <input class="form-control form-control-custom" name="antitetanica" id="antitetanica" placeholder="Mes / Año aprox"
+                            type="text" />
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card card-custom p-4 p-md-5 mb-4">
+                <div class="d-flex align-items-center justify-content-between border-bottom pb-3 mb-4">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="icon-box-block">
+                            <img src="../static/uploads/default.png" alt="">
+                        </div>
+                        <div>
+                            <span class="badge-block-num">Bloque 03</span>
+                            <h3 class="h5 fw-bold mb-0" style="color: var(--mountain-navy);">Historial y Patologías
+                                Médicas</h3>
+                        </div>
+                    </div>
+                    <span class="badge rounded-pill px-3 py-2 fw-semibold"
+                        style="background-color: var(--crimson-tint); color: var(--crimson);">Evaluación Médica</span>
+                </div>
+                <div class="p-3 rounded-3 mb-4 d-flex align-items-center gap-2"
+                    style="background-color: #f1f5fa; border: 1px solid #e2e8f0;">
+                    <i class="bi bi-info-circle-fill text-warning fs-5"></i>
+                    <span class="small text-dark">
+                        <strong>Seleccione según corresponda:</strong> ¿Usted sufrió o sufre de alguna de las siguientes
+                        patologías? Active únicamente los casilleros que apliquen a su condición clínica pasada o
+                        presente.
+                    </span>
+                </div>
+                <!-- Patologías Checklist Cards -->
+                <div class="row g-3 mb-4">
+                    <!-- 1 -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <label class="clinical-check-card d-flex align-items-start gap-2 h-100">
+                            <input class="form-check-input mt-1 flex-shrink-0" id="patologias" name="patologias" type="checkbox"
+                                value="alergias" />
+                            <div>
+                                <div class="fw-bold small text-dark">Alergias</div>
+                                <div class="text-muted" style="font-size: 12px;">Medicamentos, picaduras o polen</div>
+                            </div>
+                        </label>
+                    </div>
+                    <!-- 2 -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <label class="clinical-check-card d-flex align-items-start gap-2 h-100">
+                            <input class="form-check-input mt-1 flex-shrink-0" name="patologias" type="checkbox"
+                                value="lesiones_cintura_rodilla_tobillo" />
+                            <div>
+                                <div class="fw-bold small text-dark">Lesiones de cintura, rodilla, tobillos</div>
+                                <div class="text-muted" style="font-size: 12px;">Esguinces graves, meniscos o ligamentos
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                    <!-- 3 -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <label class="clinical-check-card d-flex align-items-start gap-2 h-100">
+                            <input class="form-check-input mt-1 flex-shrink-0" name="patologias" type="checkbox"
+                                value="lesiones_hombros_brazos_columna" />
+                            <div>
+                                <div class="fw-bold small text-dark">Lesiones hombros, brazos o columna</div>
+                                <div class="text-muted" style="font-size: 12px;">Hernias discales, microfracturas</div>
+                            </div>
+                        </label>
+                    </div>
+                    <!-- 4 -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <label class="clinical-check-card d-flex align-items-start gap-2 h-100">
+                            <input class="form-check-input mt-1 flex-shrink-0" name="patologias" type="checkbox"
+                                value="luxaciones" />
+                            <div>
+                                <div class="fw-bold small text-dark">Luxaciones</div>
+                                <div class="text-muted" style="font-size: 12px;">Hombros recidivantes u otras
+                                    articulaciones</div>
+                            </div>
+                        </label>
+                    </div>
+                    <!-- 5 (Altitude Warning) -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <label class="clinical-check-card warning-card d-flex align-items-start gap-2 h-100">
+                            <input class="form-check-input mt-1 flex-shrink-0" name="patologias" type="checkbox"
+                                value="edema_pulmonar_cerebral" />
+                            <div>
+                                <div class="fw-bold small text-danger d-flex align-items-center gap-1">
+                                    Edema cerebral o pulmonar
+                                    <i class="bi bi-exclamation-triangle-fill text-danger" style="font-size: 13px;"></i>
+                                </div>
+                                <div class="text-muted" style="font-size: 12px;">Mal Agudo de Montaña grave previo</div>
+                            </div>
+                        </label>
+                    </div>
+                    <!-- 6 -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <label class="clinical-check-card d-flex align-items-start gap-2 h-100">
+                            <input class="form-check-input mt-1 flex-shrink-0" name="patologias" type="checkbox"
+                                value="problemas_respiratorios_asma" />
+                            <div>
+                                <div class="fw-bold small text-dark">Problemas respiratorios / Asma</div>
+                                <div class="text-muted" style="font-size: 12px;">Uso de aerosoles o broncodilatadores
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                    <!-- 7 -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <label class="clinical-check-card d-flex align-items-start gap-2 h-100">
+                            <input class="form-check-input mt-1 flex-shrink-0" name="patologias" type="checkbox"
+                                value="diabetes" />
+                            <div>
+                                <div class="fw-bold small text-dark">Diabetes</div>
+                                <div class="text-muted" style="font-size: 12px;">Tipo 1 o 2 (Indicar insulina en
+                                    detalle)</div>
+                            </div>
+                        </label>
+                    </div>
+                    <!-- 8 -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <label class="clinical-check-card d-flex align-items-start gap-2 h-100">
+                            <input class="form-check-input mt-1 flex-shrink-0" name="patologias" type="checkbox"
+                                value="enfermedades_cardiacas" />
+                            <div>
+                                <div class="fw-bold small text-dark">Enfermedades cardíacas</div>
+                                <div class="text-muted" style="font-size: 12px;">Arritmias, soplos, antecedentes
+                                    coronarios</div>
+                            </div>
+                        </label>
+                    </div>
+                    <!-- 9 -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <label class="clinical-check-card d-flex align-items-start gap-2 h-100">
+                            <input class="form-check-input mt-1 flex-shrink-0" name="patologias" type="checkbox"
+                                value="lesiones_cabeza_perdida_conocimiento" />
+                            <div>
+                                <div class="fw-bold small text-dark">Lesiones en la cabeza</div>
+                                <div class="text-muted" style="font-size: 12px;">Traumatismos o pérdida de conocimiento
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                    <!-- 10 -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <label class="clinical-check-card d-flex align-items-start gap-2 h-100">
+                            <input class="form-check-input mt-1 flex-shrink-0" name="patologias" type="checkbox"
+                                value="epilepsia_convulsiones" />
+                            <div>
+                                <div class="fw-bold small text-dark">Epilepsia / Convulsiones</div>
+                                <div class="text-muted" style="font-size: 12px;">Episodios febriles o medicación
+                                    continua</div>
+                            </div>
+                        </label>
+                    </div>
+                    <!-- 11 -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <label class="clinical-check-card d-flex align-items-start gap-2 h-100">
+                            <input class="form-check-input mt-1 flex-shrink-0" name="patologias" type="checkbox"
+                                value="hemorragias_enfermedades_sangre" />
+                            <div>
+                                <div class="fw-bold small text-dark">Hemorragias o enf. en sangre</div>
+                                <div class="text-muted" style="font-size: 12px;">Trastornos de coagulación, anemia</div>
+                            </div>
+                        </label>
+                    </div>
+                    <!-- 12 -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <label class="clinical-check-card d-flex align-items-start gap-2 h-100">
+                            <input class="form-check-input mt-1 flex-shrink-0" name="patologias" type="checkbox"
+                                value="tension_arterial" />
+                            <div>
+                                <div class="fw-bold small text-dark">Alta / baja tensión arterial</div>
+                                <div class="text-muted" style="font-size: 12px;">Hipertensión arterial o hipotensión
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                    <!-- 13 -->
+                    <div class="col-12">
+                        <label class="clinical-check-card d-flex align-items-start gap-2">
+                            <input class="form-check-input mt-1 flex-shrink-0" name="patologias" type="checkbox"
+                                value="hepatitis_enfermedades_higado" />
+                            <div>
+                                <div class="fw-bold small text-dark">Hepatitis u otras enfermedades de hígado</div>
+                                <div class="text-muted" style="font-size: 12px;">Historial hepático crónico, esteatosis
+                                    o cirugías</div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <!-- Description Textarea -->
+                <div>
+                    <label class="form-label fw-semibold" for="descripcionDetalladaPatologias">
+                        Agregue descripción detallada en caso de haber seleccionado algún punto de los anteriores:
+                    </label>
+                    <textarea class="form-control form-control-custom" name="descripcionDetalladaPatologias" id="descripcionDetalladaPatologias"
+                        placeholder="Indicar tiempo transcurrido desde el episodio, secuelas actuales, medicación que lleva consigo a la montaña, alergias específicas a analgésicos o antibióticos..."
+                        rows="4"></textarea>
+                    <div class="field-subtext">Si no posee antecedentes, puede escribir "Ninguno" o dejarlo en blanco.
+                    </div>
+                </div>
+            </div>
+            <!-- ================= CARD 4: HÁBITOS & APTITUD FÍSICA ================= -->
+            <div class="card card-custom p-4 p-md-5 mb-4">
+                <div class="d-flex align-items-center justify-content-between border-bottom pb-3 mb-4">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="icon-box-block">
+                            <img src="../static/uploads/default.png" alt="">
+                        </div>
+                        <div>
+                            <span class="badge-block-num">Bloque 04</span>
+                            <h3 class="h5 fw-bold mb-0" style="color: var(--mountain-navy);">Hábitos &amp; Aptitud
+                                Física</h3>
+                        </div>
+                    </div>
+                    <span class="badge bg-light text-secondary rounded-pill px-3 py-2 fw-semibold">Resistencia &amp;
+                        Dieta</span>
+                </div>
+                <div class="row g-4">
+                    <!-- Dieta -->
+                    <div class="col-12 col-md-6">
+                        <label class="form-label fw-semibold" for="dietaEspecial">¿Posee alguna dieta especial? <span
+                                class="text-danger">*</span></label>
+                        <input class="form-control form-control-custom" name="dietaEspecial" id="dietaEspecial"
+                            placeholder="Celíaca, Vegana, Vegetariana, Intolerante a lactosa o 'Ninguna'" required=""
+                            type="text" />
+                        <div class="field-subtext">Fundamental para la logística de víveres en refugios y campamentos.
+                        </div>
+                    </div>
+                    <!-- Embarazo -->
+                    <div class="col-12 col-md-6">
+                        <label class="form-label fw-semibold d-block">¿Está usted embarazada?</label>
+                        <div class="d-flex flex-wrap gap-3 align-items-center" style="min-height: 48px;">
+                            <div class="form-check form-check-inline">
+                                <input checked="" class="form-check-input" id="embNo" name="embarazada" type="radio"
+                                    value="no" />
+                                <label class="form-check-label" for="embNo">No</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" id="embSi" name="embarazada" type="radio" value="si" />
+                                <label class="form-check-label" for="embSi">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" id="embNA" name="embarazada" type="radio"
+                                    value="no_aplica" />
+                                <label class="form-check-label" for="embNA">No aplica</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tratamiento Médico -->
+                    <div class="col-12 col-md-6">
+                        <label class="form-label fw-semibold" for="tratamientoMedico">¿Está bajo tratamiento médico?
+                            ¿Toma alguna medicación?</label>
+                        <input class="form-control form-control-custom" name="tratamientoMedico" id="tratamientoMedico"
+                            placeholder="Nombre de fármacos y dosis diaria (o 'No')" type="text" />
+                    </div>
+                    <!-- Hábito de Fumar -->
+                    <div class="col-12 col-md-6">
+                        <label class="form-label fw-semibold" for="habitoFumar">¿Fuma? De ser así, ¿qué cantidad por
+                            día?</label>
+                        <input class="form-control form-control-custom" name="habitoFumar" id="habitoFumar"
+                            placeholder="Ej: No fumo / 5 cigarrillos por día / Vapeo" type="text" />
+                    </div>
+                    <!-- Frecuencia deportiva -->
+                    <div class="col-12 col-md-6">
+                        <label class="form-label fw-semibold" for="frecuenciaDeportiva">¿Realiza actividad deportiva?
+                            ¿Con qué frecuencia? <span class="text-danger">*</span></label>
+                        <select class="form-select form-select-custom" name="frecuenciaDeportiva" id="frecuenciaDeportiva" required="">
+                            <option disabled="" selected="" value="">Seleccione su nivel de entrenamiento...</option>
+                            <option value="sedentario">Sedentario / Actividad física nula o esporádica</option>
+                            <option value="moderada_1_2">Moderada (1 a 2 veces por semana: caminata, gimnasio, running
+                                suave)</option>
+                            <option value="regular_3_5">Regular constante (3 a 5 veces por semana: trail running,
+                                crossfit, ciclismo)</option>
+                            <option value="avanzada">Alto rendimiento / Atleta de montaña o deportes aeróbicos continuos
+                            </option>
+                        </select>
+                    </div>
+                    <!-- Otra limitación -->
+                    <div class="col-12 col-md-6">
+                        <label class="form-label fw-semibold" for="otraCondicionSalud">¿Posee alguna otra condición que
+                            pueda limitar sus actividades? <span class="text-danger">*</span></label>
+                        <input class="form-control form-control-custom" name="otraCondicionSalud" id="otraCondicionSalud"
+                            placeholder="Vértigo severo, claustrofobia, prótesis o 'Ninguna'" required="" type="text" />
+                    </div>
+                </div>
+            </div>
+            <!-- ================= CARD 5: DECLARACIÓN JURADA ================= -->
+            <div class="card card-custom p-4 p-md-5 mb-4">
+                <div class="d-flex align-items-center gap-3 border-bottom pb-3 mb-4">
+                    <div class="icon-box-block">
+                        <img src="../static/uploads/default.png" alt="">
+                    </div>
+                    <div>
+                        <span class="badge-block-num">Bloque 05</span>
+                        <h3 class="h5 fw-bold mb-0" style="color: var(--mountain-navy);">Declaración Jurada &amp;
+                            Consentimiento</h3>
+                    </div>
+                </div>
+                <!-- Legal box -->
+                <div class="p-4 rounded-4 mb-4"
+                    style="background-color: var(--navy-subtle); border: 1px solid #dce9ff;">
+                    <p class="small mb-2 lh-base text-dark">
+                        <strong>Compromiso y validez legal:</strong> Certifico que la totalidad de los datos volcados en
+                        esta ficha médica son fieles y expresan con veracidad mi estado psicofísico real. Entiendo que
+                        la actividad de montañismo implica exigencias físicas y riesgos objetivos en terrenos agrestes,
+                        y asumo la responsabilidad de notificar de inmediato cualquier alteración médica sobreviniente
+                        antes de iniciar el ascenso.
+                    </p>
+                    
+                </div>
+                <!-- Checkbox confirmation -->
+                <div class="form-check p-3 rounded-3 mb-4"
+                    style="background-color: #f8f9ff; border: 1px solid #e2e8f0;">
+                    <input class="form-check-input ms-0 me-3" name="declaracionAceptada" id="declaracionAceptada" required=""
+                        style="cursor: pointer; width: 20px; height: 20px;" type="checkbox" value="Acepto con total conformidad" />
+                    <label class="form-check-label d-block cursor-pointer" for="declaracionAceptada"
+                        style="padding-left: 10px;">
+                        <span class="fw-bold d-block text-dark" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                            Declaro bajo juramento que los datos consignados en esta ficha son exactos y verídicos.
+                            <span class="text-danger">*</span>
+                        </span>
+                        <span class="text-muted small">
+                            Acepto los términos de participación, protocolos de aclimatación y normas de seguridad
+                            impartidas por Instinto Viajero.
+                        </span>
+                    </label>
+                </div>
+                <!-- Form submit row -->
+                <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 pt-2">
+                    <div>
+                        <div class="fw-bold small text-dark">Instinto Viajero Experiencias</div>
+                        </div>
+                    </div>
+                    <button class="btn btn-submit-main d-inline-flex align-items-center justify-content-center gap-2 btn-reserve"
+                        type="submit">
+                        <i class="bi bi-shield-check text-warning fs-5"></i>
+                        <span>Enviar Ficha de Inscripción Médica</span>
+                        <i class="bi bi-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+        <!-- BOTTOM SUPPORT BANNER -->
+        <div class="card border-0 rounded-4 p-4 mt-4 shadow-sm" >
+            <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0"
+                        style="width: 52px; height: 52px; background-color: var(--forest-tint); color: var(--forest-green);">
+                        <i class="bi bi-headset fs-3"></i>
+                    </div>
+                    <div>
+                        <h4 class="h6 fw-bold mb-1" style="color: var(--mountain-navy);">¿Dudas o consultas sobre la
+                            ficha médica?</h4>
+                        <p class="small text-muted mb-0">
+                            Hablá directamente con nuestro equipo de guías certificados y asesores de montaña antes de
+                            tu viaje.
+                        </p>
+                    </div>
+                </div>
+                <a class="btn btn-success d-inline-flex justify-content-center align-items-center gap-2 px-4 py-2 flex-shrink-0 rounded-3 btn-reserve"
+                    href="https://api.whatsapp.com/send?phone=+5493541207389&text=Hola!%20Me%20gustaria%20recibir%20informacion%20sobre:%20" rel="noopener noreferrer"
+                     target="_blank">
+                    <i class="bi bi-whatsapp fs-5"></i>
+                    <span>Consultar por WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
