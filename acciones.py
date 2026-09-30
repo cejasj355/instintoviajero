@@ -68,6 +68,7 @@ def enviar_formulario():
     nombre_usuario = datos.get('nombreCompleto', 'Trekker')
 
     try:
+        # 1. Guardar en Base de Datos
         nueva_ficha = FichaMedica(
             nombre=nombre_usuario,
             email=datos.get('email', 'Sin Email'),
@@ -78,47 +79,55 @@ def enviar_formulario():
         db.session.add(nueva_ficha)
         db.session.commit()
 
+        # 2. Enviar Emails dentro de una ÚNICA conexión SMTP
         correo_admin = os.getenv('MAIL_ADMIN_RECIPIENT')
-        if correo_admin:
-            msg_admin = Message(
-                subject=f"Nueva Ficha Médica: {nombre_usuario}",
-                recipients=[correo_admin] 
-            )
-            
-            cuerpo_email = (
-                f"¡Se ha recibido una nueva Ficha Médica de Inscripción!\n\n"
-                f"DATOS PRINCIPALES:\n"
-                f"- Nombre: {nombre_usuario}\n"
-                f"- Email: {email_usuario}\n"
-                f"- DNI/Pasaporte: {datos.get('dniPasaporte')}\n"
-                f"- Expedición: {datos.get('expedicionDestino')}\n"
-                f"- Patologías: {datos.get('patologias')}\n\n"
-                f"TODOS LOS DATOS ENVIADOS:\n"
-            )
-            for clave, valor in datos.items():
-                cuerpo_email += f"\n* {clave}: {valor}"
+        
+        with mail.connect() as conn:
+            # Email al Administrador
+            if correo_admin:
+                msg_admin = Message(
+                    subject=f"Nueva Ficha Médica: {nombre_usuario}",
+                    recipients=[correo_admin] 
+                )
+                
+                cuerpo_email = (
+                    f"¡Se ha recibido una nueva Ficha Médica de Inscripción!\n\n"
+                    f"DATOS PRINCIPALES:\n"
+                    f"- Nombre: {nombre_usuario}\n"
+                    f"- Email: {email_usuario}\n"
+                    f"- DNI/Pasaporte: {datos.get('dniPasaporte')}\n"
+                    f"- Expedición: {datos.get('expedicionDestino')}\n"
+                    f"- Patologías: {datos.get('patologias')}\n\n"
+                    f"TODOS LOS DATOS ENVIADOS:\n"
+                )
+                for clave, valor in datos.items():
+                    cuerpo_email += f"\n* {clave}: {valor}"
 
-            msg_admin.body = cuerpo_email
-            mail.send(msg_admin)
+                msg_admin.body = cuerpo_email
+                conn.send(msg_admin)
 
-        if email_usuario:
-            msg_usuario = Message(
-                subject="Confirmación de Ficha Médica - Instinto Trekking",
-                recipients=[email_usuario]
-            )
-            msg_usuario.body = (
-                f"Hola {nombre_usuario},\n\n"
-                f"Hemos recibido correctamente tu Ficha Médica de Inscripción para {datos.get('expedicionDestino', 'la expedición')}.\n\n"
-                f"¡Nos vemos pronto en la montaña!\n"
-                f"El equipo de Instinto Trekking."
-            )
-            mail.send(msg_usuario)
+            # Email de confirmación al Usuario
+            if email_usuario:
+                msg_usuario = Message(
+                    subject="Confirmación de Ficha Médica - Instinto Trekking",
+                    recipients=[email_usuario]
+                )
+                msg_usuario.body = (
+                    f"Hola {nombre_usuario},\n\n"
+                    f"Hemos recibido correctamente tu Ficha Médica de Inscripción para {datos.get('expedicionDestino', 'la expedición')}.\n\n"
+                    f"¡Nos vemos pronto en la montaña!\n"
+                    f"El equipo de Instinto Viajero."
+                )
+                conn.send(msg_usuario)
 
         flash("¡Tu Ficha Médica de Inscripción se guardó y envió con éxito!", "success")
         return redirect(url_for('acciones.formulario'))
 
     except Exception as e:
         db.session.rollback()
-        print(f"Error al enviar/guardar la ficha: {e}")  
+        # Esto imprimirá el error real en tu log de PythonAnywhere (stderr log)
+        import traceback
+        print(f"Error detallado al enviar/guardar la ficha:\n{traceback.format_exc()}")
+        
         flash("Ocurrió un error al guardar la ficha médica.", "danger")
         return redirect(url_for('acciones.formulario'))
