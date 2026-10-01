@@ -14,17 +14,21 @@ app = Flask(__name__)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 UPLOAD_FOLDER = os.path.join(BASE_DIR, 'static', 'uploads')
-app.config['DEBUG'] = os.getenv('FLASK_DEBUG', 'True').lower() in ['true', '1']
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'clave-por-defecto-dev')
+app.config["DEBUG"] = os.getenv("FLASK_DEBUG", "False").lower() in ("1", "true", "yes", "on")
+secret_key = os.getenv("SECRET_KEY")
+if not secret_key:
+    raise RuntimeError("SECRET_KEY no configurada")
+app.config["SECRET_KEY"] = secret_key
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI', 'sqlite:///../instance/datos.db')
-
-# Configuración de Flask-Mail leyendo de entorno
 app.config['MAIL_SERVER'] = os.getenv('MAIL_SERVER', 'smtp.gmail.com')
 app.config['MAIL_PORT'] = int(os.getenv('MAIL_PORT', 587))
 app.config['MAIL_USE_TLS'] = os.getenv('MAIL_USE_TLS', 'True').lower() in ['true', '1']
 app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')
 app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')
 app.config['MAIL_DEFAULT_SENDER'] = os.getenv('MAIL_DEFAULT_SENDER')
+app.config["SESSION_COOKIE_SECURE"] = True
+app.config["SESSION_COOKIE_HTTPONLY"] = True
+app.config["SESSION_COOKIE_SAMESITE"] = "Lax"
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 32 * 1024 * 1024
@@ -50,5 +54,5 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run(debug = True)
+    app.run(debug=app.config["DEBUG"])
     
