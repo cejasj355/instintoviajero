@@ -15,11 +15,10 @@
             <label for="password" class="form-label">Password</label>
             <input name="password" type="password" class="form-control" id="password">
         </div>
-        <!-- <p style="display: flex; justify-content: center; height: 100%;">¿No tenes cuenta aun?<a href="{{url_for("index")}}">Registrate</a></p> -->
         
         <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
     </form>
-    {% for massage in get_flashed_messages() %} <!--Utilizamos for porque flash nos devuelve una lista de msj, entonces la recorremos y recuperamos desde get_messages_flashed -->
+    {% for massage in get_flashed_messages() %} 
         <div class="mensaje">
             <div class="">
                 <div class="">
