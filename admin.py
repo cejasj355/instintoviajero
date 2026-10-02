@@ -18,15 +18,43 @@ bp = Blueprint('admin', __name__, url_prefix='/admin')
 def dashboard():
     return render_template('dashboard.html')
 
+
+def es_imagen_segura(file):
+    if not file or not getattr(file, 'filename', None):
+        return False
+
+    nombre = secure_filename(file.filename)
+    if not nombre:
+        return False
+
+    extension = nombre.rsplit('.', 1)[-1].lower()
+    extensiones_permitidas = {'jpg', 'jpeg', 'png', 'webp'}
+    tipos_permitidos = {'image/jpeg', 'image/png', 'image/webp'}
+
+    if extension not in extensiones_permitidas:
+        return False
+
+    mime = (file.mimetype or '').lower()
+    if mime and mime not in tipos_permitidos:
+        return False
+
+    try:
+        file.seek(0)
+        with Image.open(file) as img:
+            img.verify()
+    except Exception:
+        return False
+
+    file.seek(0)
+    return True
+
+
 def guardar_foto(file, foto_actual=None):
 
     if not file or file.filename == '':
         return foto_actual
 
-    extensiones_permitidas = {'jpg', 'jpeg', 'png', 'webp'}
-    extension = file.filename.rsplit('.', 1)[-1].lower()
-
-    if extension not in extensiones_permitidas:
+    if not es_imagen_segura(file):
         return foto_actual
 
     # borrar imagen anterior
@@ -47,24 +75,31 @@ def guardar_foto(file, foto_actual=None):
     )
 
     img = Image.open(file)
+    try:
+        if img.mode in ("RGBA", "P"):
+            img = img.convert("RGB")
 
-    if img.mode in ("RGBA", "P"):
-        img = img.convert("RGB")
+        tamaño_max = 2650
+        img.thumbnail((tamaño_max, tamaño_max), Image.LANCZOS)
 
-    tamaño_max = 2650
-    img.thumbnail((tamaño_max, tamaño_max), Image.LANCZOS)
-
-    img.save(
-        ruta,
-        "WEBP",
-        quality=90,
-        optimize=True
-    )
+        img.save(
+            ruta,
+            "WEBP",
+            quality=90,
+            optimize=True
+        )
+    finally:
+        img.close()
+        file.seek(0)
 
     return nombre
 
+
 def guardar_imagen(file, calidad=85):
     if not file or file.filename == '':
+        return None
+
+    if not es_imagen_segura(file):
         return None
 
     upload_folder = current_app.config['UPLOAD_FOLDER']
@@ -74,16 +109,21 @@ def guardar_imagen(file, calidad=85):
     filepath = os.path.join(upload_folder, filename)
 
     img = Image.open(file)
-    if img.mode in ("RGBA", "P"):
-        img = img.convert("RGB")
+    try:
+        if img.mode in ("RGBA", "P"):
+            img = img.convert("RGB")
 
-    # Redimensionar a un máximo de 1920px de ancho (Full HD)
-    if img.width > 1920:
-        proportion = 1920 / float(img.width)
-        height = int(float(img.height) * float(proportion))
-        img = img.resize((1920, height), Image.LANCZOS)
+        # Redimensionar a un máximo de 1920px de ancho (Full HD)
+        if img.width > 1920:
+            proportion = 1920 / float(img.width)
+            height = int(float(img.height) * float(proportion))
+            img = img.resize((1920, height), Image.LANCZOS)
 
-    img.save(filepath, "WEBP", quality=calidad, method=6, optimize=True)
+        img.save(filepath, "WEBP", quality=calidad, method=6, optimize=True)
+    finally:
+        img.close()
+        file.seek(0)
+
     return filename
 
 
@@ -94,21 +134,31 @@ def upload_image():
     if not file:
         return jsonify({"error": {"message": "No se envió archivo"}}), 400
 
-    # 🔥 Nombre único y limpio
-    ext = file.filename.split('.')[-1].lower()
-    filename = f"{uuid.uuid4()}.{ext}"
+    if not es_imagen_segura(file):
+        return jsonify({"error": {"message": "Solo se permiten imágenes JPG, PNG o WebP"}}), 400
 
-    # 🔥 Asegurar carpeta
-    os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+    upload_folder = current_app.config['UPLOAD_FOLDER']
+    os.makedirs(upload_folder, exist_ok=True)
 
-    filepath = os.path.join(UPLOAD_FOLDER, filename)
-    file.save(filepath)
+    filename = f"{uuid.uuid4().hex}.webp"
+    filepath = os.path.join(upload_folder, filename)
+
+    img = Image.open(file)
+    try:
+        if img.mode in ("RGBA", "P"):
+            img = img.convert("RGB")
+
+        if img.width > 1920:
+            proportion = 1920 / float(img.width)
+            height = int(float(img.height) * float(proportion))
+            img = img.resize((1920, height), Image.LANCZOS)
+
+        img.save(filepath, "WEBP", quality=85, method=6, optimize=True)
+    finally:
+        img.close()
+        file.seek(0)
 
     url = url_for('static', filename=f'uploads/{filename}', _external=True)
-
-    print("Guardado en:", filepath)
-    print("URL:", url)
-
     return jsonify({
         "url": url
     })

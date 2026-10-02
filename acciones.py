@@ -17,9 +17,12 @@ bp = Blueprint('acciones', __name__, url_prefix='/acciones')
 def admin_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
-        # Verificamos si el usuario está logueado y si es admin
-        if not session.get('is_admin'):
-            return abort(403) # Error de "Prohibido"
+        user_id = session.get("user_id")
+        if not user_id:
+            abort(403)
+        user = Usuario.query.get(user_id)
+        if not user or not user.is_admin:
+            abort(403)
         return f(*args, **kwargs)
     return decorated_function
 
@@ -79,11 +82,10 @@ def enviar_formulario():
         db.session.add(nueva_ficha)
         db.session.commit()
 
-        # 2. Enviar Emails dentro de una ÚNICA conexión SMTP
         correo_admin = os.getenv('MAIL_ADMIN_RECIPIENT')
         
         with mail.connect() as conn:
-            # Email al Administrador
+            
             if correo_admin:
                 msg_admin = Message(
                     subject=f"Nueva Ficha Médica: {nombre_usuario}",

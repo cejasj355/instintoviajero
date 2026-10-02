@@ -11,6 +11,7 @@
     <h4><a href="{{ url_for('acciones.ver_blogs', id = s.id) }}" class="text-decoration-none">{{ s.titulo_blog }}</a></h4>
     <form action="{{ url_for('admin.eliminar_blog', id=s.id) }}" method="POST" style="display:inline;"
       onsubmit="return confirm('¿Seguro que querés eliminar esta salida?');">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
       <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
     </form>
     <form action="{{ url_for('admin.editar_salida', id=s.id) }}" method="GET">

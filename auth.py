@@ -39,7 +39,7 @@ def login():
         if error is None:
             session.clear()
             session['user_id'] = user.id
-            session['is_admin'] = user.is_admin
+            
 
             if user.is_admin:
                 return redirect(url_for('index'))

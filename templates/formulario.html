@@ -104,6 +104,7 @@
         {% endif %}
         {% endwith %}
         <form id="medicalForm" name="medicalForm" method="post" action="{{url_for('acciones.enviar_formulario')}}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <!-- ================= CARD 1: EXPEDICIÓN Y EMERGENCIA ================= -->
             <div class="card card-custom p-4 p-md-5 mb-4">
                 <div class="d-flex align-items-center justify-content-between border-bottom pb-3 mb-4">

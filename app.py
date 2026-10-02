@@ -4,6 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from models import SalidaTrekking, Usuario
 from extensions import db, migrate
 from flask_ckeditor import CKEditor
+from flask_wtf import CSRFProtect
 import os
 import acciones, auth, admin
 from extensions import mail
@@ -34,6 +35,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 32 * 1024 * 1024
 
 ckeditor = CKEditor(app)
+csrf = CSRFProtect(app)
 db.init_app(app)
 migrate.init_app(app, db)
 mail.init_app(app)
