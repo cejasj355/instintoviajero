@@ -75,7 +75,7 @@
                     <li class="nav-item"><a class="nav-link" href="{{url_for("acciones.proximas_salidas")}}" aria-label="Excursiones">Excursiones</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{url_for('acciones.mostrar_blogs')}}" aria-label="Blogs">Blog</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{url_for("acciones.nosotros")}}" aria-label="Sobre nosotros">Nosotros</a></li>
-                    {% if session.is_admin %}
+                    {% if session.get('is_admin') %}
                         <li class="nav-item"><a class="nav-link" href="{{url_for('admin.dashboard')}}" aria-label="Panel de control">panel</a></li>
                     {% endif %}
                     <li class="nav-item ms-lg-4">

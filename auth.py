@@ -31,7 +31,7 @@ def login():
 
         if user == None:
             error = 'Nombre de usuario o contraseña incorrecto'
-        elif not check_password_hash(user.password, password):          # Esto es una mala practica porque te indica el error que cometes 
+        elif not check_password_hash(user.password, password):       
             error = 'Nombre de usuario o contraseña incorrecto'
         session.clear()
         flash(error)
@@ -39,6 +39,7 @@ def login():
         if error is None:
             session.clear()
             session['user_id'] = user.id
+            session['is_admin'] = bool(user.is_admin)
             
 
             if user.is_admin:
