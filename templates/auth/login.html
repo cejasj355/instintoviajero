@@ -3,7 +3,6 @@
 {% block title  %}Login{% endblock%}
 
 {% block content %}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
 <div class="div-form">
     <form method="post" action="{{url_for('auth.login')}}" class="formulario">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">

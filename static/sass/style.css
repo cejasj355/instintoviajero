@@ -433,6 +433,22 @@ body {
   text-decoration: none;
 }
 
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.botones-dashboard {
+  display: flex;
+  border: 1px solid #001240;
+  width: 10rem;
+  margin: 1rem;
+  justify-content: center;
+  padding: 10px;
+}
+
 .botones:hover {
   scale: 1.05;
   transition: 0.1s;
@@ -1177,11 +1193,6 @@ form .btn-primary {
   width: 100%;
 }
 
-.dashboard {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-}
-
 .carga_imagenes {
   display: flex;
   flex-direction: column;
@@ -1230,6 +1241,11 @@ form .btn-primary {
   text-shadow: -5px 5px 7px #000000;
 }
 
+.div-form {
+  margin: 3rem auto;
+  width: 40%;
+}
+
 @media (max-width: 768px) {
   .carga-imagen-nueva {
     height: 100%;
@@ -1251,6 +1267,10 @@ form .btn-primary {
   .nosotros-grid-descripcion-list {
     margin: 40px 0 0 0;
   }
+  .div-form {
+    margin: 3rem auto;
+    width: 70%;
+  }
 }
 .nosotros-cuadros {
   padding: 5px;
@@ -1263,16 +1283,6 @@ form .btn-primary {
 
 .nosotros-grid-descripcion-list {
   margin: 40px 0 0 0;
-}
-
-.formulario input {
-  margin: 1rem;
-  padding: 0.5rem;
-  width: 40%;
-  display: flex;
-  height: 2rem;
-  margin: auto;
-  text-align: center;
 }
 
 .prox-fechas-dificultad {
