@@ -13,13 +13,11 @@
 {% endblock %}
 
 {% block content %}
-{# ---------- Variables reutilizables ---------- #}
 {% set wa_numero = '5493541207389' %}
 {% set wa_reserva = 'https://wa.me/' ~ wa_numero ~ '?text=' ~ ('Hola! Quiero inscribirme a la salida: ' ~ salida.titulo) | urlencode %}
 {% set wa_consulta = 'https://wa.me/' ~ wa_numero ~ '?text=' ~ ('Hola! Quiero más info de la salida: ' ~ salida.titulo) | urlencode %}
 {% set portada = url_for('static', filename='uploads/' ~ (salida.foto_portada or 'default.png')) %}
 
-{# Íconos definidos una sola vez #}
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <symbol id="i-wa" viewBox="0 0 48 48">
         <path fill="currentColor" d="M35.2 12.8c-3-3-6.9-4.6-11.2-4.6C15.3 8.2 8.2 15.3 8.2 24c0 3 .8 5.9 2.4 8.4L11 33l-1.6 5.8 6-1.6.6.3c2.4 1.4 5.2 2.2 8 2.2h0c8.7 0 15.8-7.1 15.8-15.8 0-4.2-1.6-8.2-4.6-11.2z"/>
@@ -34,7 +32,6 @@
 
 <main class="salida">
 
-    {# ================= HERO ================= #}
     <header class="salida-hero">
         <img class="salida-hero__img" src="{{ portada }}" alt="" width="1600" height="900"
              fetchpriority="high" decoding="async">
@@ -58,10 +55,8 @@
 
     <div class="salida-layout">
 
-        {# ================= COLUMNA PRINCIPAL ================= #}
         <div class="salida-main">
 
-            {# ---- Datos rápidos ---- #}
             <section class="salida-bloque" aria-labelledby="t-datos">
                 <h2 class="salida-h2" id="t-datos">Próximas salidas</h2>
                 {% if salida.proximasfechas %}
@@ -92,14 +87,7 @@
             </section>
             {% endif %}
 
-            {% if salida.itinerario %}
-            <section class="salida-bloque" aria-labelledby="t-itin">
-                <h2 class="salida-h2" id="t-itin">Itinerario</h2>
-                <div class="salida-rich">{{ salida.itinerario | safe }}</div>
-            </section>
-            {% endif %}
-
-            {# ---- Galería: <img> lazy, con alt y proporción fija ---- #}
+           
             {% set fotos = [salida.foto_uno, salida.foto_dos, salida.foto_tres] | select | list %}
             {% if fotos %}
             <section class="salida-bloque" aria-label="Fotos de {{ salida.titulo }}">
@@ -115,22 +103,8 @@
             </section>
             {% endif %}
 
-            {% if salida.equipamiento %}
-            <section class="salida-bloque" aria-labelledby="t-equipo">
-                <h2 class="salida-h2" id="t-equipo">Equipamiento necesario</h2>
-                <div class="salida-rich">{{ salida.equipamiento | safe }}</div>
-            </section>
-            {% endif %}
-
-            {% if salida.preguntas %}
-            <section class="salida-bloque" aria-labelledby="t-faq">
-                <h2 class="salida-h2" id="t-faq">Preguntas frecuentes</h2>
-                <div class="salida-rich">{{ salida.preguntas | safe }}</div>
-            </section>
-            {% endif %}
         </div>
 
-        {# ================= COLUMNA LATERAL: PRECIOS ================= #}
         <aside class="salida-aside" id="precios" aria-labelledby="t-precio">
             <div class="salida-precio">
                 <h2 class="salida-precio__titulo" id="t-precio">Precio</h2>
@@ -196,13 +170,33 @@
         </aside>
     </div>
 
-    {# ================= RESEÑAS (carga diferida) ================= #}
     <section class="salida-resenas" aria-labelledby="t-resenas">
         <h2 class="salida-h2" id="t-resenas">Lo que dicen quienes ya salieron con nosotros</h2>
         <div id="resenas-widget" class="tagembed-widget" style="width:100%;" data-widget-id="322486" data-website="1"></div>
     </section>
+    <section>
+            {% if salida.itinerario %}
+            <section class="salida-bloque" aria-labelledby="t-itin">
+                <h2 class="salida-h2" id="t-itin">Itinerario</h2>
+                <div class="salida-rich">{{ salida.itinerario | safe }}</div>
+            </section>
+            {% endif %}
 
-    {# ================= CIERRE ================= #}
+            {% if salida.equipamiento %}
+            <section class="salida-bloque" aria-labelledby="t-equipo">
+                <h2 class="salida-h2" id="t-equipo">Equipamiento necesario</h2>
+                <div class="salida-rich">{{ salida.equipamiento | safe }}</div>
+            </section>
+            {% endif %}
+
+            {% if salida.preguntas %}
+            <section class="salida-bloque" aria-labelledby="t-faq">
+                <h2 class="salida-h2" id="t-faq">Preguntas frecuentes</h2>
+                <div class="salida-rich">{{ salida.preguntas | safe }}</div>
+            </section>
+            {% endif %}
+    </section>
+
     <section class="salida-cierre">
         <p class="salida-cierre__texto">Cupos limitados: reservá con anticipación.</p>
         <div class="salida-cierre__links">
@@ -217,7 +211,6 @@
         </div>
     </section>
 
-    {# Barra fija solo en celular: el botón de reserva siempre a mano #}
     <div class="salida-sticky" role="complementary" aria-label="Reserva rápida">
         <div>
             {% if salida.contado %}<span>Desde</span>
@@ -230,7 +223,6 @@
     </div>
 </main>
 
-{# El widget de reseñas se descarga recién cuando el usuario se acerca a esa sección #}
 <script>
 (function () {
     var box = document.getElementById("resenas-widget");
