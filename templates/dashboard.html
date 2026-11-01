@@ -1,23 +1,42 @@
-{% extends 'base.html'%}
-{% block title %}Dashboard{% endblock %}
+{% extends 'base.html' %}
+{% block title %}Panel de control{% endblock %}
 
 {% block content %}
-<section class="dashboard">
-    <div>
-        <a class=" botones-dashboard" href="{{url_for("admin.plantilla_salidas")}}">Crear
-            Salida
+<div class="section-titles-subtitles">
+  <h2 class="section-title">Panel de control</h2>
+</div>
+
+<main class="adm">
+  <div class="adm-paneles">
+
+    <section class="adm-panel" aria-labelledby="adm-salidas">
+      <span class="adm-panel__icono" aria-hidden="true"><i class="fa-solid fa-mountain"></i></span>
+      <h3 class="adm-panel__titulo" id="adm-salidas">Salidas</h3>
+      <p class="adm-panel__texto">Excursiones y expediciones que se muestran en el sitio.</p>
+      <div class="adm-panel__acciones">
+        <a class="adm-btn adm-btn--primario" href="{{ url_for('admin.plantilla_salidas') }}">
+          <i class="fa-solid fa-plus" aria-hidden="true"></i> Crear salida
         </a>
-    </div>
-    <div>
-        <a class=" botones-dashboard" href="{{url_for("admin.lista_salidas")}}">Listado de
-            salidas
+        <a class="adm-btn adm-btn--suave" href="{{ url_for('admin.lista_salidas') }}">
+          <i class="fa-solid fa-list" aria-hidden="true"></i> Ver listado
         </a>
-    </div>
-    <div>
-        <a href="{{url_for('admin.crear_blogs')}}" class=" botones-dashboard">Crear blog</a>
-    </div>
-    <div>
-        <a href="{{url_for('admin.lista_blogs')}}" class=" botones-dashboard">Listado de blogs</a>
-    </div>
-</section>
+      </div>
+    </section>
+
+    <section class="adm-panel" aria-labelledby="adm-blogs">
+      <span class="adm-panel__icono" aria-hidden="true"><i class="fa-solid fa-newspaper"></i></span>
+      <h3 class="adm-panel__titulo" id="adm-blogs">Blogs</h3>
+      <p class="adm-panel__texto">Artículos y novedades publicados en la sección Blog.</p>
+      <div class="adm-panel__acciones">
+        <a class="adm-btn adm-btn--primario" href="{{ url_for('admin.crear_blogs') }}">
+          <i class="fa-solid fa-plus" aria-hidden="true"></i> Crear blog
+        </a>
+        <a class="adm-btn adm-btn--suave" href="{{ url_for('admin.lista_blogs') }}">
+          <i class="fa-solid fa-list" aria-hidden="true"></i> Ver listado
+        </a>
+      </div>
+    </section>
+
+  </div>
+</main>
 {% endblock %}

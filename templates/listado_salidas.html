@@ -1,25 +1,53 @@
 {% extends "base.html" %}
 {% block title %}Salidas{% endblock %}
+
 {% block content %}
 <div class="section-titles-subtitles">
-  <h2 class="mb-4 section-title">Salidas disponibles</h2>
+  <h2 class="section-title">Salidas disponibles</h2>
 </div>
 
-{% for s in salidas %}
-<div class="card mb-33 shadow-sm">
-  <div class="card-salidas">
-    <h4><a href="{{ url_for('acciones.ver_salida', slug=s.slug) }}" class="text-decoration-none">{{ s.titulo }}</a></h4>
-    <form action="{{ url_for('admin.eliminar_salida', id=s.id) }}" method="POST" style="display:inline;"
-      onsubmit="return confirm('¿Seguro que querés eliminar esta salida?');">
-      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-      <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-    </form>
-    <form action="{{ url_for('admin.editar_salida', id=s.id) }}" method="GET">
-      <button type="submit" class="btn btn-primary btn-sm">Editar</button>
-    </form>
+<main class="adm">
+  <div class="adm-barra">
+    <p class="adm-barra__cuenta">
+      {% if salidas %}{{ salidas|length }} {{ 'salida publicada' if salidas|length == 1 else 'salidas publicadas' }}{% endif %}
+    </p>
+    <div class="adm-barra__acciones">
+      <a class="adm-btn adm-btn--suave" href="{{ url_for('admin.dashboard') }}">
+        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Panel
+      </a>
+      <a class="adm-btn adm-btn--primario" href="{{ url_for('admin.plantilla_salidas') }}">
+        <i class="fa-solid fa-plus" aria-hidden="true"></i> Nueva salida
+      </a>
+    </div>
   </div>
-</div>
-{% else %}
-<p>No hay salidas registradas aún.</p>
-{% endfor %}
+
+  {% if salidas %}
+  <ul class="adm-lista">
+    {% for s in salidas %}
+    <li class="adm-fila">
+      <a class="adm-fila__titulo" href="{{ url_for('acciones.ver_salida', slug=s.slug) }}">{{ s.titulo }}</a>
+      <div class="adm-fila__acciones">
+        <a class="adm-btn adm-btn--suave adm-btn--chico" href="{{ url_for('admin.editar_salida', id=s.id) }}">
+          <i class="fa-solid fa-pen" aria-hidden="true"></i> Editar
+        </a>
+        <form action="{{ url_for('admin.eliminar_salida', id=s.id) }}" method="POST"
+              onsubmit="return confirm('¿Seguro que querés eliminar esta salida?');">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          <button type="submit" class="adm-btn adm-btn--peligro adm-btn--chico">
+            <i class="fa-solid fa-trash-can" aria-hidden="true"></i> Eliminar
+          </button>
+        </form>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <div class="adm-vacio">
+    <p class="adm-vacio__texto">Todavía no hay salidas. Creá la primera para que aparezca en el sitio.</p>
+    <a class="adm-btn adm-btn--primario" href="{{ url_for('admin.plantilla_salidas') }}">
+      <i class="fa-solid fa-plus" aria-hidden="true"></i> Crear salida
+    </a>
+  </div>
+  {% endif %}
+</main>
 {% endblock %}
