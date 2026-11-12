@@ -11,7 +11,6 @@
     <meta charset="UTF-8">
     <meta name="google-site-verification" content="FHRg6iiMS1atYiU7SHGTdDhyH9Wy4ja-oaGotUk7xfQ" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
 
     <title>Instinto Viajero 🇦🇷 - {% block title %}{% endblock %}</title>
     <meta name="description" content="{% block description %}{% endblock %}">
@@ -80,7 +79,7 @@
                         <li class="nav-item"><a class="nav-link" href="{{url_for('admin.dashboard')}}" aria-label="Panel de control">panel</a></li>
                     {% endif %}
                     <li class="nav-item ms-lg-4">
-                        <a class="btn btn-reserve" href="https://api.whatsapp.com/send?phone=+5493541207389&text=Hola!%20Me%20gustaria%20recibir%20informacion%20sobre:%20" target="_blank">Reservar</a>
+                        <a class="btn btn-reserve" href="https://api.whatsapp.com/send?phone=+5493541207389&text=Hola!%20Me%20gustaria%20recibir%20informacion%20sobre:%20" target="_blank">Contacto</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('acciones.pag_log') }}" aria-label="Iniciar sesión">
@@ -91,7 +90,6 @@
             </div>
         </div>
     </nav>
-    <!-- </header> -->
     {% block content %}
 
     {% endblock %}
@@ -123,11 +121,12 @@
         </div>
         
         <div class="derechos">
-            <p class="footerp">© 2024 - Instinto Viajero. Todos los derechos reservados</p>
+            <p class="footerp">© <span id="current-year"></span> - Instinto Viajero. Todos los derechos reservados</p>
         </div>
     </footer>
     
     <script>
+        document.getElementById("current-year").textContent = new Date().getFullYear();
         window.addEventListener('scroll', function() {
         const nav = document.querySelector('.navbar');
         if (window.scrollY > 50) { // Si baja más de 50px

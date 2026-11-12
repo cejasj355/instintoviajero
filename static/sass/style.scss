@@ -80,9 +80,8 @@ h6,
 }
 
 .btn-reserve:hover {
-    color: #fff;
-    opacity: 0.9;
-    transform: scale(0.98);
+    color: var(--accent);
+    transform: scale(1.2);
 }
 
 /* Hero Section */
