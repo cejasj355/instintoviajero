@@ -77,6 +77,11 @@ h6,
   transform: scale(1.2);
 }
 
+.viajero {
+  display: inline;
+  color: var(--accent);
+}
+
 /* Hero Section */
 .hero {
   height: 850px;
