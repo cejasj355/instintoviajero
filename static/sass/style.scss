@@ -2349,3 +2349,58 @@ textarea.adm-input { resize: vertical; line-height: 1.5; }
 @media (max-width: 900px) {
   .iv-footer__cols { grid-template-columns: 1fr; }
 }
+/* ---------- Desplegables del navbar (Córdoba / Montaña) ---------- */
+.navbar .dropdown-menu {
+    border: 0;
+    border-radius: 0;
+    border-top: 3px solid var(--accent, #F9A825);
+    padding: .3rem 0;
+    background: #fff;
+    box-shadow: 0 10px 24px rgba(0, 18, 64, .2);
+}
+
+.navbar .dropdown-item {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 700;
+    font-size: 12.8px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: #001240;
+    padding: .65rem 1.2rem;
+}
+
+.navbar .dropdown-item:hover,
+.navbar .dropdown-item:focus {
+    background: #f4f6fa;
+    color: #0b2a63;
+}
+
+.navbar .dropdown-toggle::after {
+    margin-left: .45em;
+    vertical-align: .15em;
+}
+
+/* Computadora: se abre al pasar el mouse */
+@media (min-width: 992px) {
+    .navbar .dropdown:hover > .dropdown-menu {
+        display: block;
+        margin-top: 0;
+    }
+}
+
+/* Celular: se abre con clic y se ve integrado al menú azul */
+@media (max-width: 991.98px) {
+    .navbar .dropdown-menu {
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+        text-align: center;
+    }
+    .navbar .dropdown-item {
+        color: #dae2ff;
+    }
+    .navbar .dropdown-item:hover {
+        background: rgba(255, 255, 255, .08);
+        color: #fff;
+    }
+}

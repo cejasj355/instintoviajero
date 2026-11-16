@@ -65,24 +65,36 @@
 <body>
     <nav class="navbar navbar-expand-lg sticky-top navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand text-white" href="{{url_for("index")}}" >Instinto <span class="navbar-brand viajero">Viajero</span></a>
+            <a class="navbar-brand text-white" href="/" >Instinto <span class="navbar-brand viajero">Viajero</span></a>
             <button class="navbar-toggler" data-bs-target="#navMain" data-bs-toggle="collapse" type="button">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navMain">
                 <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="{{url_for("index")}}" aria-label="Inicio">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{url_for("acciones.proximas_salidas")}}" aria-label="Excursiones">Excursiones</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{url_for('acciones.mostrar_blogs')}}" aria-label="Blogs">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{url_for("acciones.nosotros")}}" aria-label="Sobre nosotros">Nosotros</a></li>
-                    {% if session.get('is_admin') %}
-                        <li class="nav-item"><a class="nav-link" href="{{url_for('admin.dashboard')}}" aria-label="Panel de control">panel</a></li>
-                    {% endif %}
+                    <li class="nav-item"><a class="nav-link" href="/" aria-label="Inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/acciones/proximas_salidas" aria-label="Excursiones">Excursiones</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/#cordoba" role="button" data-bs-toggle="dropdown" aria-expanded="false">Córdoba</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/#verano_carlos_paz">Verano en Carlos Paz</a></li>
+                            <li><a class="dropdown-item" href="/#trekking_cba">Trekking todo el año</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/#alta_montaña" role="button" data-bs-toggle="dropdown" aria-expanded="false">Montaña</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/#norte">Norte</a></li>
+                            <li><a class="dropdown-item" href="/#mendoza">Mendoza</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="/acciones/mostrar_blogs" aria-label="Blogs">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/acciones/nosotros" aria-label="Sobre nosotros">Nosotros</a></li>
+                    
                     <li class="nav-item ms-lg-4">
                         <a class="btn btn-reserve" href="https://api.whatsapp.com/send?phone=+5493541207389&text=Hola!%20Me%20gustaria%20recibir%20informacion%20sobre:%20" target="_blank">Contacto</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('acciones.pag_log') }}" aria-label="Iniciar sesión">
+                        <a class="nav-link" href="/acciones/pag_log" aria-label="Iniciar sesión">
                             <i class="fa-solid fa-circle-user fa-lg" aria-hidden="true"></i>
                         </a>
                     </li>
