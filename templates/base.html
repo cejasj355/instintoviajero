@@ -89,12 +89,14 @@
                     </li>
                     <li class="nav-item"><a class="nav-link" href="/acciones/mostrar_blogs" aria-label="Blogs">Blog</a></li>
                     <li class="nav-item"><a class="nav-link" href="/acciones/nosotros" aria-label="Sobre nosotros">Nosotros</a></li>
-                    
+                    {% if session.get('is_admin') %}
+                        <li class="nav-item"><a class="nav-link" href="{{url_for('admin.dashboard')}}" aria-label="Panel de control">panel</a></li>
+                    {% endif %}
                     <li class="nav-item ms-lg-4">
                         <a class="btn btn-reserve" href="https://api.whatsapp.com/send?phone=+5493541207389&text=Hola!%20Me%20gustaria%20recibir%20informacion%20sobre:%20" target="_blank">Contacto</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/acciones/pag_log" aria-label="Iniciar sesión">
+                        <a class="nav-link" href="/acciones/log" aria-label="Iniciar sesión">
                             <i class="fa-solid fa-circle-user fa-lg" aria-hidden="true"></i>
                         </a>
                     </li>
