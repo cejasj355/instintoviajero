@@ -41,9 +41,6 @@
             {% if salida.subtitulo %}<p class="salida-hero__subtitulo">{{ salida.subtitulo }}</p>{% endif %}
 
             <div class="salida-hero__acciones">
-                {% if salida.contado %}
-                <p class="salida-hero__precio"><span>Desde</span> ${{ salida.contado }}</p>
-                {% endif %}
                 <a class="salida-btn salida-btn--primario" href="{{ wa_reserva }}" target="_blank" rel="noopener">
                     <svg class="salida-ico" aria-hidden="true"><use href="#i-wa"/></svg>
                     Consulta WhatsApp
@@ -57,6 +54,12 @@
     <div class="salida-layout">
 
         <div class="salida-main">
+            {% if salida.descripcion %}
+            <section class="salida-bloque" aria-labelledby="t-desc">
+                <h2 class="salida-h2" id="t-desc">Descripción</h2>
+                <div class="salida-rich">{{ salida.descripcion | safe }}</div>
+            </section>
+            {% endif %}
 
             <section class="salida-bloque" aria-labelledby="t-datos">
                 <h2 class="salida-h2" id="t-datos">Próximas salidas</h2>
@@ -80,30 +83,36 @@
                 <div class="salida-rich">{{ salida.dificultad | safe }}</div>
             </section>
             {% endif %}
-
-            {% if salida.descripcion %}
-            <section class="salida-bloque" aria-labelledby="t-desc">
-                <h2 class="salida-h2" id="t-desc">Descripción</h2>
-                <div class="salida-rich">{{ salida.descripcion | safe }}</div>
-            </section>
-            {% endif %}
-
            
             {% set fotos = [salida.foto_uno, salida.foto_dos, salida.foto_tres] | select | list %}
             {% if fotos %}
-            <section class="salida-bloque" aria-label="Fotos de {{ salida.titulo }}">
-                <ul class="salida-galeria">
-                    {% for f in fotos %}
-                    <li>
-                        <img src="{{ url_for('static', filename='uploads/' ~ f) }}"
-                             alt="{{ salida.titulo }}, foto {{ loop.index }}"
-                             width="800" height="600" loading="lazy" decoding="async">
-                    </li>
-                    {% endfor %}
-                </ul>
+            <section class="salida-bloque" aria-roledescription="carrusel" aria-label="Fotos de {{ salida.titulo }}">
+                <div class="salida-carrusel" data-carrusel>
+                    <ul class="salida-carrusel__pista" tabindex="0" aria-label="Fotos, deslizá para ver más">
+                        {% for f in fotos %}
+                        <li class="salida-carrusel__slide" aria-roledescription="diapositiva"
+                            aria-label="{{ loop.index }} de {{ loop.length }}">
+                            <img src="{{ url_for('static', filename='uploads/' ~ f) }}"
+                                alt="{{ salida.titulo }}, foto {{ loop.index }}"
+                                width="1200" height="750" decoding="async"
+                                {% if not loop.first %}loading="lazy"{% endif %}>
+                        </li>
+                        {% endfor %}
+                    </ul>
+
+                    {% if fotos | length > 1 %}
+                    <button type="button" class="salida-carrusel__flecha salida-carrusel__flecha--prev" data-prev aria-label="Foto anterior">&#10094;</button>
+                    <button type="button" class="salida-carrusel__flecha salida-carrusel__flecha--next" data-next aria-label="Foto siguiente">&#10095;</button>
+
+                    <div class="salida-carrusel__puntos">
+                        {% for f in fotos %}
+                        <button type="button" data-punto="{{ loop.index0 }}" aria-label="Ir a la foto {{ loop.index }}"></button>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
             </section>
             {% endif %}
-
         </div>
 
     <aside class="salida-aside" id="precios" aria-labelledby="t-precio">
@@ -212,16 +221,7 @@
         </div>
     </section>
 
-    <div class="salida-sticky" role="complementary" aria-label="Reserva rápida">
-        <div>
-            {% if salida.contado %}<span>Desde</span>
-            <strong>${{ salida.contado }}</strong>{% endif %}
-        </div>
-        <a class="salida-btn salida-btn--primario" href="{{ wa_reserva }}" target="_blank" rel="noopener">
-            <svg class="salida-ico" aria-hidden="true"><use href="#i-wa"/></svg>
-            Escribinos
-        </a>
-    </div>
+    
 </main>
 
 <script>
@@ -241,6 +241,45 @@
             if (e[0].isIntersecting) { load(); o.disconnect(); }
         }, { rootMargin: '600px 0px' }).observe(box);
     } else { window.addEventListener('load', load); }
+})();
+(function () {
+    document.querySelectorAll('[data-carrusel]').forEach(function (c) {
+        var pista = c.querySelector('.salida-carrusel__pista');
+        var puntos = c.querySelectorAll('[data-punto]');
+        var prev = c.querySelector('[data-prev]');
+        var next = c.querySelector('[data-next]');
+        var total = pista.children.length;
+        if (total < 2) return;
+
+        function actual() { return Math.round(pista.scrollLeft / pista.clientWidth); }
+        function ir(i) {
+            i = Math.max(0, Math.min(total - 1, i));
+            pista.scrollTo({ left: i * pista.clientWidth, behavior: 'smooth' });
+        }
+        function marcar() {
+            var i = actual();
+            puntos.forEach(function (p, n) {
+                p.setAttribute('aria-current', n === i ? 'true' : 'false');
+            });
+            prev.disabled = i === 0;
+            next.disabled = i === total - 1;
+        }
+
+        prev.addEventListener('click', function () { ir(actual() - 1); });
+        next.addEventListener('click', function () { ir(actual() + 1); });
+        puntos.forEach(function (p) {
+            p.addEventListener('click', function () { ir(+p.dataset.punto); });
+        });
+        pista.addEventListener('keydown', function (e) {
+            if (e.key === 'ArrowLeft')  { e.preventDefault(); ir(actual() - 1); }
+            if (e.key === 'ArrowRight') { e.preventDefault(); ir(actual() + 1); }
+        });
+        pista.addEventListener('scroll', function () {
+            window.requestAnimationFrame(marcar);
+        }, { passive: true });
+        window.addEventListener('resize', marcar);
+        marcar();
+    });
 })();
 </script>
 {% endblock %}

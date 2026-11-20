@@ -1739,12 +1739,27 @@ form .btn-primary {
         gap: 2rem;
         padding-top: 2.5rem;
         align-items: start;
+
+        .salida-main  { grid-column: 1; grid-row: 1; }
+        .salida-aside { grid-column: 2; grid-row: 1; }
     }
 }
 
-.salida-main { display: grid; gap: 1.25rem; min-width: 0; }
+// flex en columna (no grid): los hijos siempre miden lo mismo que el contenedor
+// y nada de lo que tengan adentro (imágenes del editor, carrusel) puede ensancharlos.
+.salida-main {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    width: 100%;
+    min-width: 0;
+
+    > * { width: 100%; min-width: 0; max-width: 100%; }
+}
 
 .salida-bloque {
+    min-width: 0;
+    overflow: hidden;           // si algo se pasa, se corta dentro de la tarjeta
     background: var(--s-card);
     border-radius: var(--s-radius);
     box-shadow: var(--s-shadow);
@@ -1785,7 +1800,8 @@ form .btn-primary {
     dt { font-size: 0.85rem; font-weight: 700; color: var(--s-muted); }
     dd { margin: 0; font-size: 1.05rem; font-weight: 800; color: var(--s-navy); }
 
-    @media (min-width: 600px) { grid-template-columns: repeat(2, 1fr); }
+    grid-template-columns: minmax(0, 1fr);
+    @media (min-width: 600px) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 .salida-nota {
@@ -1815,44 +1831,121 @@ form .btn-primary {
     strong { color: var(--s-navy); }
     a { color: var(--s-navy-2); text-decoration: underline; }
     h2, h3, h4 { margin: 1.5rem 0 0.5rem; color: var(--s-navy); line-height: 1.25; }
-    img, iframe, video { max-width: 100%; height: auto; border-radius: 10px; }
+    // !important: el editor del admin guarda width/height inline en cada <img>
+    img, iframe, video {
+        max-width: 100% !important;
+        height: auto !important;
+        border-radius: 10px;
+    }
+    img { display: block; width: auto; max-height: 480px; object-fit: contain; }
     table { display: block; max-width: 100%; overflow-x: auto; }   // tablas del editor no rompen el celular
 }
 
 .salida-fechas { font-weight: 700; }
 
-// ---------------------------------------------------------------------
-//  Galería (3 fotos)
-// ---------------------------------------------------------------------
-.salida-galeria {
-    display: grid;
-    gap: 0.75rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;
 
-    img {
-        display: block;
+// ---------------------------------------------------------------------
+//  Carrusel de fotos
+// ---------------------------------------------------------------------
+.salida-carrusel {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--s-navy);
+
+    &__pista {
+        display: flex;
         width: 100%;
-        aspect-ratio: 4 / 3;       // antes: 35rem fijos de alto
-        object-fit: cover;
-        border-radius: 10px;
+        min-width: 0;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: auto;          // el smooth lo manda el JS
+        overscroll-behavior-x: contain;
+        scrollbar-width: none;
+        &::-webkit-scrollbar { display: none; }
     }
 
-    @media (min-width: 600px) {
-        grid-template-columns: repeat(3, 1fr);
-        img { aspect-ratio: 3 / 4; }
+    &__slide {
+        flex: 0 0 100%;
+        min-width: 0;
+        scroll-snap-align: start;
+
+        img {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            aspect-ratio: 4 / 3;        // celular
+            object-fit: cover;
+            @media (min-width: 600px) { aspect-ratio: 16 / 10; }
+        }
+    }
+
+    &__flecha {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 2.75rem;
+        height: 2.75rem;
+        border: 0;
+        border-radius: 50%;
+        background: rgba(0, 18, 64, 0.65);
+        color: #fff;
+        font-size: 1.1rem;
+        cursor: pointer;
+        display: none;                  // en celular se desliza con el dedo
+        place-items: center;
+        transition: background 0.2s;
+
+        &:hover:not(:disabled) { background: var(--s-accent); color: var(--s-accent-dark); }
+        &:disabled { opacity: 0.35; cursor: default; }
+        &--prev { left: 0.75rem; }
+        &--next { right: 0.75rem; }
+
+        @media (min-width: 600px) { display: grid; }
+    }
+
+    &__puntos {
+        position: absolute;
+        inset: auto 0 0.75rem 0;
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+
+        button {
+            width: 0.7rem;
+            height: 0.7rem;
+            padding: 0;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            background: transparent;
+            cursor: pointer;
+
+            &[aria-current="true"] { background: var(--s-accent); border-color: var(--s-accent); }
+        }
     }
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .salida-carrusel__pista { scroll-behavior: auto; }
+}
 // ---------------------------------------------------------------------
 //  Precio (columna lateral)
 // ---------------------------------------------------------------------
 .salida-aside {
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     gap: 1.25rem;
     min-width: 0;
     scroll-margin-top: 5rem;
+    position: relative;
+    z-index: 2;
 
     @media (min-width: 980px) {
         position: sticky;
